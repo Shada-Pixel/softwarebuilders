@@ -42,9 +42,24 @@ Route::group(['prefix' => 'quotations'], function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/', [ProfileController::class,  'index'])->name('profile.index');
+        Route::get('/edit', [ProfileController::class,  'edit'])->name('profile.edit');
+        Route::patch('/', [ProfileController::class,  'update'])->name('profile.update');
+        Route::delete('/', [ProfileController::class,  'destroy'])->name('profile.destroy');
+
+        Route::get('/dashboard', [ProfileController::class,  'dashboard'])->name('profile.dashboard');
+        Route::get('/ecources', [ProfileController::class,  'ecources'])->name('profile.ecources');
+        Route::get('/mycource', [ProfileController::class,  'mycource'])->name('profile.mycource');
+
+        Route::get('/contact', [ProfileController::class,  'contact'])->name('contact');
+        Route::get('/contact', [ProfileController::class,  'contact'])->name('contact');
+    });
+
 
 
     // Resource

@@ -1,10 +1,7 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Update Password') }}
-        </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-4 text-sm text-gray-600">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
@@ -32,7 +29,8 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            {{-- <x-primary-button>{{ __('Save') }}</x-primary-button> --}}
+            <button type="submit" class=" text-sm font-bold text-white bg-dgreen px-4 py-2.5 hover:bg-nblue tracking-widest rounded-md">UPDATE INFO</button>
 
             @if (session('status') === 'password-updated')
                 <p
