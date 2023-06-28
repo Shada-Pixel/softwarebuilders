@@ -8,6 +8,7 @@ use App\Http\Controllers\QueryController;
 use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/service', 'service')->name('service');
+    Route::get('/cource', 'cource')->name('cource');
+    Route::get('/gallery', 'gallery')->name('gallery');
+    Route::get('/contact', 'contact')->name('contact');
 });
 
 Route::get('/dashboard', function () {

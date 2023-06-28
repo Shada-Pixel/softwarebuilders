@@ -5,7 +5,7 @@
 
     <img src="{{asset('images/logo.png')}}" alt="" sizes="" srcset="" class="w-10 h-10">
 
-    <div class="ml-2 font-bold text-base uppercase leading-none">
+    <div class="ml-2 font-bold text-base uppercase leading-none text-nblue">
         <p>Software</p>
         <p>Builders Ltd</p>
     </div>
