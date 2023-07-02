@@ -42,7 +42,7 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('profile.edit')">
+                                <x-dropdown-link :href="route('profile.dashboard')">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('dashboard')">
@@ -89,7 +89,7 @@
                         <x-dropdown-link :href="route('contact')"> {{ __('Contact') }} </x-dropdown-link>
 
                         @auth
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile.dashboard')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('dashboard')">

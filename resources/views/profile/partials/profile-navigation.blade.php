@@ -9,50 +9,45 @@
             <div class="">
                 <ul class="flex lg:block justify-around items-center">
                     <li class=" lg:border-b border-b-slate-400 sm:my-3 sm:pb-3">
-                        <a href="{{route('profile.dashboard')}}"
-                            class="text-lg md:2xl lg:text-xl text-nblue font-medium hover:text-dgreen">
+                        <x-side-link :href="route('profile.dashboard')"  :active="request()->routeIs('profile.dashboard')">
                             <div class="flex items-center">
                                 <span class="iconify mr-2" data-icon="mingcute:home-3-line"></span>
-                                <div class="hidden lg:flex">Dashboard</div>
+                                <div class="hidden sm:flex">Dashboard</div>
                             </div>
-                        </a>
+                        </x-side-link>
                     </li>
                     <li class=" lg:border-b border-b-slate-400 sm:my-3 sm:pb-3">
-                        <a href="{{route('profile.index')}}"
-                            class=" text-lg md:2xl lg:text-xl text-nblue font-medium hover:text-dgreen">
+                        <x-side-link :href="route('profile.index')"  :active="request()->routeIs('profile.index')">
                             <div class="flex items-center">
                                 <span class="iconify mr-2" data-icon="bxs:user"></span>
-                                <div class="hidden lg:flex">My Profile</div>
+                                <div class="hidden sm:flex">My Profile</div>
                             </div>
-                        </a>
+                        </x-side-link>
                     </li>
                     <li class=" lg:border-b border-b-slate-400 sm:my-3 sm:pb-3">
-                        <a href="{{route('profile.ecources')}}"
-                            class=" text-lg md:2xl lg:text-xl  text-nblue font-medium hover:text-dgreen">
+                        <x-side-link :href="route('profile.ecources')"  :active="request()->routeIs('profile.ecources')">
                             <div class="flex items-center">
                                 <span class="iconify mr-2" data-icon="ion:book-outline"></span>
-                                <div class="hidden lg:flex">Enrolled Courses</div>
+                                <div class="hidden sm:flex">Enrolled Courses</div>
                             </div>
-                        </a>
+                        </x-side-link>
                     </li>
                     <li class="sm:my-3">
-                        <a href="{{route('profile.mycource')}}"
-                            class=" text-lg md:2xl lg:text-xl  text-nblue font-medium hover:text-dgreen">
+                        <x-side-link :href="route('profile.mycource')"  :active="request()->routeIs('profile.mycource')">
                             <div class="flex items-center">
                                 <span class="iconify mr-2" data-icon="icon-park-outline:new-computer"></span>
-                                <div class="hidden lg:flex">My Courses</div>
+                                <div class="hidden sm:flex">My Courses</div>
                             </div>
-                        </a>
+                        </x-side-link>
                     </li>
-                    <h2 class=" text-base text-nblue lg:my-6 hidden lg:flex">USER</h2>
+                    <h2 class=" text-base text-nblue lg:my-6 hidden sm:flex">USER</h2>
                     <li class=" lg:border-b border-b-slate-400 sm:my-3 sm:pb-3">
-                        <a href="{{route('profile.edit')}}"
-                            class=" text-lg md:2xl lg:text-xl  text-nblue font-medium hover:text-dgreen">
+                        <x-side-link :href="route('profile.edit')"  :active="request()->routeIs('profile.edit')">
                             <div class="flex items-center">
                                 <span class="iconify mr-2" data-icon="solar:settings-bold"></span>
-                                <div class="hidden lg:flex">Settings</div>
+                                <div class="hidden sm:flex">Settings</div>
                             </div>
-                        </a>
+                        </x-side-link>
                     </li>
                     <li class=" sm:my-3 sm:pb-3">
                         <form method="POST" action="{{ route('logout') }}">
@@ -60,7 +55,7 @@
                             <a class=" text-lg md:2xl lg:text-xl  text-nblue font-medium hover:text-dgreen" onclick="event.preventDefault(); this.closest('form').submit();">
                                 <div class="flex items-center">
                                     <span class="iconify mr-2" data-icon="fe:logout"></span>
-                                    <div class="hidden lg:flex">Log out</div>
+                                    <div class="hidden sm:flex">Log out</div>
                                 </div>
                             </a>
                         </form>
