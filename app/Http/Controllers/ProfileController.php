@@ -22,11 +22,34 @@ class ProfileController extends Controller
     }
 
     /**
-     * Display the user's profile form.
+     * Display the user's profile dashboard.
      */
     public function dashboard(Request $request): View
     {
         return view('profile.dashboard', [
+            'user' => $request->user(),
+        ]);
+    }
+
+
+    /**
+     * Display the user's enrolled courses.
+     */
+    public function ecources(Request $request): View
+    {
+        return view('profile.ecources', [
+            'user' => $request->user(),
+        ]);
+    }
+
+
+
+    /**
+     * Display the user's enrolled courses.
+     */
+    public function mycource(Request $request): View
+    {
+        return view('profile.mycource', [
             'user' => $request->user(),
         ]);
     }
