@@ -89,12 +89,12 @@ class QueryController extends Controller
             'message' => $request->message,
         ]);
 
-        $msg = Setting::where('property','contactxt')->first()->value;
+        // $msg = Setting::where('property','contactxt')->first()->value;
 
         if ($subscribe) {
-            try{
-                $sendmail =    Mail::to($subscribe->email)->send(new QueryMail($msg));
-            }catch (\Exception $exception){}
+            // try{
+            //     $sendmail =    Mail::to($subscribe->email)->send(new QueryMail($msg));
+            // }catch (\Exception $exception){}
 
             return response()->json(['status' => 'success', 'message' => 'Thanks for contucting us. We wil get to you soon.']);
         }else{

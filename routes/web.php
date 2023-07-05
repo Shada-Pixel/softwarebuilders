@@ -30,6 +30,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/cource', 'cource')->name('cource');
     Route::get('/gallery', 'gallery')->name('gallery');
     Route::get('/contact', 'contact')->name('contact');
+    Route::post('/subscribe','subscribe')->name('subscribe');
 });
 
 Route::get('/dashboard', function () {
@@ -40,6 +41,9 @@ Route::get('/dashboard', function () {
 Route::group(['prefix' => 'quotations'], function () {
     Route::post('create', [QuotationController::class, 'create'])->name('quotations.create');
 });
+
+// User Query
+Route::post('/contactUs/send', [QueryController::class, 'store'])->name('contsend');
 
 Route::middleware('auth')->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -55,9 +59,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [ProfileController::class,  'dashboard'])->name('profile.dashboard');
         Route::get('/ecources', [ProfileController::class,  'ecources'])->name('profile.ecources');
         Route::get('/mycource', [ProfileController::class,  'mycource'])->name('profile.mycource');
-
-        Route::get('/contact', [ProfileController::class,  'contact'])->name('contact');
-        Route::get('/contact', [ProfileController::class,  'contact'])->name('contact');
     });
 
 
