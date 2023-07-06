@@ -61,3 +61,18 @@ $('input.onlynumber').keyup(function(e){
       this.value = this.value.replace(/\D/g, '');
     }
 });
+
+
+
+// This function is to make product slug
+function slugify(string){
+    return string
+        .toString()
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w\-]+/g, "")
+        .replace(/\-\-+/g, "-")
+        .replace(/^-+/, "")
+        .replace(/-+$/, "");
+}

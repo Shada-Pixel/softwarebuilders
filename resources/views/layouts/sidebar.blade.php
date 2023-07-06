@@ -26,6 +26,10 @@
         <span class="iconify" data-icon="mingcute:dashboard-2-line"></span>
         <p class="sidelinktext">Dashboard</p>
     </x-sidenav-link>
+    <x-sidenav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+        <span class="iconify" data-icon="iconamoon:category-thin"></span>
+        <p class="sidelinktext">Categories</p>
+    </x-sidenav-link>
     <hr class="border border-nblue my-1">
 
     <x-sidenav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">
