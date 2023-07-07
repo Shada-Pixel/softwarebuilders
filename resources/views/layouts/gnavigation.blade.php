@@ -61,6 +61,9 @@
 
                             </x-slot>
                         </x-dropdown>
+
+                        {{-- Cart --}}
+                        <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out ml-2" data-icon="fluent:cart-24-filled"></span>
                     </div>
                     @else
                         {{-- <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a> --}}
@@ -74,7 +77,10 @@
             @endif
 
             {{-- Mobile dropdown --}}
-            <div class="block sm:hidden">
+            <div class="flex sm:hidden">
+                @auth
+                <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out mr-2" data-icon="fluent:cart-24-filled"></span>
+                @endauth
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <span class="iconify text-2xl font-medium text-nblue" data-icon="iconamoon:menu-burger-horizontal-bold"></span>
@@ -108,6 +114,7 @@
                         @endauth
                     </x-slot>
                 </x-dropdown>
+
             </div>
         </div>
     </div>

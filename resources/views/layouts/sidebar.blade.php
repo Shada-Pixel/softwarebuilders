@@ -30,6 +30,10 @@
         <span class="iconify" data-icon="iconamoon:category-thin"></span>
         <p class="sidelinktext">Categories</p>
     </x-sidenav-link>
+    <x-sidenav-link :href="route('courses.index')" :active="request()->routeIs('courses.*')">
+        <span class="iconify" data-icon="material-symbols:play-lesson-outline"></span>
+        <p class="sidelinktext">Courses</p>
+    </x-sidenav-link>
     <hr class="border border-nblue my-1">
 
     <x-sidenav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">

@@ -17,6 +17,10 @@ class HomeController extends Controller
 
 
 
+    function cshow() { return view('dashboard.courses.show'); }
+
+
+
     // Subscribing user
     public function subscribe(Request $request)
     {

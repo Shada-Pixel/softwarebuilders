@@ -3,9 +3,8 @@
     <section class="bg-white pt-14">
         <div class="pt-20 sm:pt-12 px-3 lg:px-0">
 
-
             @include('profile.partials.profile-heading')
-
+        </div>
     </section>
     <!-- ==============Course Details end===================== -->
     <!-- ===============instructor-dashboard-item start================ -->

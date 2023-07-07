@@ -65,7 +65,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $category = Category::saveCategory($request);
+        if ($category){
+            return redirect()->route('categories.index')
+            ->withSuccess(__('Category Update successfully.'));
+        }
     }
 
     /**

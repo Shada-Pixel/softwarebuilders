@@ -31,18 +31,19 @@
                 <!-- Slug -->
                 <div class="mt-4">
                     <x-input-label for="slug" :value="__('Slug')" />
-                    <x-text-input id="slug" class="block mt-1 w-full" type="text" name="slug" value="gklkj" required />
+                    <x-text-input id="slug" class="block mt-1 w-full" type="text" name="slug" value="{!!$category->slug!!}" required />
                     <x-input-error :messages="$errors->get('slug')" class="mt-2" />
                 </div>
 
                 <!-- Keywords -->
                 <div class="mt-4">
                     <x-input-label for="keywords" :value="__('Keywords')" />
-                    <x-textarea id="keywords" class="block mt-1 w-full" name="keywords" required></x-textarea>
+                    <x-textarea id="keywords" class="block mt-1 w-full" name="keywords" required>{!!$category->keywords!!}</x-textarea>
                     <x-input-error :messages="$errors->get('keywords')" class="mt-2" />
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
+                    <x-text-input id="edit_id" class="" type="hidden" name="edit_id" value="{!!$category->id!!}" />
 
                     <x-primary-button class="ml-4">
                         {{ __('Create Category') }}
