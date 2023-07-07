@@ -2,8 +2,11 @@
     <x-slot name="submenu">
         <!-- Navigation Links -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-            <x-nav-link :href="route('quotations.all')" :active="request()->routeIs('quotations.all')">
-                {{ __('All Quotations') }}
+            <x-nav-link :href="route('courses.index')" :active="request()->routeIs('courses.index')">
+                {{ __('All Courses') }}
+            </x-nav-link>
+            <x-nav-link :href="route('courses.create')" :active="request()->routeIs('courses.create')">
+                {{ __('New Course') }}
             </x-nav-link>
         </div>
     </x-slot>

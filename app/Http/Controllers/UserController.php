@@ -64,17 +64,17 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed'],
-            // 'role' => ['required'],
+            'role' => ['required'],
         ]);
 
 
-        // $role = Role::find($request->role);
+        $role = Role::find($request->role);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        // $user->assignRole([$role->id]);
+        $user->assignRole([$role->id]);
 
 
         return redirect()->route('users.index');

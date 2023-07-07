@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datatable.css') }}">
+    @if (isset($headscript))
+        {{ $headscript }}
+    @endif
 
     <script>
         let BASE_URL = {!! json_encode(url('/')) !!} + "/";

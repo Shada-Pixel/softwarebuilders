@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\User;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 
@@ -11,9 +15,13 @@ class CourseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            return Datatables::of( Course::query())->addIndexColumn()->make(true);
+        }
+
+        return view('dashboard.courses.index');
     }
 
     /**
@@ -21,7 +29,10 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+
+        $instructors = User::role('instructor')->get() ;
+        $categories = Category::all();
+        return view('dashboard.courses.create',compact('instructors','categories'));
     }
 
     /**
@@ -29,7 +40,7 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-        //
+        return $request;
     }
 
     /**
