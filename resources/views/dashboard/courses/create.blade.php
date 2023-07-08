@@ -117,7 +117,7 @@
                     <div class="col-span-2">
                         <x-input-label for="curriculam" :value="__('Curriculam')" class="mb-2" />
                         <x-textarea id="curriculam" class="block mt-2 w-full" name="curriculam" required
-                            autocomplete="curriculam"></x-textarea>
+                        autocomplete="curriculam"></x-textarea>
                         <x-input-error :messages="$errors->get('curriculam')" class="mt-2" />
                     </div>
 
