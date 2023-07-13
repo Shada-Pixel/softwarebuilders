@@ -16,6 +16,10 @@ function createEditor(elementId) {
 }
 
 
+function formsubmit(){
+    $("form#course-store").submit();
+}
+
 
 $(document).ready(function () {
 

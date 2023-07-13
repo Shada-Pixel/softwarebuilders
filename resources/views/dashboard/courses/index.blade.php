@@ -14,13 +14,12 @@
     <div class="p-6">
         <div class="p-6 bg-white rounded-md">
 
-            <table id="quaryTable" class="display stripe" style="width:100%">
+            <table id="coursetable" class="display stripe" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Slug</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -32,10 +31,10 @@
 
     <x-slot name="script">
         <script>
-            var datatablelist = $('#quaryTable').DataTable({
+            var datatablelist = $('#coursetable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{!! route('quaries.all') !!}",
+                ajax: "{!! route('courses.index') !!}",
                 columns: [{
                         "render": function(data, type, full, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
@@ -46,22 +45,18 @@
                         name: 'name'
                     },
                     {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
-                        data: 'phone',
-                        name: 'phone'
+                        data: 'slug',
+                        name: 'slug'
                     },
                     {
                         data: null,
                         render: function (data) {
-                            if (data.status == 'unreaded'){
-                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1"><span class="iconify" data-icon="ic:outline-email"></span></span>';
-                            }else if(data.status == 'readed'){
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1"><span class="iconify" data-icon="mdi:email-open-outline"></span></span>';
+                            if (data.status == '1'){
+                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1">Pending</span>';
+                            }else if(data.status == '2'){
+                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">On Review</span>';
                             }else{
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Replied</span>';
+                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Running</span>';
                             }
 
                             return statusLabels;
@@ -80,7 +75,7 @@
             function quaryDelete(quaryID) {
                 Swal.fire({
                     title: "Delete ?",
-                    text: "Are you sure to detede this message ?",
+                    text: "Are you sure to detede ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -105,37 +100,6 @@
                 });
             }
 
-            // Changing Status
-            function readUnreadQuary(quaryID) {
-                // var message = ((status == 'unreaded'? 'readed' : 'unreaded'));
-                // var updateStatus = ((status == 'unreaded' ? 'readed' : 'unreaded'));
-                // Swal.fire({
-                //     title: " "+message+"?",
-                //     text: "Do you want to mark this message as "+message+" ?",
-                //     icon: 'warning',
-                //     showCancelButton: true,
-                //     confirmButtonColor: '#3085d6',
-                //     cancelButtonColor: '#d33',
-                //     confirmButtonText: "Yes",
-                // }).then((result) => {
-                //     if (result.value) {
-                //         $.ajax({
-                //             method: 'PATCH',
-                //             url: BASE_URL +'dashboard/quaries/toggle/'+quaryID,
-                //             data: {
-                //                 quaryID: quaryID,
-                //                 updateStatus: updateStatus,
-                //             },
-                //             success: function (response) {
-                //                 if (response.status == "success") {
-                //                     Swal.fire('Success!', response.message, 'success');
-                //                     datatablelist.draw();
-                //                 }
-                //             }
-                //         });
-                //     }
-                // });
-            }
         </script>
     </x-slot>
 </x-app-layout>

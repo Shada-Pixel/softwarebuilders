@@ -29,4 +29,21 @@ class Course extends Model
         'status'
     ];
 
+
+    public static function saveCourse($cr)
+    {
+        $cd = [
+            'name' => $cr->name,
+            'slug'=> $cr->slug,
+            'keywords' => $cr->keywords
+        ];
+        $cuc = self::updateOrCreate(['id' => $cr->editId],$cd);
+
+
+
+
+        
+        return $cuc;
+    }
+
 }

@@ -15,10 +15,11 @@
     </x-slot>
 
     <div class="p-6">
-        <div class="p-6 bg-white rounded-md max-w-7xl mx-auto">
-            <h1 class="text-xl mb-4">New Course Information</h1>
+        <div class="p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-1">New Course Information</h1>
+            <p>(<span class="text-red-500 mb-4">*</span>) marked fields are required.</p>
 
-            <form method="POST" action="{{ route('courses.store') }}">
+            <form method="POST" action="{{ route('courses.store') }}" id="course-store" enctype="multipart/form-data" >
                 @csrf
                 <div class="grid grid-cols-2 gap-5">
                     <!-- Name -->
@@ -122,16 +123,17 @@
                     </div>
 
 
-                    <div class="flex items-center justify-end col-span-2">
+                </div>
+                <div class="flex items-center justify-end col-span-2 mt-4">
 
-                        <x-primary-button class="ml-4">
-                            {{ __('Create Course') }}
-                        </x-primary-button>
-                    </div>
+                    <x-primary-button class="ml-4" onclick="formsubmit()">
+                        {{ __('Create Course') }}
+                    </x-primary-button>
                 </div>
 
             </form>
         </div>
+
     </div>
 
 

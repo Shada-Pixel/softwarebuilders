@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('cover');
 
             // price
-            $table->decimal('current_price',6,2);
-            $table->decimal('regular_price',6,2);
+            $table->decimal('current_price',10,2);
+            $table->decimal('regular_price',10,2);
             $table->longtext('materials')->nullable();
             $table->longtext('short_description')->nullable();
             $table->longtext('description')->nullable();
