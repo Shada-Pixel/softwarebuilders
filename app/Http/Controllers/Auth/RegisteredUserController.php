@@ -38,32 +38,35 @@ class RegisteredUserController extends Controller
 
         // If there is no user exist
         if (User::count() <= 0) {
-            $permissions = [
-                'user-list',
-                'user-create',
-                'user-edit',
-                'user-delete',
-                'permission-list',
-                'permission-create',
-                'permission-edit',
-                'permission-delete',
-                'role-list',
-                'role-create',
-                'role-edit',
-                'role-delete'
-            ];
-
-            foreach ($permissions as $permission) {
-                Permission::create(['name' => $permission]);
+            // IF there is no permission
+            if (Permission::count() <=0) {
+                // Permission list in array
+                $permissions = [
+                    'user-list',
+                    'user-create',
+                    'user-edit',
+                    'user-delete',
+                    'permission-list',
+                    'permission-create',
+                    'permission-edit',
+                    'permission-delete',
+                    'role-list',
+                    'role-create',
+                    'role-edit',
+                    'role-delete'
+                ];
+                // Creating permissions
+                foreach ($permissions as $permission) {
+                    Permission::create(['name' => $permission]);
+                }
             }
 
-            $role = Role::create(['name' => 'admin']);
-            $role->syncPermissions($request->input('permission'));
 
+            $adminrole = Role::create(['name' => 'admin']);
             $role = Role::where('name','admin')->first();
             $permissions = Permission::pluck('id','id')->all();
             $role->syncPermissions($permissions);
-            $admin->assignRole([$role->id]);
+
         }
 
         return $permissions;
@@ -79,6 +82,12 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        if (User::count() == 1) {
+            $role = Role::where('name','admin')->first();
+            $user->assignRole([$role->id]);
+        }
+
 
         event(new Registered($user));
 
