@@ -59,13 +59,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [ProfileController::class,  'index'])->name('profile.index');
         Route::get('/edit', [ProfileController::class,  'edit'])->name('profile.edit');
         Route::patch('/', [ProfileController::class,  'update'])->name('profile.update');
+        Route::patch('/ppupdate', [ProfileController::class,  'ppupdate'])->name('profile.ppupdate');
+
         Route::delete('/', [ProfileController::class,  'destroy'])->name('profile.destroy');
 
         Route::get('/dashboard', [ProfileController::class,  'dashboard'])->name('profile.dashboard');
         Route::get('/ecources', [ProfileController::class,  'ecources'])->name('profile.ecources');
         Route::get('/mycource', [ProfileController::class,  'mycource'])->name('profile.mycource');
     });
-
 
 
     // Resource

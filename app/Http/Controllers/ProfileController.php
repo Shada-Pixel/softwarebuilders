@@ -69,8 +69,11 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
+    // : RedirectResponse
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
+        // return $request;
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -78,6 +81,29 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+
+    /**
+     * Update the user's profile information.
+     */
+    // : RedirectResponse
+    public function ppupdate(ProfileUpdateRequest $request): RedirectResponse
+    {
+        $user = $request->user();
+
+        if ($request->file('pp')) {
+            $image = $request->file('pp');
+            $image_full_name = time().'_'.$user->name.$user->id.'.'.$image->extension();
+            $upload_path = 'images/pp/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $image->move($upload_path, $image_full_name);
+            $user->pp = $image_url;
+        }
+
+        $user->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

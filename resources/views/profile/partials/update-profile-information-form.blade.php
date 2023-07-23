@@ -1,13 +1,39 @@
 <section>
+
+
+
+    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
+        @csrf
+    </form>
+    {{-- --------------------------------------------------------------- --}}
+    <div class="relative">
+
+        <form id="userpp" method="POST" action="{{ route('profile.ppupdate', $user->id) }}" enctype="multipart/form-data" class="d-none">
+            @method('patch')
+            @csrf
+            <input type="file" name="profile_picture" id="selectedFile" class="hidden"/>
+        </form>
+
+        {{-- image --}}
+        <div class="image relative mt-2" id="studentpp">
+
+            {{-- if user dont have picture --}}
+            @if ($user->profile_picture == null)
+                <img class=" w-24 h-24 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$user->name}}">
+            @else
+                <img class=" w-24 h-24 rounded-full" src="{{ asset($user->pp) }}" alt="{{$user->name}}">
+            @endif
+
+            <button class="bg-dgreen/40 w-24 h-24 uppercase text-xs absolute top-0  rounded-full hover:text-white" id="ppChangeBtn" onclick="document.getElementById('selectedFile').click();">Change</button>
+        </div>
+    </div>
+    {{-- ---------------------------------------------------------------- --}}
+
     <header>
         <p class="mt-4 text-sm text-gray-600">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
-
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
 
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
@@ -17,6 +43,16 @@
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
+        <div>
+            <x-input-label for="designation" :value="__('Designation')" />
+            <x-text-input id="designation" name="designation" type="text" class="mt-1 block w-full" :value="old('designation', $user->designation)" required autofocus autocomplete="designation" />
+            <x-input-error class="mt-2" :messages="$errors->get('designation')" />
+        </div>
+        <div>
+            <x-input-label for="biography" :value="__('Biography')" />
+            <x-textarea id="biography" name="biography" class="mt-1 block w-full" required autofocus autocomplete="biography" >{{$user->biography ? $user->biography : ''}}</x-textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('biography')" />
         </div>
 
         <div>

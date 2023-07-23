@@ -34,65 +34,30 @@ class RegisteredUserController extends Controller
     // : RedirectResponse
     public function store(Request $request)
     {
-
-
-        // If there is no user exist
-        if (User::count() <= 0) {
-            // IF there is no permission
-            if (Permission::count() <=0) {
-                // Permission list in array
-                $permissions = [
-                    'user-list',
-                    'user-create',
-                    'user-edit',
-                    'user-delete',
-                    'permission-list',
-                    'permission-create',
-                    'permission-edit',
-                    'permission-delete',
-                    'role-list',
-                    'role-create',
-                    'role-edit',
-                    'role-delete'
-                ];
-                // Creating permissions
-                foreach ($permissions as $permission) {
-                    Permission::create(['name' => $permission]);
-                }
-            }
-
-
-            $adminrole = Role::create(['name' => 'admin']);
-            $role = Role::where('name','admin')->first();
-            $permissions = Permission::pluck('id','id')->all();
-            $role->syncPermissions($permissions);
-
-        }
-
-        return $permissions;
-
+        // Validating request
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+        // User created
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        // Assigning student id
         if (User::count() == 1) {
             $role = Role::where('name','admin')->first();
             $user->assignRole([$role->id]);
+        } else {
+            $role = Role::where('name','student')->first();
+            $user->assignRole([$role->id]);
         }
 
-
         event(new Registered($user));
-
         Auth::login($user);
-
         return redirect(RouteServiceProvider::HOME);
     }
 }

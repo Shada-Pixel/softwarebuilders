@@ -33,13 +33,12 @@
                                                 <li class="mr-10"><a class=" text-lg font-medium mt-4  leading-8"
                                                         href="#password">Password</a>
                                                 </li>
-                                                <li class="mr-10"><a class=" text-lg font-medium mt-4  leading-8"
+                                                <li class="mr-10"><a class=" text-lg font-medium mt-4  leading-8 hidden"
                                                         href="#pdelete">Delete Acount</a>
                                                 </li>
 
                                             </ul>
                                         </div>
-
                                     </div><!-- END seting_tabs-nav -->
                                     <div class="tabs-content">
                                         <div id="profile" class="tab-content">
@@ -49,7 +48,7 @@
                                         <div id="password" class="tab-content">
                                             @include('profile.partials.update-password-form')
                                         </div>
-                                        <div id="pdelete" class="tab-content">
+                                        <div id="pdelete" class="tab-content hidden">
                                             @include('profile.partials.delete-user-form')
                                         </div>
                                     </div>
@@ -64,5 +63,13 @@
     </section>
     <!-- ===============instructor-dashboard-item end================ -->
 
-    
+    <x-slot name="script">
+        <script>
+            $(document).ready(function() {
+                $("#selectedFile").on('input', function() {
+                    $("form#userpp").submit();
+                });
+            });
+        </script>
+    </x-slot>
 </x-guest-layout>

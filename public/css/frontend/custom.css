@@ -489,7 +489,7 @@ ul.tabs-nav li:hover,
 ul.tabs-nav li.active {
     border-bottom: 2px solid #029642;
     color: #029642;
-    z-index: 111111;
+    z-index: 999;
 }
 
 .tab_line {

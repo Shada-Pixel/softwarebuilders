@@ -7,10 +7,8 @@
                     <img class=" w-24 h-24 rounded-full border-4 border-white" src="{{asset('img/team03.png')}}" alt="">
                 </div>
                 <div class="lg:ml-6">
-                    <h2 class="text-lg md:text-xl font-bold text-white text-center lg:text-left">Hussain
-                        Mohammad Sabbir</h2>
-                    <p class=" text-lg font-light text-white text-center lg:text-left">Full Stack Developer
-                        - Trainer</p>
+                    <h2 class="text-lg md:text-xl font-bold text-white text-center lg:text-left">{{$user->name}}</h2>
+                    <p class=" text-lg font-light text-white text-center lg:text-left">{{$user->designation}}</p>
                 </div>
             </div>
             <div class=" flex justify-center lg:justify-end mt-2 md:mt-3 lg:mt-0">
