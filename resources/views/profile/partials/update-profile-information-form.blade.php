@@ -18,7 +18,7 @@
         <div class="image relative mt-2" id="studentpp">
 
             {{-- if user dont have picture --}}
-            @if ($user->profile_picture == null)
+            @if ($user->pp == null)
                 <img class=" w-24 h-24 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$user->name}}">
             @else
                 <img class=" w-24 h-24 rounded-full" src="{{ asset($user->pp) }}" alt="{{$user->name}}">
