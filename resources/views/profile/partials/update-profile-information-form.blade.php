@@ -11,7 +11,7 @@
         <form id="userpp" method="POST" action="{{ route('profile.ppupdate', $user->id) }}" enctype="multipart/form-data" class="d-none">
             @method('patch')
             @csrf
-            <input type="file" name="profile_picture" id="selectedFile" class="hidden"/>
+            <input type="file" name="pp" id="selectedFile" class="hidden"/>
         </form>
 
         {{-- image --}}

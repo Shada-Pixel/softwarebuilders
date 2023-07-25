@@ -95,6 +95,10 @@ class ProfileController extends Controller
         $user = $request->user();
 
         if ($request->file('pp')) {
+            // Delete old profilepicture
+            if($user->pp) {
+                unlink($user->pp);
+            }
             $image = $request->file('pp');
             $image_full_name = time().'_'.$user->name.$user->id.'.'.$image->extension();
             $upload_path = 'images/pp/';

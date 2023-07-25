@@ -8,6 +8,12 @@
             <x-nav-link :href="route('courses.create')" :active="request()->routeIs('courses.create')">
                 {{ __('New Course') }}
             </x-nav-link>
+            <x-nav-link :href="route('batches.index')" :active="request()->routeIs('batches.index')">
+                {{ __('All Batch') }}
+            </x-nav-link>
+            <x-nav-link :href="route('batches.create')" :active="request()->routeIs('batches.create')">
+                {{ __('New Batch') }}
+            </x-nav-link>
         </div>
     </x-slot>
 

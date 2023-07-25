@@ -25,7 +25,7 @@
                             <button
                                 class="flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                 <div
-                                    class="uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1">
+                                    class="uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 bg-[url('{{asset(Auth::user()->pp)}}')]">
                                     {{ Auth::user()->name[0] . Auth::user()->name[1] }}</div>
                                 <p>{{ Auth::user()->name }}</p>
 
