@@ -23,7 +23,10 @@
         let BASE_URL = {!! json_encode(url('/')) !!} + "/";
     </script>
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    <link rel="stylesheet" href="{{asset('build/assets/app-79018353.css')}}">
+    <script src="{{asset('build/assets/app-6870bb4e.js')}}"></script>
 
 
 </head>
