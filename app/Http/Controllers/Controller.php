@@ -9,4 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    // function(){
+    //    if (Auth::user()) {
+    //     return $someone = '100';
+    //     }
+    //     # code...
+
+    // }
 }

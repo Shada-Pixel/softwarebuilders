@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Course;
+use App\Models\User;
+
 
 class ProfileController extends Controller
 {
@@ -35,8 +38,11 @@ class ProfileController extends Controller
     /**
      * Display the user's enrolled courses.
      */
+    // : View
     public function ecources(Request $request): View
     {
+        // $user = User::find($request->user()->id)->with('mycourses');
+        // return view('profile.ecources', compact('user'));
         return view('profile.ecources', [
             'user' => $request->user(),
         ]);
@@ -49,8 +55,12 @@ class ProfileController extends Controller
      */
     public function mycource(Request $request): View
     {
+        $mypucourses = Course::where('instructor_id',$request->user()->id)->where('status','3')->get();
+        $mypecourses = Course::where('instructor_id',$request->user()->id)->where('status','1')->get();
         return view('profile.mycource', [
             'user' => $request->user(),
+            'mypucourses' => $mypucourses,
+            'mypecourses' => $mypecourses,
         ]);
     }
 

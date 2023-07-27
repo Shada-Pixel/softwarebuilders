@@ -29,21 +29,18 @@ class Course extends Model
         'status'
     ];
 
+    protected $with = ['instructor'];
 
-    public static function saveCourse($cr)
+
+    // Category
+    public function category()
     {
-        $cd = [
-            'name' => $cr->name,
-            'slug'=> $cr->slug,
-            'keywords' => $cr->keywords
-        ];
-        $cuc = self::updateOrCreate(['id' => $cr->editId],$cd);
-
-
-
-
-        
-        return $cuc;
+        return $this->belongsTo(Category::class);
+    }
+    // Instructor
+    public function instructor()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

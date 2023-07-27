@@ -11,25 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollments', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->string('trxid');
-            $table->decimal('total',10,2)->nullable();
-            $table->string('bkash_number')->nullable();
-            // student
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            
-            $table->tinyInteger('status')->default(1)->comment('1 => pending, 2 => approved');
+            $table->decimal('total',10,2);
+            $table->decimal('discount',10,2)->nullable();
             $table->timestamps();
         });
     }
 
-/**
+    /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('enrollments');
+        Schema::dropIfExists('carts');
     }
 };

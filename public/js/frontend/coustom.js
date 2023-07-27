@@ -49,10 +49,10 @@ var swiper = new Swiper(".courseItemSwiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false,
+    // },
     loop: true,
     breakpoints: {
         "@0.00": {

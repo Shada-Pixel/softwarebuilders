@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Subscriber;
+use App\Models\Course;
+use App\Models\Category;
+
 
 
 class HomeController extends Controller
@@ -11,13 +14,32 @@ class HomeController extends Controller
     function index() { return view('index'); }
     function about() { return view('about'); }
     function service() { return view('service'); }
-    function cource() { return view('cource'); }
+
+    // course controller
+    function cource(Request $request) {
+
+        $categories = Category::all();
+        if ($request->category_id) {
+            $checked_categories = $request->category_id;
+            $courses = Course::wherein('category_id',$request->category_id)->where('status','3')->get();
+            return view('cource',compact('courses','categories','checked_categories'));
+        }else {
+            $checked_categories = [];
+
+            $courses = Course::where('status','3')->get();
+            return view('cource',compact('courses','categories','checked_categories'));
+
+        }
+
+    }
+
     function gallery() { return view('gallery'); }
     function contact() { return view('contact'); }
 
 
 
     function cshow() { return view('dashboard.courses.show'); }
+
 
 
 

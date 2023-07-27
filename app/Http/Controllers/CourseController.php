@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Cart;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -51,7 +52,6 @@ class CourseController extends Controller
         $course->user_id = Auth::id();
         $course->instructor_id = $request->category_id;
 
-
         // course cover
         if ($request->file('cover')) {
             $thumbnail = $request->file('cover');
@@ -61,15 +61,9 @@ class CourseController extends Controller
             $success = $thumbnail->move($upload_path, $image_full_name);
             $course->cover = $image_url;
         }
-
-
-
         $course->regular_price = $request->regular_price;
         $course->current_price = $request->current_price;
-
         $course->status = '1';
-
-
         $course->short_description = $request->short_description;
         $course->description = $request->description;
         $course->materials = $request->materials;
@@ -77,8 +71,7 @@ class CourseController extends Controller
 
 	    $course->save();
 
-        return redirect()->route('courses.index')
-            ->withSuccess(__('Course created successfully.'));
+        return redirect()->route('courses.index')->withSuccess(__('Course created successfully.'));
     }
 
     /**
@@ -86,7 +79,8 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
+        return view('dashboard.courses.show',compact('course','mycartcourse'));
     }
 
     /**
@@ -94,7 +88,9 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        $instructors = User::role('instructor')->get() ;
+        $categories = Category::all();
+        return view('dashboard.courses.edit',compact('instructors','categories','course'));
     }
 
     /**
@@ -102,7 +98,40 @@ class CourseController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
-        //
+        // return $request;
+
+        $course->name = $request->name;
+        $course->slug = $request->slug;
+        $course->category_id = $request->category_id;
+        $course->instructor_id = $request->category_id;
+
+        // course cover
+        if ($request->file('cover')) {
+
+            // Delete old profilepicture
+            if($course->cover) {
+                unlink($course->cover);
+            }
+
+            $thumbnail = $request->file('cover');
+            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$course->name).$course->id.'.'.$thumbnail->getClientOriginalExtension();
+            $upload_path = 'images/frontimages/courses/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $thumbnail->move($upload_path, $image_full_name);
+            $course->cover = $image_url;
+        }
+        $course->regular_price = $request->regular_price;
+        $course->current_price = $request->current_price;
+        $course->status = '1';
+        $course->short_description = $request->short_description;
+        $course->description = $request->description;
+        $course->materials = $request->materials;
+        $course->curriculam = $request->curriculam;
+        $course->status = $request->status;
+
+	    $course->save();
+
+        return redirect()->route('courses.show', $course->id)->with_success('Course Updated Successfully');
     }
 
     /**

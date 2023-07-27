@@ -249,7 +249,7 @@
                         <div class=" flex justify-center">
                             <div class=" flex flex-col items-center">
                                 <div class="solution_box bg-dgreen">
-                                    <p><iconify-icon icon="fa:send"></iconify-icon></p>
+                                    <p><span class="iconify" data-icon="fa:send"></span></p>
                                 </div>
                                 <div class="mt-3 lg:mt-6">
                                     <h2 class="text-lg lg:text-2xl font-bold text-nblue">Advertising and Marketing</h2>
@@ -264,7 +264,7 @@
                         <div class=" flex justify-center">
                             <div class=" flex flex-col items-center">
                                 <div class="solution_box bg-nblue">
-                                    <p><iconify-icon icon="ph:code-bold"></iconify-icon></p>
+                                    <p><span class="iconify" data-icon="ph:code-bold"></span></p>
                                 </div>
                                 <div class="mt-3 lg:mt-6">
                                     <h2 class="text-lg lg:text-2xl font-bold text-nblue">Website Development</h2>
@@ -279,7 +279,7 @@
                         <div class=" flex justify-center">
                             <div class=" flex flex-col items-center">
                                 <div class="solution_box bg-dorange">
-                                    <p><iconify-icon icon="ph:app-store-logo-bold"></iconify-icon></p>
+                                    <p><span class="iconify" data-icon="ph:app-store-logo-bold"></span></p>
                                 </div>
                                 <div class="mt-3 lg:mt-6">
                                     <h2 class="text-lg lg:text-2xl font-bold text-nblue">Website Development</h2>

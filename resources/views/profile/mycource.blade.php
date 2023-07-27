@@ -44,7 +44,12 @@
                                                 <div class="mt-6 lg:mt-10">
                                                     <div class="grid md:grid-cols-2 gap-10">
                                                         {{-- individual course --}}
-                                                        <x-course></x-course>
+                                                        @forelse ($mypucourses as $item)
+                                                            @include('layouts.inc.course')
+                                                        @empty
+                                                        <p>No Published Courses</p>
+
+                                                        @endforelse
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,7 +57,12 @@
                                                 <div class="mt-6 lg:mt-10">
                                                     <div class="grid md:grid-cols-2 gap-10">
                                                         {{-- individual course --}}
-                                                        <x-course></x-course>
+                                                        @forelse ($mypecourses as $item)
+                                                            @include('layouts.inc.course')
+                                                        @empty
+                                                        <p>No Pending Courses</p>
+
+                                                        @endforelse
                                                     </div>
                                                 </div>
                                             </div>

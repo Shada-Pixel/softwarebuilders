@@ -50,6 +50,7 @@
 
                                                         {{-- individual course --}}
                                                         <x-course></x-course>
+                                                        {{-- @include('layouts.inc.course') --}}
 
 
                                                     </div>
@@ -74,7 +75,7 @@
 
                                                         {{-- individual course --}}
                                                         <x-course></x-course>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>

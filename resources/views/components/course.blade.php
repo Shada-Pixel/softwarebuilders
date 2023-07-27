@@ -1,5 +1,5 @@
 {{-- individual course --}}
-<a href="{{route('cshow')}}">
+<a href="{{route('courses.show', '1')}}">
 <div class=" border border-lgreen rounded-md">
     <div class="courser_img"
         style=" background-image: url('{{asset('img/css.png')}}');">

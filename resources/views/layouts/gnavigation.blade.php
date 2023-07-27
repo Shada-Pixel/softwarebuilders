@@ -62,8 +62,13 @@
                             </x-slot>
                         </x-dropdown>
 
+
+
                         {{-- Cart --}}
-                        <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out ml-2" data-icon="fluent:cart-24-filled"></span>
+                        <a href="{{route('carts.index')}}">
+                            <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out ml-2" data-icon="fluent:cart-24-filled"></span>
+                        </a>
+
                     </div>
                     @else
                         {{-- <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a> --}}

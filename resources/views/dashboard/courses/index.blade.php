@@ -71,17 +71,17 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex"><a href="${BASE_URL}quotations/show/${data.id}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="quaryDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
+                            return `<div class="flex"><a href="${BASE_URL}courses/show/${data.id}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="courseDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
                         }
                     }
                 ]
             });
 
 
-            function quaryDelete(quaryID) {
+            function courseDelete(quaryID) {
                 Swal.fire({
                     title: "Delete ?",
-                    text: "Are you sure to detede ?",
+                    text: "Are you sure to delete ?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -91,7 +91,7 @@
                     if (result.value) {
                         $.ajax({
                             method: 'DELETE',
-                            url: BASE_URL + 'quotations/delete/' + quaryID,
+                            url: BASE_URL + 'courses/' + quaryID,
                             success: function(response) {
                                 if (response.status == "success") {
                                     Swal.fire('Success!', response.message, 'success');

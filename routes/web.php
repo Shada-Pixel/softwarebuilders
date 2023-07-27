@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
@@ -39,6 +41,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/cshow','cshow')->name('cshow');
 });
 
+// course show
+Route::group(['prefix' => 'courses'], function () {
+    Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.show');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -52,9 +59,23 @@ Route::group(['prefix' => 'quotations'], function () {
 Route::post('/contactUs/send', [QueryController::class, 'store'])->name('contsend');
 
 Route::middleware('auth')->group(function () {
-    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Cart
+    Route::group(['prefix' => 'carts'], function () {
+        Route::get('/', [CartController::class,  'index'])->name('carts.index');
+        Route::post('/checkout', [CartController::class,  'checkout'])->name('carts.checkout');
+        Route::post('/store', [CartController::class,  'store'])->name('carts.store');
+        Route::delete('/delete/{cart}', [CartController::class,  'destroy'])->name('carts.destroy');
+    });
+
+    // Enrollment
+    Route::group(['prefix' => 'enrollments'], function () {
+        Route::get('/', [EnrollmentController::class,  'index'])->name('enrollments.index');
+        Route::get('/show/{enrollment}', [EnrollmentController::class,  'show'])->name('enrollments.show');
+        Route::get('/edit', [EnrollmentController::class,  'edit'])->name('enrollments.edit');
+        Route::post('/store', [EnrollmentController::class,  'store'])->name('enrollments.store');
+    });
+
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/', [ProfileController::class,  'index'])->name('profile.index');

@@ -246,8 +246,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        {{-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> --}}
                     </div>
                 </div>
                 <!-- ============Course=============== -->
@@ -429,8 +429,8 @@
 
                             </div>
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        {{-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> --}}
                     </div>
 
                     <div class=" flex justify-center mt-10 lg:mt-14 pb-3">
