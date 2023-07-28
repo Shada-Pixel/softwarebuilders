@@ -31,4 +31,14 @@ class Category extends Model
         return $cuc;
     }
 
+    /**
+     * Get all of the comments for the Category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function courses()
+    {
+        return $this->hasMany(Course::class,'category_id','id');
+    }
+
 }

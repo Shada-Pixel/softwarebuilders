@@ -6,12 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Subscriber;
 use App\Models\Course;
 use App\Models\Category;
+use Illuminate\View\View;
+
 
 
 
 class HomeController extends Controller
 {
-    function index() { return view('index'); }
+    function index() : View
+    {
+        $categories = Category::all();
+        return view('index',[
+            'categories' => $categories,
+        ]);
+    }
+
     function about() { return view('about'); }
     function service() { return view('service'); }
 
@@ -64,6 +73,3 @@ class HomeController extends Controller
         }
     }
 }
-
-
-

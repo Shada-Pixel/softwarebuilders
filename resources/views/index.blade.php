@@ -137,114 +137,19 @@
                 <div class=" mt-10 px-3 xl:px-0">
                     <div class="swiper courseItemSwiper">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
+
+                            @foreach ($categories as $category)
+
+                                <div class="swiper-slide">
+                                    <a href="{{route('categories.show', $category->id)}}">
+                                        <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
+                                            <p class=" text-base font-bold ">{{$category->name}}</p>
+                                            <p class=" text-sm font-normal">{{$category->courses->count()}} Course</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                    <a href="#" class=" text-base font-bold ">Web Design</a>
-                                    <p class=" text-sm font-normal">10 Course</p>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                         {{-- <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div> --}}

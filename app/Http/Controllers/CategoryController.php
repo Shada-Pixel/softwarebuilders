@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Course;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
@@ -46,10 +47,16 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
-    {
-        //
+    public function show(Category $category) {
+
+        $categories = Category::all();
+
+        $checked_categories = [$category->id];
+        $courses = Course::where('category_id',$category->id)->where('status','3')->get();
+        return view('cource',compact('courses','categories','checked_categories'));
+
     }
+
 
     /**
      * Show the form for editing the specified resource.

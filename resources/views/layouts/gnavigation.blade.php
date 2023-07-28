@@ -75,7 +75,8 @@
 
                         @if (Route::has('register'))
                             <a class="text-base text-white font-bold bg-nblue px-5 py-2.5  hover:bg-dgreen rounded-md transiation "
-                            href="{{ route('register') }}">SIGN UP</a>
+                            href="{{ route('login') }}">SIGN IN</a>
+
                         @endif
                     @endauth
                 </div>
