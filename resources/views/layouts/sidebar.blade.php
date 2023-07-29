@@ -34,6 +34,18 @@
         <span class="iconify" data-icon="material-symbols:play-lesson-outline"></span>
         <p class="sidelinktext">Courses</p>
     </x-sidenav-link>
+    <x-sidenav-link :href="route('enrollments.index')" :active="request()->routeIs('enrollments.*')">
+        <span class="iconify" data-icon="mdi:register-outline"></span>
+        <p class="sidelinktext">Enrolllments</p>
+    </x-sidenav-link>
+    <x-sidenav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
+        <span class="iconify" data-icon="carbon:settings-services"></span>
+        <p class="sidelinktext">Services</p>
+    </x-sidenav-link>
+    <x-sidenav-link :href="route('albums.index')" :active="request()->routeIs('albums.*')">
+        <span class="iconify" data-icon="solar:gallery-linear"></span>
+        <p class="sidelinktext">Gallery</p>
+    </x-sidenav-link>
     <hr class="border border-nblue my-1">
 
     <x-sidenav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">

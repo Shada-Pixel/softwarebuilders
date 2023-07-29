@@ -3,7 +3,7 @@
 <div class=" border border-lgreen rounded-md">
     <div class="courser_img" style="background-image: url({{asset($item->cover)}});">
     </div>
-    <div class="px-5 py-3 course_info">
+    <div class="px-5 py-3 relative">
         <div class=" mt-2">
             <h2 class=" text-lg text-nblue font-bold">{{$item->name}}</h2>
         </div>
@@ -27,7 +27,7 @@
                 <p class=" text-lg font-bold text-white bg-dgreen px-3 py-1 rounded-full"> {{number_format($item->current_price, 0) }} BDT</p>
             </div>
         </div>
-        <div class=" course_level">
+        <div class="absolute top-4 right-0">
             @if ($item->status == '1')
             <p class="text-xs text-white bg-dorange px-2 py-1"> Pending</p>
             @elseif ($item->status == '2')

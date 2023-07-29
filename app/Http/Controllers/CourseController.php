@@ -44,6 +44,7 @@ class CourseController extends Controller
     public function store(StoreCourseRequest $request)
     {
 
+        
         // return $request;
         $course = new Course;
         $course->name = $request->name;
@@ -79,6 +80,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
+        // return $course;
         $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
         return view('dashboard.courses.show',compact('course','mycartcourse'));
     }

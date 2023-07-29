@@ -61,12 +61,12 @@
                     </x-dropdown>
                 </div>
 
-                <button id="theme-toggle" type="button" class="hidden sm:block sm:ml-4" onclick="darkModeToggle()">
+                {{-- <button id="theme-toggle" type="button" class="hidden sm:block sm:ml-4" onclick="darkModeToggle()">
                     <span class="iconify block dark:hidden text-gray-900 text-xl"
                         data-icon="material-symbols:dark-mode"></span>
                     <span class="iconify hidden dark:block text-white text-xl"
                         data-icon="material-symbols:light-mode"></span>
-                </button>
+                </button> --}}
 
                 <!-- Hamburger -->
                 <div class="-mr-2 flex items-center sm:hidden">

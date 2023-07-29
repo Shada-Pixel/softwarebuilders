@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EnrollmentItem;
-use App\Http\Requests\StoreEnrollmentItemRequest;
-use App\Http\Requests\UpdateEnrollmentItemRequest;
+use App\Models\Photo;
+use App\Http\Requests\StorePhotoRequest;
+use App\Http\Requests\UpdatePhotoRequest;
 
-class EnrollmentItemController extends Controller
+class PhotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,15 +27,15 @@ class EnrollmentItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreEnrollmentItemRequest $request)
+    public function store(StorePhotoRequest $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(EnrollmentItem $enrollmentItem)
+    public function show(Photo $photo)
     {
         //
     }
@@ -43,7 +43,7 @@ class EnrollmentItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EnrollmentItem $enrollmentItem)
+    public function edit(Photo $photo)
     {
         //
     }
@@ -51,19 +51,15 @@ class EnrollmentItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEnrollmentItemRequest $request,  $enrollmentItem)
+    public function update(UpdatePhotoRequest $request, Photo $photo)
     {
-        $ue = EnrollmentItem::find($enrollmentItem);
-        $ue->batch_id = $request->batch_id;
-        $ue->save();
-
-        return redirect("/enrollments/$ue->enrollment_id/edit");
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EnrollmentItem $enrollmentItem)
+    public function destroy(Photo $photo)
     {
         //
     }

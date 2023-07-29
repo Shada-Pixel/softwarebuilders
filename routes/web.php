@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\EnrollmentItemController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
@@ -14,6 +15,9 @@ use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,19 +40,12 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/gallery', 'gallery')->name('gallery');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/subscribe','subscribe')->name('subscribe');
-
-    // Temporary
-    Route::get('/cshow','cshow')->name('cshow');
 });
 
 // course show
 Route::group(['prefix' => 'courses'], function () {
     Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.show');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Service Quatations
 Route::group(['prefix' => 'quotations'], function () {
@@ -59,6 +56,11 @@ Route::group(['prefix' => 'quotations'], function () {
 Route::post('/contactUs/send', [QueryController::class, 'store'])->name('contsend');
 
 Route::middleware('auth')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
 
     // Cart
     Route::group(['prefix' => 'carts'], function () {
@@ -71,12 +73,16 @@ Route::middleware('auth')->group(function () {
     // Enrollment
     Route::group(['prefix' => 'enrollments'], function () {
         Route::get('/', [EnrollmentController::class,  'index'])->name('enrollments.index');
-        Route::get('/show/{enrollment}', [EnrollmentController::class,  'show'])->name('enrollments.show');
-        Route::get('/edit', [EnrollmentController::class,  'edit'])->name('enrollments.edit');
+        Route::get('/{enrollment}/edit', [EnrollmentController::class,  'edit'])->name('enrollments.edit');
         Route::post('/store', [EnrollmentController::class,  'store'])->name('enrollments.store');
+        Route::patch('/{enrollment}/update', [EnrollmentController::class,  'update'])->name('enrollments.update');
     });
 
+    // Enrollment Item
+    Route::resource('enrollmentitems', EnrollmentItemController::class);
 
+
+    // Profile
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/', [ProfileController::class,  'index'])->name('profile.index');
         Route::get('/edit', [ProfileController::class,  'edit'])->name('profile.edit');
@@ -99,6 +105,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
     Route::resource('subscribers', SubscriberController::class);
+
+    Route::resource('services', ServiceController::class);
+    Route::resource('albums', AlbumController::class);
+    Route::resource('photos', PhotoController::class);
 
     // News letters
     Route::group(['prefix' => 'newsletters'], function () {
@@ -124,6 +134,7 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'quotations'], function () {
         Route::get('/', [QuotationController::class, 'index'])->name('quotations.all');
         Route::get('/show/{quotation}', [QuotationController::class, 'show'])->name('quotations.show');
+        Route::post('/store', [QuotationController::class, 'store'])->name('quotations.store');
         Route::delete('/delete/{quotation}', [QuotationController::class, 'destroy'])->name('quotations.destroy');
     });
 

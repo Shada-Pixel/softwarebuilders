@@ -7,7 +7,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="slider-bag">
-                            <div class="heroSlider-img" style="background-image: url('./img/slider01.jpg');">
+                            <div class="heroSlider-img" style="background-image: url({{asset('img/slider01.jpg')}});">
                                 <div class="max-w-7xl mx-auto">
                                     <h2
                                         class="text-lg lg:text-5xl font-bold text-white uppercase text-center lg:text-left">
@@ -32,11 +32,11 @@
                                     <div class="flex mt-10 justify-center lg:justify-start">
                                         <div class=" mr-5">
                                             <a class="text-sm lg:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
-                                                href="about.html">ABOUT US</a>
+                                                href="{{route('about')}}">ABOUT US</a>
                                         </div>
                                         <div class="">
                                             <a class="text-sm lg:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
-                                                href="course.html">SEE COURSES</a>
+                                                href="{{route('cource')}}">SEE COURSES</a>
                                         </div>
                                     </div>
 
@@ -47,9 +47,10 @@
                     </div>
 
                 </div>
-                <div class="swiper-button-next"></div>
+
+                {{-- <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination"></div> --}}
 
             </div>
     </section>
@@ -71,54 +72,9 @@
             </div>
             <div class=" mt-7">
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-3">
-                    <div
-                        class=" py-9 px-5 bg-lgreen hover:bg-nblue rounded-md transition cursor-pointer text-nblue hover:text-white">
-                        <div class="">
-                            <div class="flex justify-center lg:justify-start"> <img class=" w-20 h-20"
-                                    src="./img/webdesign.png" alt="webdesign"></div>
-                            <h2 class=" text-3xl font-bold mt-5 text-center lg:text-left ">Web Design</h2>
-                            <p class=" text-base leading-5 font-normal mt-3 text-center lg:text-left">It is a long
-                                established fact
-                                that a reader will be distracted by the readable content of a page when looking at its
-                                layout.</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" py-9 px-5 bg-lgreen hover:bg-nblue rounded-md transition cursor-pointer text-nblue hover:text-white">
-                        <div class="">
-                            <div class="flex justify-center lg:justify-start"> <img class=" w-20 h-20"
-                                    src="./img/webdesign.png" alt="webdesign"></div>
-                            <h2 class=" text-3xl font-bold mt-5 text-center lg:text-left ">Web Design</h2>
-                            <p class=" text-base leading-5 font-normal mt-3 text-center lg:text-left">It is a long
-                                established fact
-                                that a reader will be distracted by the readable content of a page when looking at its
-                                layout.</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" py-9 px-5 bg-lgreen hover:bg-nblue rounded-md transition cursor-pointer text-nblue hover:text-white">
-                        <div class="">
-                            <div class="flex justify-center lg:justify-start"> <img class=" w-20 h-20"
-                                    src="./img/webdesign.png" alt="webdesign"></div>
-                            <h2 class=" text-3xl font-bold mt-5 text-center lg:text-left ">Web Design</h2>
-                            <p class=" text-base leading-5 font-normal mt-3 text-center lg:text-left">It is a long
-                                established fact
-                                that a reader will be distracted by the readable content of a page when looking at its
-                                layout.</p>
-                        </div>
-                    </div>
-                    <div
-                        class=" py-9 px-5 bg-lgreen hover:bg-nblue rounded-md transition cursor-pointer text-nblue hover:text-white">
-                        <div class="">
-                            <div class="flex justify-center lg:justify-start"> <img class=" w-20 h-20"
-                                    src="./img/webdesign.png" alt="webdesign"></div>
-                            <h2 class=" text-3xl font-bold mt-5 text-center lg:text-left ">Web Design</h2>
-                            <p class=" text-base leading-5 font-normal mt-3 text-center lg:text-left">It is a long
-                                established fact
-                                that a reader will be distracted by the readable content of a page when looking at its
-                                layout.</p>
-                        </div>
-                    </div>
+                    @foreach ($services as $service)
+                    @include('layouts.inc.service')
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -159,17 +115,17 @@
                 <div class=" mt-10">
                     <div class="swiper courseSwiper px-3 xl:px-0">
                         <div class="swiper-wrapper">
+
+                            @foreach ($courses as $course)
                             <div class="swiper-slide">
                                 <div class="">
                                     <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/wordpress.png"
-                                            alt="">
+                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="{{asset($course->cover)}}" alt="{{$course->name}}">
                                         <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">Wordpress</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
+                                            <h2 class=" text-lg font-bold  text-nblue">{{$course->name}}</h2>
+                                            <p class="text-sm font-normal mt-2">{{$course->instructor->name}}</p>
                                             <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
+                                                <a href="{{route('courses.show',$course->id)}}" class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
                                                     Course</a>
                                             </div>
                                         </div>
@@ -177,162 +133,8 @@
                                 </div>
 
                             </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/html.png" alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">HTML</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            @endforeach
 
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/css.png" alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">CSS</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/wordpress.png"
-                                            alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">Wordpress</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/react.png" alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">REACT</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/wordpress.png"
-                                            alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">Wordpress</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/html.png" alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">HTML</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/css.png" alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">CSS</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/wordpress.png"
-                                            alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">Wordpress</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="./img/react.png" alt="">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">REACT</h2>
-                                            <p class="text-sm font-normal mt-2">Jami J. Morris</p>
-                                            <div class=" flex justify-end">
-                                                <a href="#"
-                                                    class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                         {{-- <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div> --}}

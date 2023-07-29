@@ -10,7 +10,9 @@ class Batch extends Model
     use HasFactory;
 
     protected $fillable = ['max_seat', 'group_link', 'start_date','course_id','status','number'];
-    protected $with = ['course'];
+
+
+    // protected $with = ['course'];
 
 
     // Course

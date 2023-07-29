@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Enrollment;
+use App\Models\EnrollmentItem;
 use App\Models\Course;
 use App\Models\Batch;
-use App\Models\EnrollmentItem;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreEnrollmentRequest;
 use App\Http\Requests\UpdateEnrollmentRequest;
@@ -16,9 +18,17 @@ class EnrollmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        // $enrollment = Enrollment::first();
+        // return $enrollment;
+
+        if ($request->ajax()) {
+            return Datatables::of( Enrollment::query())->addIndexColumn()->make(true);
+        }
+
+        return view('dashboard.enrollments.index');
     }
 
     /**
@@ -78,7 +88,8 @@ class EnrollmentController extends Controller
      */
     public function edit(Enrollment $enrollment)
     {
-        //
+        return view('dashboard.enrollments.edit',compact('enrollment'));
+
     }
 
     /**
@@ -86,7 +97,18 @@ class EnrollmentController extends Controller
      */
     public function update(UpdateEnrollmentRequest $request, Enrollment $enrollment)
     {
-        //
+        // return $enrollment;
+        $enrollment->status = $request->status;
+        $enrollment->update();
+
+        $enrollmentItems = EnrollmentItem::where('enrollment_id', $enrollment->id)->get();
+
+        foreach ($enrollmentItems as $enrollmentItem) {
+            $enrollmentItem->status = $request->status;
+            $enrollmentItem->update();
+        }
+
+        return  redirect("/enrollments/$enrollment->id/edit");
     }
 
     /**

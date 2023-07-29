@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Subscriber;
 use App\Models\Course;
 use App\Models\Category;
+use App\Models\Service;
 use Illuminate\View\View;
 
 
@@ -16,13 +17,22 @@ class HomeController extends Controller
     function index() : View
     {
         $categories = Category::all();
+        $services = Service::where('home_page','1')->take(4)->get();
+        $courses = Course::latest()->take(10)->get();
         return view('index',[
             'categories' => $categories,
+            'services' => $services,
+            'courses' => $courses
         ]);
     }
 
     function about() { return view('about'); }
-    function service() { return view('service'); }
+
+    // Services page
+    function service() {
+        $services = Service::all();
+        return view('service',compact('services'));
+    }
 
     // course controller
     function cource(Request $request) {

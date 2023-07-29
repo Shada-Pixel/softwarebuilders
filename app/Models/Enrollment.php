@@ -16,4 +16,31 @@ class Enrollment extends Model
         'user_id',
         'status',
     ];
+
+    protected $with = [
+        'user',
+        'enrollmentitems'
+    ];
+
+
+
+
+
+    /**
+     * Get the user that owns the Enrollment
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+
+
+    /**
+     * Get all of the comments for the Enrollment
+     */
+    public function enrollmentitems()
+    {
+        return $this->hasMany(EnrollmentItem::class, 'enrollment_id', 'id');
+    }
 }

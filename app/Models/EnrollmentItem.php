@@ -16,4 +16,22 @@ class EnrollmentItem extends Model
         'enrollment_id',
         'status',
     ];
+
+    protected $with =['course','batch'];
+
+    /**
+     * Get the user associated with the EnrollmentItem
+     */
+    public function course()
+    {
+        return $this->hasOne(Course::class, 'id', 'course_id');
+    }
+
+    /**
+     * Get the user associated with the EnrollmentItem
+     */
+    public function batch()
+    {
+        return $this->hasOne(Batch::class, 'id', 'batch_id');
+    }
 }

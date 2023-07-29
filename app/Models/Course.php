@@ -29,7 +29,7 @@ class Course extends Model
         'status'
     ];
 
-    protected $with = ['instructor'];
+    protected $with = ['instructor','batches'];
 
 
     // Category
@@ -37,10 +37,19 @@ class Course extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
     // Instructor
     public function instructor()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get all of the comments for the Course
+     */
+    public function batches()
+    {
+        return $this->hasMany(Batch::class, 'course_id', 'id');
     }
 
 }

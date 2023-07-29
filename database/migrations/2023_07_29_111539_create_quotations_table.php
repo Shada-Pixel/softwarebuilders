@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('service');
             $table->longText('message');
             $table->string('attachment')->nullable();
+
+            // category
+            $table->unsignedBigInteger('service_id')->nullable();
+            $table->foreign('service_id')->references('id')->on('services');
+
             $table->tinyInteger('status')->default(1)->comment('1 => unreaded, 2 => readed, 3 => replied');
             $table->timestamps();
         });
