@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Subscriber;
 use App\Models\Course;
+use App\Models\Album;
 use App\Models\Category;
 use App\Models\Service;
 use Illuminate\View\View;
@@ -52,7 +53,10 @@ class HomeController extends Controller
 
     }
 
-    function gallery() { return view('gallery'); }
+    function gallery() {
+        $albums = Album::all();
+        return view('gallery',compact('albums'));
+    }
     function contact() { return view('contact'); }
 
 
@@ -85,5 +89,5 @@ class HomeController extends Controller
 
 
 
-    
+
 }

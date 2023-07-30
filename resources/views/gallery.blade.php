@@ -28,74 +28,30 @@
                     <div class="galary_tab">
                         <div class="tabs ">
                             <div class=" lg:w-1/2 mx-auto">
-                                <ul id="tabs-nav"
-                                    class=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center ">
-                                    <li class="text-center p-2  border border-dgreen text-dgreen"><a
-                                            class="text-sm md:text-base font-bold " href="#ouroffice">OUR OFFICE</a>
+                                <ul id="tabs-nav" class=" grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center ">
+                                    @forelse ($albums as $album)
+
+                                    <li class="text-center p-2  border border-dgreen text-dgreen"><a class="text-sm md:text-base font-bold " href="#content{{$album->id}}">{{$album->name}}</a>
                                     </li>
-                                    <li class="text-center p-2  border border-dgreen text-dgreen"><a
-                                            class="text-sm md:text-base  font-bold" href="#vacation">VACATION</a></li>
-                                    <li class="text-center p-2  border border-dgreen text-dgreen"><a
-                                            class="text-sm md:text-base font-bold " href="#event">EVENTS</a></li>
-                                    <li class="text-center p-2  border border-dgreen text-dgreen"><a
-                                            class="text-sm md:text-base font-bold " href="#seminer">SEMINER</a></li>
-                                    <li class="text-center p-2  border border-dgreen text-dgreen"><a
-                                            class="text-sm md:text-base font-bold " href="#awards">AWARDS</a></li>
+                                    @empty
+                                    <P>No album added.</P>
+                                    @endforelse
                                 </ul>
                             </div>
                             <!-- END tabs-nav -->
                             <div id="tabs-content">
-                                <div id="ouroffice" class="tab-content">
+                                @forelse ($albums as $album)
+
+                                <div id="content{{$album->id}}" class="tab-content">
                                     <div class=" mt-7">
                                         <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-5">
+                                            @forelse ($album->photos as $photo)
                                             <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
+                                                <img class=" rounded-md w-full" src="{{asset($photo->cover)}}" alt="">
                                             </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
+                                            @empty
+                                            <p>No image found in this album</p>
+                                            @endforelse
                                         </div>
                                         <div class=" flex justify-center mt-6 md:mt-12">
                                             <a href=""
@@ -105,246 +61,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="vacation" class="tab-content">
-                                    <div class=" mt-7">
-                                        <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-2">
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                        </div>
-                                        <div class=" flex justify-center mt-6 md:mt-12">
-                                            <a href=""
-                                                class="load-more text-white text-base font-bold bg-nblue py-2.5 px-4 rounded-md">VIEW
-                                                MORE
-                                                SERVICE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="event" class="tab-content">
-                                    <div class=" mt-7">
-                                        <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-2">
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                        </div>
-                                        <div class=" flex justify-center mt-6 md:mt-12">
-                                            <a href=""
-                                                class="load-more text-white text-base font-bold bg-nblue py-2.5 px-4 rounded-md">VIEW
-                                                MORE
-                                                SERVICE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="seminer" class="tab-content">
-                                    <div class=" mt-7">
-                                        <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-2">
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                        </div>
-                                        <div class=" flex justify-center mt-6 md:mt-12">
-                                            <a href=""
-                                                class="load-more text-white text-base font-bold bg-nblue py-2.5 px-4 rounded-md">VIEW
-                                                MORE
-                                                SERVICE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="awards" class="tab-content">
-                                    <div class=" mt-7">
-                                        <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-2">
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g1.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g2.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g3.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g4.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g5.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g6.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g7.jpg" alt="gellary">
-                                            </div>
-                                            <div class="  service_box">
-                                                <img class=" rounded-md w-full" src="./img/g8.jpg" alt="gellary">
-                                            </div>
-                                        </div>
-                                        <div class=" flex justify-center mt-6 md:mt-12">
-                                            <a href=""
-                                                class="load-more text-white text-base font-bold bg-nblue py-2.5 px-4 rounded-md">VIEW
-                                                MORE
-                                                SERVICE</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty
+
+                                @endforelse
                             </div>
                             <!-- END tabs-content -->
                         </div>

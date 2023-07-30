@@ -6,15 +6,8 @@
                 {{ __('All Album') }}
             </x-nav-link>
             <x-nav-link :href="route('albums.create')" :active="request()->routeIs('albums.create')">
-                {{ __('New Album') }}
+                {{ __('Add Photo To Album') }}
             </x-nav-link>
-            <x-nav-link :href="route('courses.create')" :active="request()->routeIs('courses.create')">
-                {{ __('All Photos') }}
-            </x-nav-link>
-            <x-nav-link :href="route('batches.index')" :active="request()->routeIs('batches.index')">
-                {{ __('Add Photo To The Album') }}
-            </x-nav-link>
-
         </div>
     </x-slot>
 
@@ -38,7 +31,7 @@
 
                     <div class="flex items-center justify-end mt-4">
 
-                        <x-primary-button class="ml-4" onclick="formsubmit()">
+                        <x-primary-button class="ml-4" >
                             {{ __('Create Album') }}
                         </x-primary-button>
                     </div>
@@ -93,7 +86,7 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex"><a href="${BASE_URL}albums/show/${data.id}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="albumDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
+                            return `<div class="flex"><a href="${BASE_URL}albums/${data.id}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="albumDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
                         }
                     }
                 ]

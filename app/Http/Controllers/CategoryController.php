@@ -88,6 +88,6 @@ class CategoryController extends Controller
 
         // $product = Product::find($id);
         // $product->delete();
-        return response()->json(['status' => 'success', 'message' => 'Product deleted successfully!'], 200);
+        return response()->json(['status' => 'success', 'message' => 'Category deleted successfully!'], 200);
     }
 }

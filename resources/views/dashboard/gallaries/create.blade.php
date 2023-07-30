@@ -9,12 +9,6 @@
                 {{ __('All Album') }}
             </x-nav-link>
             <x-nav-link :href="route('albums.create')" :active="request()->routeIs('albums.create')">
-                {{ __('New Album') }}
-            </x-nav-link>
-            <x-nav-link :href="route('courses.create')" :active="request()->routeIs('courses.create')">
-                {{ __('All Photos') }}
-            </x-nav-link>
-            <x-nav-link :href="route('batches.index')" :active="request()->routeIs('batches.index')">
                 {{ __('Add Photo To Album') }}
             </x-nav-link>
         </div>
@@ -22,28 +16,27 @@
 
     <div class="p-6">
         <div class="p-6 bg-white rounded-md">
-            <h1 class="text-xl mb-1">New Album Information</h1>
-            <p>(<span class="text-red-500 mb-4">*</span>) marked fields are required.</p>
+            <h1 class="text-xl mb-4">New Album Information</h1>
 
-            <form method="POST" action="{{ route('albums.store') }}" id="course-store" enctype="multipart/form-data" >
+            <form method="POST" action="{{ route('photos.store') }}" id="course-store" enctype="multipart/form-data" >
                 @csrf
                 <div class="">
-                    <!-- Name -->
+                    {{-- Category --}}
                     <div class="">
-                        <x-input-label for="name" :value="__('Name')" />
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
-                            :value="old('name')" required />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <x-input-label for="album_id" :value="__('Album')" />
+
+                        <x-select-input id="album_id" name="album_id" required>
+                            @foreach ($albums as $album)
+                                <option value="{{ $album->id }}" class="capitalize">{{ $album->name }}</option>
+                            @endforeach
+                        </x-select-input>
                     </div>
-
-                    <hr class="my-4">
-
 
                     <!-- cover -->
                     <div class="">
                         <x-input-label for="cover" :value="__('Photos')" />
                         <x-text-input id="cover" class="block mt-1 w-full file:mr-5 file:mb-[2px] file:py-2 file:px-2 file:border-0 file:font-jost file:uppercase  file:text-white file:bg-dgreen" type="file" name="cover"
-                            :value="old('cover')" required multiple="true"/>
+                            :value="old('cover')" required />
                         <x-input-error :messages="$errors->get('cover')" class="mt-2" />
                     </div>
 

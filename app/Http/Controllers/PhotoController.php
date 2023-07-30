@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
+use App\Models\Album;
 use App\Http\Requests\StorePhotoRequest;
 use App\Http\Requests\UpdatePhotoRequest;
 
@@ -21,7 +22,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        $albums = Album::all();
+        return view('dashboard.gallaries.create', compact('albums'));
     }
 
     /**
@@ -29,7 +31,20 @@ class PhotoController extends Controller
      */
     public function store(StorePhotoRequest $request)
     {
-        //
+        // return $request;
+        $photo = new Photo;
+        if ($request->file('cover')) {
+            $thumbnail = $request->file('cover');
+            $image_full_name = time().'_'.$photo->id.$request->album_id.'.'.$thumbnail->getClientOriginalExtension();
+            $upload_path = 'images/frontimages/album/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $thumbnail->move($upload_path, $image_full_name);
+            $photo->cover = $image_url;
+        }
+        $photo->album_id = $request->album_id;
+        $photo->save();
+
+        return redirect()->route('albums.show', $request->album_id);
     }
 
     /**
@@ -61,6 +76,7 @@ class PhotoController extends Controller
      */
     public function destroy(Photo $photo)
     {
-        //
+        $photo->delete();
+        return redirect()->back();
     }
 }

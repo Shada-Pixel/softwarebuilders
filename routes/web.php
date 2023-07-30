@@ -115,8 +115,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [AlbumController::class, 'index'])->name('albums.index');
         Route::get('/create', [AlbumController::class, 'create'])->name('albums.create');
         Route::post('/store', [AlbumController::class, 'store'])->name('albums.store');
-        // Route::get('/show/{quotation}', [AlbumController::class, 'show'])->name('albums.show');
-        // Route::delete('/delete/{quotation}', [AlbumController::class, 'destroy'])->name('albums.destroy');
+        Route::delete('/{album}', [AlbumController::class, 'destroy'])->name('albums.destroy');
+        Route::get('/{album}', [AlbumController::class, 'show'])->name('albums.show');
+        Route::get('/allphotos', [AlbumController::class, 'allphotos'])->name('albums.allphotos');
     });
 
     // News letters

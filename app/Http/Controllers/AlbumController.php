@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreAlbumRequest;
@@ -27,7 +28,8 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('dashboard.gallaries.create');
+        $albums = Album::all();
+        return view('dashboard.gallaries.create', compact('albums'));
     }
 
     /**
@@ -40,23 +42,7 @@ class AlbumController extends Controller
         $album->name = $request->name;
         $album->save();
 
-        foreach ($request->cover as $photo) {
-            # code...
-            $photo = new Photo;
 
-            // course cover
-            if ($request->file('cover')) {
-                $thumbnail = $request->file('cover');
-                $image_full_name = time().'_'.$photo->id.'.'.$thumbnail->getClientOriginalExtension();
-                $upload_path = 'images/frontimages/courses/';
-                $image_url = $upload_path.$image_full_name;
-                $success = $thumbnail->move($upload_path, $image_full_name);
-                $photo->cover = $image_url;
-            }
-
-            $photo->album_id = $album->id;
-            $photo->save();
-        }
 
         return redirect()->route('albums.index');
     }
@@ -66,7 +52,17 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        //
+        return view('dashboard.gallaries.show',compact('album'));
+    }
+
+
+    /**
+     * Display the specified resource.
+     */
+    public function allphotos()
+    {
+        $photos = Photo::all();
+        return view('dashboard.gallaries.allphotos',compact('photos'));
     }
 
     /**
@@ -90,6 +86,7 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album->delete();
+        return response()->json(['status' => 'success', 'message' => 'Album deleted successfully!'], 200);
     }
 }
