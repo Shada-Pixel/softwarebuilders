@@ -12,22 +12,34 @@
     </x-slot>
 
     <div class="p-6">
-        <div class="bg-white rounded-md shadow p-6">
-            <h1 class="font-bold text-2xl">{{$category->name}}</h1>
+        <div class="bg-white rounded-md shadow p-6 flex justify-between items-center">
+            <div class="">
+
+                <h1 class="font-bold text-2xl">{{$quotation->name}}</h1>
+                <p>Email: {{$quotation->email}}</p>
+                <p>Phone: {{$quotation->phone}}</p>
+            </div>
+            <div class="">
+                <h2 class="font-bold text-2xl text-dgreen">{{$quotation->service}}</h2>
+            </div>
         </div>
     </div>
 
     <div class="p-6 pt-0">
         <div class="bg-white rounded-md shadow p-6">
-            @foreach ($category->galleries as $gallery)
+            <div class="flex justify-between items-center">
 
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 mb-6 gap-2">
-                @foreach ($gallery->media as $item)
-                <img src="{{$item->getUrl()}}" alt="Image not Found" srcset="">
-                @endforeach
+                <h2 class="font-bold text-xl text-dgreen">Project Details</h2>
+                @if ($quotation->attachment)
+                <form action="{{route('fileDownload')}}" method="get">
+                    @csrf
+                    <input type="hidden" name="file_url" value="{{$quotation->attachment}}">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-nblue rounded border border-transparent font-semibold text-base text-white uppercase tracking-widest hover:bg-dgreen focus:bg-dgreen active:bg-dgreen focus:outline-none focus:ring-none transition ease-in-out duration-150"><span class="iconify" data-icon="line-md:download-loop"></span></button>
+                </form>
+                @endif
             </div>
-            @endforeach
+            <hr class="my-4">
+            <p>{!!$quotation->message!!}</p>
         </div>
     </div>
 

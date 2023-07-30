@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\UpdateAlbumRequest;
 
@@ -11,9 +13,13 @@ class AlbumController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->ajax()) {
+            return Datatables::of( Album::query())->addIndexColumn()->make(true);
+        }
+
+        return view('dashboard.gallaries.index');
     }
 
     /**
@@ -21,7 +27,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.gallaries.create');
     }
 
     /**
@@ -29,7 +35,30 @@ class AlbumController extends Controller
      */
     public function store(StoreAlbumRequest $request)
     {
-        //
+
+        $album = new Album;
+        $album->name = $request->name;
+        $album->save();
+
+        foreach ($request->cover as $photo) {
+            # code...
+            $photo = new Photo;
+
+            // course cover
+            if ($request->file('cover')) {
+                $thumbnail = $request->file('cover');
+                $image_full_name = time().'_'.$photo->id.'.'.$thumbnail->getClientOriginalExtension();
+                $upload_path = 'images/frontimages/courses/';
+                $image_url = $upload_path.$image_full_name;
+                $success = $thumbnail->move($upload_path, $image_full_name);
+                $photo->cover = $image_url;
+            }
+
+            $photo->album_id = $album->id;
+            $photo->save();
+        }
+
+        return redirect()->route('albums.index');
     }
 
     /**

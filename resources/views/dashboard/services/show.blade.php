@@ -56,13 +56,13 @@
     {{-- Service quotation popup --}}
     <div class="hidden w-screen min-h-screen bg-lgreen fixed top-0 right-0 z-[100] sm:py-24" id="servicequotepop">
         <div class="max-w-4xl mx-auto bg-white rounded p-6">
-            <div class="flex justify-between" id="servicedetailsinpop">
-                <h2></h2>
+            <div class="flex justify-between mb-4" id="servicedetailsinpop">
+                <h2 class="text-2xl font-semibold text-dgreen"></h2>
                 <div class="bg-lgreen w-6 h-6 text-dgreen rounded hover:bg-dgreen hover:text-white transition ease-in-out duration-150" id="serqupopclose">
                     <span class="iconify text-2xl" data-icon="iconoir:cancel"></span>
                 </div>
             </div>
-            <form action="{{ route('quotations.store') }}" method="post">
+            <form action="{{ route('quotations.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="grid grid-cols-2 gap-5">
@@ -107,8 +107,8 @@
                         <x-input-error :messages="$errors->get('attachment')" class="mt-2" />
                     </div>
 
-                    <input type="hidden" name="servicename">
-                    <input type="hidden" name="servseid">
+                    <input type="hidden" name="servicename" id="servicename">
+                    <input type="hidden" name="servseid" id="servseid">
 
                 </div>
                 <div class="flex items-center justify-end col-span-2 mt-4">
@@ -131,23 +131,14 @@
                 $('#course-details-page ul li').addClass('text-base text-nblue list-disc mb-2');
             });
 
-
-
             $('button#gqtbtn').click(function (e) {
                 e.preventDefault();
                 var qseid = $('input#oserviceid').val();
                 var qsename = $('input#oservicename').val();
-
-
-                $('#servicequotepop #servicedetailsinpop h2').val(qsename);
+                $('#servicequotepop #servicedetailsinpop h2').html(qsename);
                 $('input#servicename').val(qsename);
                 $('input#servseid').val(qseid);
                 $('#servicequotepop').removeClass('hidden');
-
-
-
-                console.log(qseid+qsename);
-
             });
 
             $('#serqupopclose').click(function (e) {

@@ -82,4 +82,8 @@ class HomeController extends Controller
             return response()->json(['status' => 'success', 'message' => $msg]);
         }
     }
+
+
+
+    
 }

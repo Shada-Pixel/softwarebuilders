@@ -44,7 +44,9 @@ class CourseController extends Controller
     public function store(StoreCourseRequest $request)
     {
 
-        
+            
+
+
         // return $request;
         $course = new Course;
         $course->name = $request->name;

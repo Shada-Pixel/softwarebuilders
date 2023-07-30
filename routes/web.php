@@ -107,8 +107,17 @@ Route::middleware('auth')->group(function () {
     Route::resource('subscribers', SubscriberController::class);
 
     Route::resource('services', ServiceController::class);
-    Route::resource('albums', AlbumController::class);
     Route::resource('photos', PhotoController::class);
+
+
+    // Album
+    Route::group(['prefix' => 'albums'], function () {
+        Route::get('/', [AlbumController::class, 'index'])->name('albums.index');
+        Route::get('/create', [AlbumController::class, 'create'])->name('albums.create');
+        Route::post('/store', [AlbumController::class, 'store'])->name('albums.store');
+        // Route::get('/show/{quotation}', [AlbumController::class, 'show'])->name('albums.show');
+        // Route::delete('/delete/{quotation}', [AlbumController::class, 'destroy'])->name('albums.destroy');
+    });
 
     // News letters
     Route::group(['prefix' => 'newsletters'], function () {
@@ -136,6 +145,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/{quotation}', [QuotationController::class, 'show'])->name('quotations.show');
         Route::post('/store', [QuotationController::class, 'store'])->name('quotations.store');
         Route::delete('/delete/{quotation}', [QuotationController::class, 'destroy'])->name('quotations.destroy');
+        Route::get('fileDownload', [QuotationController::class, 'fileDownload'])->name('fileDownload');
+
     });
 
 });

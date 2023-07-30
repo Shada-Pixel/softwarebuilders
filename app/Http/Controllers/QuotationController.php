@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quotation;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreQuotationRequest;
 use App\Http\Requests\UpdateQuotationRequest;
 
@@ -49,103 +51,57 @@ class QuotationController extends Controller
 
 
 
-
-
-    public function replay(Request $request)
-    {
-
-        // return $request;
-        $sender = Query::find($request->sender);
-        $msg = $request->message;
-        try{
-            $sendmail =    Mail::to($sender->email)->send(new QueryMail($msg));
-        }catch (\Exception $exception){}
-
-        // return response()->json(['status' => 'success', 'message' => 'Replied successfylly !']);
-        return redirect()->route('quaries.all');
-
-    }
-
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreQueryRequest  $request
+     * @param  \App\Http\Requests\StoreQuotationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreQueryRequest $request)
+    public function store(StoreQuotationRequest $request)
     {
+        $quotation = new Quotation;
+        $quotation->name = $request->name;
+        $quotation->email = $request->email;
+        $quotation->service = $request->servicename;
+        $quotation->message = $request->message;
+        $quotation->service_id = $request->servseid;
+        $quotation->phone = $request->phone;
 
-        $subscribe = Query::create([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'message' => $request->message,
-        ]);
-
-        $msg = Setting::where('property','contactxt')->first()->value;
-
-        if ($subscribe) {
-            try{
-                $sendmail =    Mail::to($subscribe->email)->send(new QueryMail($msg));
-            }catch (\Exception $exception){}
-
-            return response()->json(['status' => 'success', 'message' => 'Thanks for contucting us. We wil get to you soon.']);
-        }else{
-            return response()->json(['status' => 'error', 'message' => 'Something wrong !']);
+        // course cover
+        if ($request->file('attachment')) {
+            $thumbnail = $request->file('attachment');
+            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$quotation->name).'.'.$thumbnail->getClientOriginalExtension();
+            $upload_path = 'images/frontimages/quotation/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $thumbnail->move($upload_path, $image_full_name);
+            $quotation->attachment = $image_url;
         }
+
+	    $quotation->save();
+
+        $service = Service::find($request->servseid);
+        $latestservices = Service::latest()->take(2)->get();
+        return view('dashboard.services.show',compact('service','latestservices'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Query  $query
-     * @return \Illuminate\Http\Response
-     */
-    public function read (Query $query)
-    {
-        if ($query->status == 'unreaded') {
-            $query->status = 'readed' ;
-            $query->update();
-        }
-        return view('dashboard.quaries.read',compact('query'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Query  $query
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Query $query)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateQueryRequest  $request
-     * @param  \App\Models\Query  $query
-     * @return \Illuminate\Http\Response
-     */
-    public function toggle(UpdateQueryRequest $request, $id)
-    {
-        $query = Query::find($id);
-        $query->status = $request->updateStatus;
-        $query->update();
-        return response()->json(['status'=>'success','message'=>'Message mark as '.(($request->updateStatus == 'unreaded' ?'readed':'unreaded')).' !']);
-    }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Query  $query
+     * @param  \App\Models\Quotation  $query
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $category = Query::find($id);
+        $category = Quotation::find($id);
         $category->delete();
         return response()->json(['status' => 'success', 'message' => 'Message deleted successfylly !']);
+    }
+
+
+    public function fileDownload(Request $request)
+    {
+        return response()->download($request->file_url);
     }
 }

@@ -11,7 +11,7 @@
     <div class="p-6">
         <div class="p-6 bg-white rounded-md">
 
-            <table id="quaryTable" class="display stripe" style="width:100%">
+            <table id="quotationTable" class="display stripe" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -29,10 +29,10 @@
 
     <x-slot name="script">
         <script>
-            var datatablelist = $('#quaryTable').DataTable({
+            var datatablelist = $('#quotationTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{!! route('quaries.all') !!}",
+                ajax: "{!! route('quotations.all') !!}",
                 columns: [{
                         "render": function(data, type, full, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
@@ -53,12 +53,10 @@
                     {
                         data: null,
                         render: function (data) {
-                            if (data.status == 'unreaded'){
-                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1"><span class="iconify" data-icon="ic:outline-email"></span></span>';
-                            }else if(data.status == 'readed'){
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1"><span class="iconify" data-icon="mdi:email-open-outline"></span></span>';
-                            }else{
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Replied</span>';
+                            if (data.status == '1'){
+                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1">Unread</span>';
+                            }else {
+                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Readed</span>';
                             }
 
                             return statusLabels;

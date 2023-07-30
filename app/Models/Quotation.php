@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Quotation extends Model
 {
     use HasFactory;
+
+
+    protected $fillable = [
+        'status',
+        'name',
+        'email',
+        'phone',
+        'service',
+        'message',
+        'attachment',
+        'service_id',
+        'status'
+    ];
 }

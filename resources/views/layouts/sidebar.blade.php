@@ -46,7 +46,7 @@
         <span class="iconify" data-icon="solar:gallery-linear"></span>
         <p class="sidelinktext">Gallery</p>
     </x-sidenav-link>
-    <hr class="border border-nblue my-1">
+
 
     <x-sidenav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">
         <span class="iconify" data-icon="mdi:user-details"></span></span>
@@ -60,6 +60,7 @@
         <span class="iconify" data-icon="octicon:quote-16"></span></span>
         <p class="sidelinktext">Quotations</p>
     </x-sidenav-link>
+    <hr class="border border-nblue my-1">
 
     <x-sidenav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
         <span class="iconify" data-icon="majesticons:user-line"></span>
