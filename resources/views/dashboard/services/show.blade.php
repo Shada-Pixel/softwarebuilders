@@ -6,6 +6,8 @@
                 <div class=" sm:w-2/4 mb-4 sm:mb-0">
                     <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">
                         {{ $service->title }}</h2>
+                        <input type="hidden" id="oserviceid" name="oserviceid" value="{{ $service->id }}">
+                        <input type="hidden" id="oservicename" name="oservicename" value="{{ $service->title }}">
                 </div>
                 <div class="sm:grid sm:grid-cols-12 gap-5 sm:mt-6">
                     <div class=" col-span-8 ">
@@ -26,13 +28,13 @@
                         @role('admin')
                             <div class=" border border-dgreen rounded-md p-5 mb-4">
                                 <a class=" text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center"
-                                    href="{{ route('services.edit', $service->id) }}">Edit This Course</a>
+                                    href="{{ route('services.edit', $service->id) }}">Edit This Service</a>
                             </div>
                         @endrole
 
                         <div class=" border border-dgreen rounded-md p-5">
                             <button type="submit"
-                                class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">Get
+                                class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center" id="gqtbtn">Get
                                 Quatation</button>
                         </div>
 
@@ -51,12 +53,12 @@
         </div>
     </section>
 
-
-    <div class="w-screen min-h-screen bg-lgreen fixed top-0 right-0 z-[100] sm:py-24" id="servicequotepop">
+    {{-- Service quotation popup --}}
+    <div class="hidden w-screen min-h-screen bg-lgreen fixed top-0 right-0 z-[100] sm:py-24" id="servicequotepop">
         <div class="max-w-4xl mx-auto bg-white rounded p-6">
-            <div class="flex justify-between" id="servicename">
+            <div class="flex justify-between" id="servicedetailsinpop">
                 <h2></h2>
-                <div class="bg-lgreen w-6 h-6 text-dgreen rounded hover:bg-dgreen hover:text-white transition ease-in-out duration-150">
+                <div class="bg-lgreen w-6 h-6 text-dgreen rounded hover:bg-dgreen hover:text-white transition ease-in-out duration-150" id="serqupopclose">
                     <span class="iconify text-2xl" data-icon="iconoir:cancel"></span>
                 </div>
             </div>
@@ -127,6 +129,30 @@
                 $('#course-details-page h2').addClass('text-lg text-dgreen font-bold');
                 $('#course-details-page ul').addClass('pl-4 list-disc');
                 $('#course-details-page ul li').addClass('text-base text-nblue list-disc mb-2');
+            });
+
+
+
+            $('button#gqtbtn').click(function (e) {
+                e.preventDefault();
+                var qseid = $('input#oserviceid').val();
+                var qsename = $('input#oservicename').val();
+
+
+                $('#servicequotepop #servicedetailsinpop h2').val(qsename);
+                $('input#servicename').val(qsename);
+                $('input#servseid').val(qseid);
+                $('#servicequotepop').removeClass('hidden');
+
+
+
+                console.log(qseid+qsename);
+
+            });
+
+            $('#serqupopclose').click(function (e) {
+                e.preventDefault();
+                $('#servicequotepop').addClass('hidden');
             });
         </script>
     </x-slot>

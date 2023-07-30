@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('pp')->default('images/avatar.svg');
+            $table->string('pp')->nullable();
             $table->string('designation')->nullable();
             $table->longText('biography')->nullable();
             $table->timestamp('email_verified_at')->nullable();
