@@ -49,8 +49,8 @@
                 </div>
 
                 {{-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div> --}}
+                <div class="swiper-button-prev"></div> --}}
+                <div class="swiper-pagination"></div>
 
             </div>
     </section>
@@ -125,8 +125,7 @@
                                             <h2 class=" text-lg font-bold  text-nblue">{{$course->name}}</h2>
                                             <p class="text-sm font-normal mt-2">{{$course->instructor->name}}</p>
                                             <div class=" flex justify-end">
-                                                <a href="{{route('courses.show',$course->id)}}" class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
-                                                    Course</a>
+                                                <a href="{{route('courses.show',$course->id)}}" class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See Course</a>
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +140,7 @@
                     </div>
 
                     <div class=" flex justify-center mt-10 lg:mt-14 pb-3">
-                        <a href="course.html"
+                        <a href="{{route('cource')}}"
                             class=" text-base font-bold text-nblue hover:text-white bg-white hover:bg-dgreen px-5 py-2.5 rounded-md tracking-wider">
                             SEE ALL COURSES
                         </a>

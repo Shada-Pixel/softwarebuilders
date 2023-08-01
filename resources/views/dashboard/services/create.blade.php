@@ -16,12 +16,12 @@
 
     <div class="p-6">
         <div class="p-6 bg-white rounded-md">
-            <h1 class="text-xl mb-1">New Course Information</h1>
+            <h1 class="text-xl mb-1">New Service Information</h1>
             <p>(<span class="text-red-500 mb-4">*</span>) marked fields are required.</p>
 
             <form method="POST" action="{{ route('services.store') }}" id="service-store" enctype="multipart/form-data" >
                 @csrf
-                
+
                 <div class="grid grid-cols-2 gap-5">
                     <!-- Name -->
                     <div class="col-span-2">

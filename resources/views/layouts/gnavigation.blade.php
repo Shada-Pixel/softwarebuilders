@@ -4,7 +4,7 @@
         {{-- logo --}}
         <div class="shrink-0 flex items-center">
             <a href="{{ route('home') }}">
-                <x-application-logo class="block h-10 w-auto fill-current" />
+                <x-application-logo class="block h-10 w-auto fill-current text-nblue" />
             </a>
         </div>
 
@@ -45,9 +45,11 @@
                                 <x-dropdown-link :href="route('profile.dashboard')">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
+                                @role('admin')
                                 <x-dropdown-link :href="route('dashboard')">
                                     {{ __('Dashboard') }}
                                 </x-dropdown-link>
+                                @endrole
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

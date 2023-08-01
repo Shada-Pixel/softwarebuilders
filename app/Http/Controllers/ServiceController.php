@@ -81,7 +81,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('dashboard.services.edit', compact('service'));
     }
 
     /**
@@ -89,7 +89,42 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+        // return $request;
+        $service->title = $request->name;
+
+        // service cover
+        if ($request->file('cover')) {
+            // Delete old cover
+            if($service->cover) {
+                unlink($service->cover);
+            }
+            $thumbnail = $request->file('cover');
+            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$service->title).$service->id.'.'.$thumbnail->getClientOriginalExtension();
+            $upload_path = 'images/frontimages/services/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $thumbnail->move($upload_path, $image_full_name);
+            $service->cover = $image_url;
+        }
+
+        // service icon
+        if ($request->file('icon')) {
+            // Delete old cover
+            if($service->icon) {
+                unlink($service->icon);
+            }
+            $thumbnail = $request->file('icon');
+            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$service->title).$service->id.'.'.$thumbnail->getClientOriginalExtension();
+            $upload_path = 'images/frontimages/services/icon/';
+            $image_url = $upload_path.$image_full_name;
+            $success = $thumbnail->move($upload_path, $image_full_name);
+            $service->icon = $image_url;
+        }
+
+        $service->short_description = $request->short_description;
+        $service->description = $request->description;
+	    $service->update();
+
+        return redirect()->route('services.index')->withSuccess(__('Service created successfully.'));
     }
 
     /**
