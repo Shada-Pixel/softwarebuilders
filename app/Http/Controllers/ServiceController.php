@@ -124,7 +124,7 @@ class ServiceController extends Controller
         $service->description = $request->description;
 	    $service->update();
 
-        return redirect()->route('services.index')->withSuccess(__('Service created successfully.'));
+        return redirect()->route('services.index')->withSuccess(__('Service Updated successfully.'));
     }
 
     /**

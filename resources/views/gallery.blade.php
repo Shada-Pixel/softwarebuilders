@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section>
+    <section class="mt-16">
         <div class=" py-10 md:py-16 lg:py-24" style="background-image: url('./img/galllery.jpg');">
             <div class=" ">
                 <h2 class="text-3xl lg:text-7xl text-white font-bold uppercase text-center">Gallery</h2>
@@ -11,9 +11,9 @@
     <section>
         <div class=" bg-lgreen pt-10 pb-24 lg:pb-44 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
-                <div class="solution_text">
+                {{-- <div class="solution_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Our Gallery</p>
-                </div>
+                </div> --}}
                 <div class="">
                     <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase  my-4">Gallery
                     </h2>

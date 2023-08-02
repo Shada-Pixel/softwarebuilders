@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <!-- =====================Hero-section-start=========== -->
-    <section>
+    <section class="mt-16">
         <div class="">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -10,16 +10,16 @@
                             <div class="heroSlider-img" style="background-image: url({{asset('img/slider01.jpg')}});">
                                 <div class="max-w-7xl mx-auto">
                                     <h2
-                                        class="text-lg lg:text-5xl font-bold text-white uppercase text-center lg:text-left">
+                                        class="text-lg sm:text-5xl font-bold text-white uppercase text-center sm:text-left">
                                         Creative and Minimal
                                     </h2>
                                     <h2
-                                        class="text-xl lg:text-7xl font-bold text-white uppercase md:mt-4 text-center lg:text-left">
+                                        class="text-xl sm:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
                                         IT solutions
                                     </h2>
-                                    <div class="px-3 lg:px-0 lg:w-1/2 lg:mt-8">
+                                    <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
                                         <p
-                                            class="text-sm md:text-base text-white font-medium lg:font-bold text-center lg:text-left">
+                                            class="text-sm md:text-base text-white font-medium sm:font-bold text-center sm:text-left">
                                             Curabitur
                                             sed facilisis erat.
                                             Vestibulum
@@ -29,13 +29,13 @@
                                             lacus
                                             sed, mollis leo.</p>
                                     </div>
-                                    <div class="flex mt-10 justify-center lg:justify-start">
+                                    <div class="flex mt-10 justify-center sm:justify-start">
                                         <div class=" mr-5">
-                                            <a class="text-sm lg:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
+                                            <a class="text-sm sm:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
                                                 href="{{route('about')}}">ABOUT US</a>
                                         </div>
                                         <div class="">
-                                            <a class="text-sm lg:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
+                                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
                                                 href="{{route('cource')}}">SEE COURSES</a>
                                         </div>
                                     </div>
@@ -59,11 +59,11 @@
     <!-- ===============Service-Start=========== -->
     <section>
         <div class=" max-w-7xl mx-auto pt-10 pb-20 px-3 md:px-0">
-            <div class="solution_text">
+            {{-- <div class="solution_text">
                 <p class=" text-lg font-normal text-dgreen  text-center ">Our Solutions</p>
-            </div>
+            </div> --}}
             <div class="">
-                <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase my-4">Services</h2>
+                <h2 class=" text-2xl sm:text-4.5xl text-nblue font-bold text-center uppercase my-4">Services</h2>
                 <p class=" text-base font-normal text-center text-nblue">Curabitur sed facilisis erat. Vestibulum
                     pharetra
                     eros
@@ -71,7 +71,7 @@
                     on Duis a orci nunc. Suspendisse ac convallis sapien, quis commodo libero.</p>
             </div>
             <div class=" mt-7">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4 gap-3">
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-5">
                     @foreach ($services as $service)
                     @include('layouts.inc.service')
                     @endforeach
@@ -84,11 +84,11 @@
     <section>
         <div class=" bg-nblue pt-10 pb-20">
             <div class="max-w-7xl mx-auto">
-                <div class="skill_text">
+                {{-- <div class="skill_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Skill Development</p>
-                </div>
+                </div> --}}
                 <div class="">
-                    <h2 class=" text-2xl lg:text-4.5xl text-white font-bold text-center uppercase  my-4">COURSES</h2>
+                    <h2 class=" text-2xl sm:text-4.5xl text-white font-bold text-center uppercase  my-4">COURSES</h2>
                 </div>
                 <div class=" mt-10 px-3 xl:px-0">
                     <div class="swiper courseItemSwiper">
@@ -120,7 +120,7 @@
                             <div class="swiper-slide">
                                 <div class="">
                                     <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 lg:h-52 rounded-md" src="{{asset($course->cover)}}" alt="{{$course->name}}">
+                                        <img class=" w-full sm:h-36 sm:h-52 rounded-md" src="{{asset($course->cover)}}" alt="{{$course->name}}">
                                         <div class=" px-5 py-4">
                                             <h2 class=" text-lg font-bold  text-nblue">{{$course->name}}</h2>
                                             <p class="text-sm font-normal mt-2">{{$course->instructor->name}}</p>
@@ -139,7 +139,7 @@
                         <div class="swiper-button-prev"></div> --}}
                     </div>
 
-                    <div class=" flex justify-center mt-10 lg:mt-14 pb-3">
+                    <div class=" flex justify-center mt-10 sm:mt-14 pb-3">
                         <a href="{{route('cource')}}"
                             class=" text-base font-bold text-nblue hover:text-white bg-white hover:bg-dgreen px-5 py-2.5 rounded-md tracking-wider">
                             SEE ALL COURSES
@@ -154,15 +154,15 @@
 
     <!-- =============AboutUs-start============== -->
     <section>
-        <div class=" bg-lgreen py-10 lg:py-20 ">
-            <div class="max-w-7xl mx-auto px-3 lg:px-0">
-                <div class=" grid lg:grid md:grid-cols-2 md:items-center lg:items-start gap-5 ">
+        <div class=" bg-lgreen py-10 sm:py-20 ">
+            <div class="max-w-7xl mx-auto px-3 sm:px-0">
+                <div class=" grid sm:grid md:grid-cols-2 md:items-center sm:items-start gap-5 ">
                     <div class="">
-                        <div class="about_line">
-                            <p class=" text-lg text-dgreen font-normal text-center lg:text-left">Get to know</p>
-                        </div>
+                        {{-- <div class="about_line">
+                            <p class=" text-lg text-dgreen font-normal text-center sm:text-left">Get to know</p>
+                        </div> --}}
                         <h2
-                            class="text-2xl lg:text-4.5xl text-nblue font-bold uppercase text-center lg:text-left  my-4">
+                            class="text-2xl sm:text-4.5xl text-nblue font-bold uppercase text-center sm:text-left  my-4">
                             About us</h2>
                         <div class="mt-2">
                             <p class=" text-base font-normal text-nblue text-justify">Lorem Ipsum is simply dummy text
@@ -180,13 +180,13 @@
                                 suffered alteration in some form,
                                 by injected humour, or randomised words which don't look even slightly believable.</p>
                         </div>
-                        <div class="bg-dgreen px-6 py-4 lg:px-10 lg:py-7 rounded-xl lg:rounded-3xl mt-8 lg:mt-12">
+                        <div class="bg-dgreen px-6 py-4 sm:px-10 sm:py-7 rounded-xl sm:rounded-3xl mt-8 sm:mt-12">
                             <div class=" flex justify-between">
                                 <div class="">
-                                    <h2 class=" text-xl lg:text-3xl font-bold text-white ">Software Builders Ltd.</h2>
+                                    <h2 class=" text-xl sm:text-3xl font-bold text-white ">Software Builders Ltd.</h2>
                                 </div>
                                 <div class="">
-                                    <h2 class="text-xl lg:text-3xl font-bold text-white">#1</h2>
+                                    <h2 class="text-xl sm:text-3xl font-bold text-white">#1</h2>
                                 </div>
                             </div>
                             <p class=" text-base text-white mt-2">Best Creative IT Agency And Solutions
@@ -229,8 +229,8 @@
 
                 </div>
 
-                <div class="marquee bg-white py-4 lg:py-10 rounded-lg lg:rounded-3xl mt-40">
-                    <div class="marquee-content px-6 lg:px-14 ">
+                <div class="marquee bg-white py-4 sm:py-10 rounded-lg sm:rounded-3xl mt-40">
+                    <div class="marquee-content px-6 sm:px-14 ">
                         <div class="marquee-item">
                             <img src="./img/Aven.png" alt="">
                         </div>
@@ -304,11 +304,11 @@
     <section>
         <div class=" bg-nblue pt-10 pb-20 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
-                <div class="solution_text">
+                {{-- <div class="solution_text">
                     <p class="text-lg font-normal text-dgreen  text-center ">Testimonial</p>
-                </div>
+                </div> --}}
                 <div class="">
-                    <h2 class="text-2xl lg:text-4.5xl text-white font-bold text-center uppercase  my-4">Client says
+                    <h2 class="text-2xl sm:text-4.5xl text-white font-bold text-center uppercase  my-4">Client says
                         about us</h2>
                     <p class=" text-base font-normal text-center text-white">Curabitur sed facilisis erat. Vestibulum
                         pharetra
@@ -334,7 +334,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -349,7 +349,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -374,7 +374,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -389,7 +389,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -414,7 +414,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -429,7 +429,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -454,7 +454,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -469,7 +469,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -494,7 +494,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -509,7 +509,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -534,7 +534,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -549,7 +549,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -574,7 +574,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -589,7 +589,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -614,7 +614,7 @@
                                                 Officer</p>
                                         </div>
                                     </div>
-                                    <div class="mt-3 lg:mt-0 flex justify-center xl:justify-start">
+                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
                                         <ul class=" flex">
                                             <li class="text-xl text-dorange mr-1"><iconify-icon
                                                     icon="ic:baseline-star"></iconify-icon></li>
@@ -629,7 +629,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="mt-2 lg:mt-5">
+                                <div class="mt-2 sm:mt-5">
                                     <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
                                         simply random text. It has roots in a piece of classical Latin literature from
                                         45 BC, making it over 2000 years old. There are many variations of passages of
@@ -648,13 +648,13 @@
     <!-- ======================Testimonial End==================== -->
     <!-- ==============Team start========== -->
     <section>
-        <div class=" bg-lgreen pt-10 pb-24 lg:pb-44 ">
+        <div class=" bg-lgreen pt-10 pb-24 sm:pb-44 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
-                <div class="solution_text">
+                {{-- <div class="solution_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Our Team</p>
-                </div>
+                </div> --}}
                 <div class="">
-                    <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase  my-4">meet our team
+                    <h2 class=" text-2xl sm:text-4.5xl text-nblue font-bold text-center uppercase  my-4">meet our team
                     </h2>
                     <p class=" text-base font-normal text-center text-nblue">Curabitur sed facilisis erat. Vestibulum
                         pharetra
@@ -670,7 +670,7 @@
                                     <img src="./img/team01.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg lg:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Managing Director</p>
                                 </div>
@@ -680,7 +680,7 @@
                                     <img src="./img/team02.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Tony S. Christian
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Tony S. Christian
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief Executive officer</p>
                                 </div>
@@ -690,7 +690,7 @@
                                     <img src="./img/team03.png" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Alice B. Mathis
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Alice B. Mathis
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief Technical officer</p>
                                 </div>
@@ -700,7 +700,7 @@
                                     <img src="./img/team04.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief marketing officer</p>
                                 </div>
@@ -710,7 +710,7 @@
                                     <img src="./img/team01.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Managing Director</p>
                                 </div>
@@ -720,7 +720,7 @@
                                     <img src="./img/team02.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Tony S. Christian
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Tony S. Christian
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief Executive officer</p>
                                 </div>
@@ -730,7 +730,7 @@
                                     <img src="./img/team03.png" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Alice B. Mathis
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Alice B. Mathis
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief Technical officer</p>
                                 </div>
@@ -740,7 +740,7 @@
                                     <img src="./img/team04.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief marketing officer</p>
                                 </div>

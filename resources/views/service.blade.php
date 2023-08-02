@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section>
+    <section class="mt-16">
         <div class=" py-10 md:py-16 lg:py-24" style="background-image: url('./img/about-hero.jpg');">
             <div class=" ">
                 <h2 class="text-3xl lg:text-7xl text-white font-bold uppercase text-center">Services</h2>
@@ -10,9 +10,9 @@
     <!-- ===============Service-Start=========== -->
     <section>
         <div class=" max-w-7xl mx-auto pt-10 pb-10 lg:pb-20 px-3 lg:px-0">
-            <div class="solution_text">
+            {{-- <div class="solution_text">
                 <p class=" text-lg font-normal text-dgreen  text-center ">Our Solutions</p>
-            </div>
+            </div> --}}
             <div class="">
                 <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase my-4">Services</h2>
                 <p class=" text-base font-normal text-center text-nblue">Curabitur sed facilisis erat. Vestibulum
@@ -43,9 +43,9 @@
     <section>
         <div class=" bg-lgreen pt-10 pb-24 lg:pb-44 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
-                <div class="solution_text">
+                {{-- <div class="solution_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Who we Are</p>
-                </div>
+                </div> --}}
                 <div class="">
                     <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase  my-4">Custom IT
                         solution
@@ -109,7 +109,7 @@
         </div>
     </section>
 
-    
+
     <!-- ==============Team start========== -->
 </x-guest-layout>
 

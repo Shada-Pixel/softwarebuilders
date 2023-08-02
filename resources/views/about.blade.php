@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <section>
+    <section class="mt-16">
         <div class="py-10 md:py-16 lg:py-24" style="background-image: url('./img/about-hero.jpg');">
             <div class=" ">
                 <h2 class="text-3xl lg:text-7xl text-white font-bold uppercase text-center">about us</h2>
@@ -15,9 +15,9 @@
             <div class="max-w-7xl mx-auto">
                 <div class="md:grid md:grid-cols-2 md:gap-10 md:items-center lg:items-start">
                     <div class="">
-                        <div class="aboutus_line">
+                        {{-- <div class="aboutus_line">
                             <p class=" text-lg text-dgreen font-normal text-center md:text-left">About Us</p>
-                        </div>
+                        </div> --}}
                         <h2
                             class="text-2xl lg:text-4.5xl text-nblue font-bold uppercase text-center md:text-left leading-8 lg:leading-10 my-4">
                             Product Development <br>
@@ -95,12 +95,11 @@
                         </div>
                     </div>
                     <div class="getknow-gap">
-                        <div class="getknow_about_us">
+                        {{-- <div class="getknow_about_us">
                             <p class=" text-lg text-dgreen font-normal text-center lg:text-left ">Get to
                                 know</p>
-                        </div>
-                        <h2
-                            class="text-2xl lg:text-4.5xl text-nblue font-bold uppercase text-center lg:text-left  my-4">
+                        </div> --}}
+                        <h2 class="text-2xl lg:text-4.5xl text-nblue font-bold uppercase text-center lg:text-left  mb-4">
                             About us</h2>
                         <div class="mt-2">
                             <p class=" text-base font-normal text-nblue text-justify">Lorem Ipsum is simply dummy text
@@ -206,9 +205,9 @@
     <section>
         <div class=" bg-white pt-10 pb-24 lg:pb-44 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
-                <div class="solution_text">
+                {{-- <div class="solution_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Our Team</p>
-                </div>
+                </div> --}}
                 <div class="">
                     <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase  my-4">meet our team
                     </h2>

@@ -1,6 +1,6 @@
 <x-guest-layout>
     <!-- =================Contact-Hero start======================= -->
-    <section>
+    <section class="mt-16">
         <div class="py-10 md:py-16 sm:py-24" style="background-image: url('./img/about-hero.jpg');">
             <div class=" ">
                 <h2 class="text-3xl sm:text-7xl text-white font-bold uppercase text-center">Contact</h2>

@@ -17,6 +17,21 @@ $(document).ready(function () {
             this.value = this.value.replace(/\D/g, '');
         }
     });
+
+    // Function to handle the scroll event
+    $(window).scroll(function () {
+        // Get the current scroll position
+        var scrollTop = $(window).scrollTop();
+
+        // Check if the user has scrolled down
+        if (scrollTop > 0) {
+            // Remove the class 'py-5' when scrolling down
+            $('#mainnavigation').removeClass('py-5');
+        } else {
+            // Add the class 'py-5' when scrolling to the top
+            $('#mainnavigation').addClass('py-5');
+        }
+    });
 });
 
 // ==============Nav-menu============

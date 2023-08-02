@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section>
+    <section class="mt-16">
         <div class="py-10 md:py-16 lg:py-24" style="background-image: url({{asset('img/course_hero.jpg')}});">
             <div class=" ">
                 <h2 class="text-3xl lg:text-7xl text-white font-bold uppercase text-center">Courses</h2>
