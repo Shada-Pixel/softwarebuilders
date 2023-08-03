@@ -19,8 +19,9 @@
             <h1 class="text-xl mb-1">'{{$service->title}}' Service Information</h1>
             <p>(<span class="text-red-500 mb-4">*</span>) marked fields are required.</p>
 
-            <form method="POST" action="{{ route('services.update') }}" id="service-store" enctype="multipart/form-data" >
+            <form method="POST" action="{{ route('services.update',$service->id) }}" id="service-store" enctype="multipart/form-data" >
                 @csrf
+                @method('PATCH')
 
                 <div class="grid grid-cols-2 gap-5">
                     <!-- Name -->

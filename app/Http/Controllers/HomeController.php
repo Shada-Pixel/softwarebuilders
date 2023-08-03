@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Subscriber;
 use App\Models\Course;
 use App\Models\Album;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Service;
 use Illuminate\View\View;
@@ -20,11 +21,23 @@ class HomeController extends Controller
         $categories = Category::all();
         $services = Service::where('home_page','1')->take(4)->get();
         $courses = Course::latest()->take(10)->get();
+
+
         return view('index',[
             'categories' => $categories,
             'services' => $services,
             'courses' => $courses
         ]);
+    }
+
+
+    // return to dashboard
+    function dashboard()
+    {
+
+        $coursqty = Course::count();
+        $userqty = User::count();
+        return view('dashboard',compact('coursqty','userqty'));
     }
 
     function about() { return view('about'); }

@@ -42,6 +42,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/subscribe','subscribe')->name('subscribe');
 });
 
+
+Route::get('hasan', function(){ return view ('index'); });
+
+
 // course show
 Route::group(['prefix' => 'courses'], function () {
     Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.show');
@@ -56,10 +60,11 @@ Route::group(['prefix' => 'quotations'], function () {
 Route::post('/contactUs/send', [QueryController::class, 'store'])->name('contsend');
 
 Route::middleware('auth')->group(function () {
+
+
+
     // Dashboard
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
 
     // Cart

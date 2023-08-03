@@ -25,10 +25,12 @@
     <script>
         let BASE_URL = {!! json_encode(url('/')) !!} + "/";
     </script>
+    
     <!-- Page Style -->
     @if (isset($headstyle))
         {{ $headstyle }}
     @endif
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

@@ -1,5 +1,9 @@
 <x-guest-layout>
 
+    <X-slot name="headstyle">
+        <link rel="stylesheet" href="{{ asset('owl/owl.carousel.min.css')}}">
+    </X-slot>
+
     <!-- =====================Hero-section-start=========== -->
     <section class="mt-16">
         <div class="">
@@ -752,4 +756,8 @@
         </div>
     </section>
     <!-- ==============Team start========== -->
+
+    <x-slot name="script">
+        <script src="{{asset('owl/owl.carousel.min.js')}}"></script>
+    </x-slot>
 </x-guest-layout>

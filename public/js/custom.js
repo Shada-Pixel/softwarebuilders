@@ -39,10 +39,6 @@ $(document).ready(function () {
     $('input[required], textarea[required], select[required]').each(function() {
         $(this).prev('label').append('<span class="text-red-500">*</span>');
     });
-
-
-
-
 });
 
 

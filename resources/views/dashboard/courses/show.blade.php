@@ -68,7 +68,12 @@
                             <div class="border border-dgreen rounded-md p-5 mt-4 ">
                                 <div class=" flex items-center justify-center sm:justify-start">
                                     <div class=" mr-4">
-                                        <img class=" w-16 h-16 rounded-full" src="{{asset($course->instructor->pp)}}" alt="">
+                                        {{-- <img class=" w-16 h-16 rounded-full" src="{{asset($course->instructor->pp)}}" alt=""> --}}
+                                        @if ($course->instructor->pp == null)
+                                            <img class=" w-16 h-16 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$course->instructor->name}}">
+                                        @else
+                                            <img class=" w-16 h-16 rounded-full" src="{{ asset($course->instructor->pp) }}" alt="{{$course->instructor->name}}">
+                                        @endif
                                     </div>
                                     <div class="">
                                         <p class=" text-base font-bold text-dgreen">{{$course->instructor->name}}</p>

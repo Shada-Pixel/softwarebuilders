@@ -10,7 +10,13 @@
         <div class="mt-2 flex justify-between items-end">
             <div class=" flex items-center">
                 <div class="mr-3">
-                    <img class=" w-14 h-14 rounded-full" src="{{asset($item->instructor->pp)}}" alt="">
+                    {{-- <img class=" w-14 h-14 rounded-full" src="{{asset($item->instructor->pp)}}" alt=""> --}}
+                    {{-- if user dont have picture --}}
+                    @if ($item->instructor->pp == null)
+                        <img class=" w-14 h-14 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$item->instructor->name}}">
+                    @else
+                        <img class=" w-14 h-14 rounded-full" src="{{ asset($item->instructor->pp) }}" alt="{{$item->instructor->name}}">
+                    @endif
                 </div>
                 <div class="">
                     <h2 class=" text-base text-nblue font-semibold">{{$item->instructor->name}}
