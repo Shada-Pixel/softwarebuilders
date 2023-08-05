@@ -3,7 +3,7 @@
     <div class=" p-6 border border-lgreen rounded-md">
         <div class="">
             <p class=" text-lg text-nblue font-semibold uppercase text-center md:text-left">WELCOME,
-                HUSSSAIN SABBIR</p>
+                {{$user->name}}</p>
         </div>
         <div class="mt-7">
             <div class="">
@@ -24,6 +24,7 @@
                             </div>
                         </x-side-link>
                     </li>
+                    @role('student')
                     <li class=" lg:border-b border-b-slate-400 sm:my-3 sm:pb-3">
                         <x-side-link :href="route('profile.ecources')"  :active="request()->routeIs('profile.ecources')">
                             <div class="flex items-center">
@@ -32,6 +33,8 @@
                             </div>
                         </x-side-link>
                     </li>
+                    @endrole
+                    @role('instructor')
                     <li class="sm:my-3">
                         <x-side-link :href="route('profile.mycource')"  :active="request()->routeIs('profile.mycource')">
                             <div class="flex items-center">
@@ -40,6 +43,7 @@
                             </div>
                         </x-side-link>
                     </li>
+                    @endrole
                     <h2 class=" text-base text-nblue lg:my-6 hidden sm:flex">USER</h2>
                     <li class=" lg:border-b border-b-slate-400 sm:my-3 sm:pb-3">
                         <x-side-link :href="route('profile.edit')"  :active="request()->routeIs('profile.edit')">

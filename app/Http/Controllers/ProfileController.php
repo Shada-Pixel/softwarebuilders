@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Course;
+use App\Models\Batch;
 use App\Models\User;
+use App\Models\EnrollmentItem;
 
 
 class ProfileController extends Controller
@@ -27,10 +29,42 @@ class ProfileController extends Controller
     /**
      * Display the user's profile dashboard.
      */
-    public function dashboard(Request $request): View
+    // : View
+    public function dashboard(Request $request) : View
     {
+        // Admin user
+        $students = User::role('student')->count();
+        $runningbatch = Batch::where('status','2')->count();
+        $upcommingbatche = Batch::where('status','1')->count();
+        $totalcourse = Course::count();
+
+
+        // Instructor
+        $mycourses = Course::where('instructor_id',$request->user()->id)->count();
+        $myactivecourses = Course::where('instructor_id',$request->user()->id)->where('status','3')->count();
+        $mypendingcourses = Course::where('instructor_id',$request->user()->id)->where('status','1')->count();
+
+        // Student
+        $enrolledcourses = EnrollmentItem::where('user_id',$request->user()->id)->count();
+        $activeenroll = EnrollmentItem::where('user_id',$request->user()->id)->where('status','2')->count();
+        $pendingenroll = EnrollmentItem::where('user_id',$request->user()->id)->where('status','1')->count();
+
         return view('profile.dashboard', [
             'user' => $request->user(),
+            // admin
+            'students' => $students,
+            'runningbatch' => $runningbatch,
+            'upcommingbatche' => $upcommingbatche,
+            'totalcourse' => $totalcourse,
+            // instructor
+            'mycourses' => $mycourses,
+            'myactivecourses' => $myactivecourses,
+            'mypendingcourses' => $mypendingcourses,
+
+            // student
+            'enrolledcourses' => $enrolledcourses,
+            'activeenroll' => $activeenroll,
+            'pendingenroll' => $pendingenroll,
         ]);
     }
 
@@ -39,12 +73,16 @@ class ProfileController extends Controller
      * Display the user's enrolled courses.
      */
     // : View
-    public function ecources(Request $request): View
+    public function ecources(Request $request)
     {
-        // $user = User::find($request->user()->id)->with('mycourses');
-        // return view('profile.ecources', compact('user'));
+        $enrolledcourses = $request->user()->encourses;
+        $aenrolledcourses = $request->user()->aencourses;
+        $penrolledcourses = $request->user()->pencourses;
         return view('profile.ecources', [
             'user' => $request->user(),
+            'enrolledcourses' => $enrolledcourses,
+            'aenrolledcourses' => $aenrolledcourses,
+            'penrolledcourses' => $penrolledcourses,
         ]);
     }
 

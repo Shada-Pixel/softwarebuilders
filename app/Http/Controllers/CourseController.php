@@ -44,7 +44,7 @@ class CourseController extends Controller
     public function store(StoreCourseRequest $request)
     {
 
-            
+
 
 
         // return $request;
@@ -83,6 +83,23 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         // return $course;
+        // if (Auth::user()) {
+        //     // return 'auth';
+        //     $ec = [];
+        //     $aenrolledcourses = Auth::user()->aencourses;
+        //     foreach ($aenrolledcourses as $enrollitem) {
+        //         array_push($enrollitem->course->id, $ec);
+        //     }
+
+        //     return $ec;
+        //     $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
+        //     return view('dashboard.courses.show',compact('course','mycartcourse'));
+        // }else{
+
+        //     $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
+        //     return view('dashboard.courses.show',compact('course','mycartcourse'));
+        // }
+
         $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
         return view('dashboard.courses.show',compact('course','mycartcourse'));
     }
@@ -102,8 +119,6 @@ class CourseController extends Controller
      */
     public function update(UpdateCourseRequest $request, Course $course)
     {
-        // return $request;
-
         $course->name = $request->name;
         $course->slug = $request->slug;
         $course->category_id = $request->category_id;

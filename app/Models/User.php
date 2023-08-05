@@ -61,4 +61,25 @@ class User extends Authenticatable
     {
         return $this->hasMany(Course::class, 'instructor_id', 'id');
     }
+
+    // /**
+    //  * Get all of the enrolled courses from the student
+    //  */
+    public function encourses()
+    {
+        return $this->hasMany(EnrollmentItem::class, 'user_id', 'id')
+            ->join('courses', 'enrollment_items.course_id', 'courses.id');
+    }
+
+    public function pencourses()
+    {
+        return $this->hasMany(EnrollmentItem::class, 'user_id', 'id')
+            ->join('courses', 'enrollment_items.course_id', 'courses.id')->where('enrollment_items.status','1');
+    }
+
+    public function aencourses()
+    {
+        return $this->hasMany(EnrollmentItem::class, 'user_id', 'id')
+            ->join('courses', 'enrollment_items.course_id', 'courses.id')->where('enrollment_items.status','2');
+    }
 }

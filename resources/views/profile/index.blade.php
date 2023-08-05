@@ -29,27 +29,17 @@
                                             </p>
                                         </div>
                                         <div class=" col-span-8">
-                                            <h2 class="text-base  text-nblue font-medium">February 25, 2025 6:01 am</h2>
+                                            <h2 class="text-base  text-nblue font-medium">{{ date('M-m-Y', strtotime($user->created_at)) }}</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-4 border-b pb-1 lg:pb-0 lg:border-none border-b-nblue">
                                     <div class="lg:grid lg:grid-cols-12 lg:gap-10">
                                         <div class=" col-span-4">
-                                            <p class="text-base  text-nblue font-bold lg:font-medium">First Name</p>
+                                            <p class="text-base  text-nblue font-bold lg:font-medium">Name</p>
                                         </div>
                                         <div class=" col-span-8">
-                                            <h2 class="text-base  text-nblue font-medium">Hussain</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4 border-b pb-1 lg:pb-0 lg:border-none border-b-nblue">
-                                    <div class="lg:grid lg:grid-cols-12 lg:gap-10">
-                                        <div class=" col-span-4">
-                                            <p class="text-base  text-nblue font-bold lg:font-medium">Last Name</p>
-                                        </div>
-                                        <div class=" col-span-8">
-                                            <h2 class="text-base  text-nblue font-medium">Sabbir</h2>
+                                            <h2 class="text-base  text-nblue font-medium">{{$user->name}}</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -59,27 +49,27 @@
                                             <p class="text-base  text-nblue font-bold lg:font-medium">Email</p>
                                         </div>
                                         <div class=" col-span-8">
-                                            <h2 class="text-base  text-nblue font-medium">example@gmail.com</h2>
+                                            <h2 class="text-base  text-nblue font-medium">{{$user->email}}</h2>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-4 border-b pb-1 lg:pb-0 lg:border-none border-b-nblue">
+                                {{-- <div class="mb-4 border-b pb-1 lg:pb-0 lg:border-none border-b-nblue">
                                     <div class="lg:grid lg:grid-cols-12 lg:gap-10">
                                         <div class=" col-span-4">
                                             <p class="text-base  text-nblue font-bold lg:font-medium">Phone Number</p>
                                         </div>
                                         <div class=" col-span-8">
-                                            <h2 class="text-base  text-nblue font-medium">+1-202-555-0174</h2>
+                                            <h2 class="text-base  text-nblue font-medium">{{$user->phone ? $user->phone}}</h2>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mb-4 border-b pb-1 lg:pb-0 lg:border-none border-b-nblue">
                                     <div class="lg:grid lg:grid-cols-12 lg:gap-10">
                                         <div class=" col-span-4">
                                             <p class="text-base  text-nblue font-bold lg:font-medium">Designation</p>
                                         </div>
                                         <div class=" col-span-8">
-                                            <h2 class="text-base  text-nblue font-medium">Full Stack Developer</h2>
+                                            <h2 class="text-base  text-nblue font-medium">{{$user->designation ? $user->designation : '' }}</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -89,11 +79,7 @@
                                             <p class="text-base  text-nblue font-bold lg:font-medium">Biography</p>
                                         </div>
                                         <div class=" col-span-8">
-                                            <p class="text-base  text-nblue font-medium text-justify">Lorem Ipsum is
-                                                simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                                has been the industry's standard dummy text ever since the 1500s, when
-                                                an unknown printer took a galley of type and scrambled it to make a type
-                                                specimen book.</p>
+                                            <p class="text-base  text-nblue font-medium text-justify">{!!$user->biography ? $user->biography : '' !!}</p>
                                         </div>
                                     </div>
                                 </div>

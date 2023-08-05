@@ -48,9 +48,60 @@
                                                 <div class="mt-6 lg:mt-10">
                                                     <div class="grid md:grid-cols-2 gap-10">
 
-                                                        {{-- individual course --}}
-                                                        <x-course></x-course>
-                                                        {{-- @include('layouts.inc.course') --}}
+
+                                                        @forelse ($enrolledcourses as $item)
+
+                                                        <a href="{{route('courses.show', $item->course->id)}}">
+                                                            <div class=" border border-lgreen rounded-md">
+                                                                <div class="courser_img" style="background-image: url({{asset($item->course->cover)}});">
+                                                                </div>
+                                                                <div class="px-5 py-3 relative">
+                                                                    <div class=" mt-2">
+                                                                        <h2 class=" text-lg text-nblue font-bold">{{$item->course->name}}</h2>
+                                                                    </div>
+                                                                    <div class="mt-2 flex justify-between items-end">
+                                                                        <div class=" flex items-center">
+                                                                            <div class="mr-3">
+                                                                                {{-- <img class=" w-14 h-14 rounded-full" src="{{asset($item->course->instructor->pp)}}" alt=""> --}}
+                                                                                {{-- if user dont have picture --}}
+                                                                                @if ($item->course->instructor->pp == null)
+                                                                                    <img class=" w-14 h-14 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$item->course->instructor->name}}">
+                                                                                @else
+                                                                                    <img class=" w-14 h-14 rounded-full" src="{{ asset($item->course->instructor->pp) }}" alt="{{$item->course->instructor->name}}">
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="">
+                                                                                <h2 class=" text-base text-nblue font-semibold">{{$item->course->instructor->name}}
+                                                                                </h2>
+                                                                                @if ($item->course->instructor->designation)
+                                                                                <p class=" text-sm font-medium ">{{$item->course->instructor->designation}}</p>
+                                                                                @else
+
+                                                                                <p class=" text-sm font-medium ">Instructor</p>
+                                                                                @endif
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="">
+                                                                            <p class=" text-lg font-bold text-white bg-dgreen px-3 py-1 rounded-full"> {{number_format($item->course->current_price, 0) }} BDT</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="absolute top-4 right-0">
+                                                                        @if ($item->course->status == '1')
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> Pending</p>
+                                                                        @elseif ($item->course->status == '2')
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> On Review</p>
+                                                                        @else
+
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> Running</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </a>
+
+                                                        @empty
+                                                        <p>No Course Enrolled</p>
+                                                        @endforelse
 
 
                                                     </div>
@@ -62,8 +113,59 @@
                                                 <div class="mt-6 lg:mt-10">
                                                     <div class="grid md:grid-cols-2 gap-10">
 
-                                                        {{-- individual course --}}
-                                                        <x-course></x-course>
+                                                        @forelse ($aenrolledcourses as $item)
+
+                                                        <a href="{{route('courses.show', $item->course->id)}}">
+                                                            <div class=" border border-lgreen rounded-md">
+                                                                <div class="courser_img" style="background-image: url({{asset($item->course->cover)}});">
+                                                                </div>
+                                                                <div class="px-5 py-3 relative">
+                                                                    <div class=" mt-2">
+                                                                        <h2 class=" text-lg text-nblue font-bold">{{$item->course->name}}</h2>
+                                                                    </div>
+                                                                    <div class="mt-2 flex justify-between items-end">
+                                                                        <div class=" flex items-center">
+                                                                            <div class="mr-3">
+                                                                                {{-- <img class=" w-14 h-14 rounded-full" src="{{asset($item->course->instructor->pp)}}" alt=""> --}}
+                                                                                {{-- if user dont have picture --}}
+                                                                                @if ($item->course->instructor->pp == null)
+                                                                                    <img class=" w-14 h-14 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$item->course->instructor->name}}">
+                                                                                @else
+                                                                                    <img class=" w-14 h-14 rounded-full" src="{{ asset($item->course->instructor->pp) }}" alt="{{$item->course->instructor->name}}">
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="">
+                                                                                <h2 class=" text-base text-nblue font-semibold">{{$item->course->instructor->name}}
+                                                                                </h2>
+                                                                                @if ($item->course->instructor->designation)
+                                                                                <p class=" text-sm font-medium ">{{$item->course->instructor->designation}}</p>
+                                                                                @else
+
+                                                                                <p class=" text-sm font-medium ">Instructor</p>
+                                                                                @endif
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="">
+                                                                            <p class=" text-lg font-bold text-white bg-dgreen px-3 py-1 rounded-full"> {{number_format($item->course->current_price, 0) }} BDT</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="absolute top-4 right-0">
+                                                                        @if ($item->course->status == '1')
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> Pending</p>
+                                                                        @elseif ($item->course->status == '2')
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> On Review</p>
+                                                                        @else
+
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> Running</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </a>
+
+                                                        @empty
+                                                        <p>No Active Enrollment</p>
+                                                        @endforelse
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,8 +175,59 @@
                                                 <div class="mt-6 lg:mt-10">
                                                     <div class="grid md:grid-cols-2 gap-10">
 
-                                                        {{-- individual course --}}
-                                                        <x-course></x-course>
+                                                        @forelse ($penrolledcourses as $item)
+
+                                                        <a href="{{route('courses.show', $item->course->id)}}">
+                                                            <div class=" border border-lgreen rounded-md">
+                                                                <div class="courser_img" style="background-image: url({{asset($item->course->cover)}});">
+                                                                </div>
+                                                                <div class="px-5 py-3 relative">
+                                                                    <div class=" mt-2">
+                                                                        <h2 class=" text-lg text-nblue font-bold">{{$item->course->name}}</h2>
+                                                                    </div>
+                                                                    <div class="mt-2 flex justify-between items-end">
+                                                                        <div class=" flex items-center">
+                                                                            <div class="mr-3">
+                                                                                {{-- <img class=" w-14 h-14 rounded-full" src="{{asset($item->course->instructor->pp)}}" alt=""> --}}
+                                                                                {{-- if user dont have picture --}}
+                                                                                @if ($item->course->instructor->pp == null)
+                                                                                    <img class=" w-14 h-14 rounded-full" src="{{asset('img/team03.png')}}" alt="{{$item->course->instructor->name}}">
+                                                                                @else
+                                                                                    <img class=" w-14 h-14 rounded-full" src="{{ asset($item->course->instructor->pp) }}" alt="{{$item->course->instructor->name}}">
+                                                                                @endif
+                                                                            </div>
+                                                                            <div class="">
+                                                                                <h2 class=" text-base text-nblue font-semibold">{{$item->course->instructor->name}}
+                                                                                </h2>
+                                                                                @if ($item->course->instructor->designation)
+                                                                                <p class=" text-sm font-medium ">{{$item->course->instructor->designation}}</p>
+                                                                                @else
+
+                                                                                <p class=" text-sm font-medium ">Instructor</p>
+                                                                                @endif
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="">
+                                                                            <p class=" text-lg font-bold text-white bg-dgreen px-3 py-1 rounded-full"> {{number_format($item->course->current_price, 0) }} BDT</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="absolute top-4 right-0">
+                                                                        @if ($item->course->status == '1')
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> Pending</p>
+                                                                        @elseif ($item->course->status == '2')
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> On Review</p>
+                                                                        @else
+
+                                                                        <p class="text-xs text-white bg-dorange px-2 py-1"> Running</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </a>
+
+                                                        @empty
+                                                        <p>No Pending Enrollment</p>
+                                                        @endforelse
 
                                                     </div>
                                                 </div>
