@@ -37,7 +37,8 @@ class HomeController extends Controller
 
         $coursqty = Course::count();
         $userqty = User::count();
-        return view('dashboard',compact('coursqty','userqty'));
+        $servicesqty = Service::count();
+        return view('dashboard',compact('coursqty','userqty','servicesqty'));
     }
 
     function about() { return view('about'); }

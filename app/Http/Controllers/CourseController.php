@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Cart;
 use App\Models\User;
+use App\Models\EnrollmentItem;
 use App\Models\Category;
+use App\Models\Batch;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Auth;
@@ -53,7 +55,7 @@ class CourseController extends Controller
         $course->slug = $request->slug;
         $course->category_id = $request->category_id;
         $course->user_id = Auth::id();
-        $course->instructor_id = $request->category_id;
+        $course->instructor_id = $request->instructor_id;
 
         // course cover
         if ($request->file('cover')) {
@@ -83,25 +85,41 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         // return $course;
-        // if (Auth::user()) {
-        //     // return 'auth';
-        //     $ec = [];
-        //     $aenrolledcourses = Auth::user()->aencourses;
-        //     foreach ($aenrolledcourses as $enrollitem) {
-        //         array_push($enrollitem->course->id, $ec);
-        //     }
+        if (Auth::user()) {
+            // return 'auth';
+            $ec = [];
+            $aenrolledcourses = Auth::user()->encourses;
 
-        //     return $ec;
-        //     $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
-        //     return view('dashboard.courses.show',compact('course','mycartcourse'));
-        // }else{
+            foreach ($aenrolledcourses as $enrollitem) {
+                array_push($ec, $enrollitem->course->id);
+            }
+            $enrollitem = EnrollmentItem::where('user_id', Auth::user()->id)->where('course_id',$course->id)->first();
+            $batchgrouptext = "Yor Enrollment is pending. And not assigned to any batch of this course.";
 
-        //     $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
-        //     return view('dashboard.courses.show',compact('course','mycartcourse'));
-        // }
 
-        $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
-        return view('dashboard.courses.show',compact('course','mycartcourse'));
+            if ($enrollitem && $enrollitem->status == '1' && !$enrollitem->batch_id  ) {
+                $batchgrouptext = "Yor Enrollment is pending. And not assigned to any batch of this course.";
+            } elseif ($enrollitem && $enrollitem->status == '1' && $enrollitem->batch_id ) {
+                $batchgrouptext = "Yor Enrollment is pending.";
+            }elseif ($enrollitem && $enrollitem->status == '2' && !$enrollitem->batch_id ) {
+                $batchgrouptext = "Yor Enrollment is Approved. But, you are not assigned to any batch of this course yet.";
+
+            }elseif ($enrollitem && $enrollitem->status == '2' && $enrollitem->batch_id ) {
+                $mybatch = Batch::find($enrollitem->batch_id);
+                $batchgrouptext = $mybatch->group_link;
+            }
+
+            // return $ec;
+            $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
+            return view('dashboard.courses.show',compact('course','mycartcourse','ec','batchgrouptext'));
+        }else{
+
+            $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
+            return view('dashboard.courses.show',compact('course','mycartcourse'));
+        }
+
+        // $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
+        // return view('dashboard.courses.show',compact('course','mycartcourse'));
     }
 
     /**
@@ -122,7 +140,7 @@ class CourseController extends Controller
         $course->name = $request->name;
         $course->slug = $request->slug;
         $course->category_id = $request->category_id;
-        $course->instructor_id = $request->category_id;
+        $course->instructor_id = $request->instructor_id;
 
         // course cover
         if ($request->file('cover')) {
@@ -148,7 +166,7 @@ class CourseController extends Controller
         $course->curriculam = $request->curriculam;
         $course->status = $request->status;
 
-	    $course->save();
+	    $course->update();
 
         return redirect()->route('courses.show', $course->id)->with_success('Course Updated Successfully');
     }

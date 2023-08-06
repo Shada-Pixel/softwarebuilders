@@ -38,6 +38,12 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $category = Category::saveCategory($request);
+
+        $category = new Category;
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->keywords = $request->keywords;
+	    $category->save();
         if ($category){
             return redirect()->route('categories.index')
             ->withSuccess(__('Category created successfully.'));
@@ -72,7 +78,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category = Category::saveCategory($request);
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->keywords = $request->keywords;
+	    $category->update();
+
         if ($category){
             return redirect()->route('categories.index')
             ->withSuccess(__('Category Update successfully.'));

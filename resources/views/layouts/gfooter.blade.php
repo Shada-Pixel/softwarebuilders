@@ -59,7 +59,7 @@
                                     class=" text-base font-normal text-white hover:text-dgreen"
                                     href="#">Networking</a></li>
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI/UX
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI & UX
                                     Design</a></li>
                         </ul>
                     </div>
@@ -82,14 +82,14 @@
                                     class=" text-base font-normal text-white hover:text-dgreen"
                                     href="#">Networking</a></li>
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI/UX
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI & UX
                                     Design</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="">
                     <h2 class=" text-2xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mt-0 sm:mb-0">
-                        QUCIK LINKS</h2>
+                        QUICK LINKS</h2>
                     <div class=" sm:mt-5 ">
                         <ul class="">
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
@@ -105,7 +105,7 @@
                                     class=" text-base font-normal text-white hover:text-dgreen" href="#">Career</a>
                             </li>
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI/UX
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI & UX
                                     Design</a></li>
                         </ul>
                     </div>

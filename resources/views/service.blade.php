@@ -41,7 +41,7 @@
 
     <!-- ==============Team start========== -->
     <section>
-        <div class=" bg-lgreen pt-10 pb-24 lg:pb-44 ">
+        <div class=" bg-white pt-10 pb-24 lg:pb-44 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
                 {{-- <div class="solution_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Who we Are</p>

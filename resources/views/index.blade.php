@@ -1,62 +1,71 @@
 <x-guest-layout>
 
     <X-slot name="headstyle">
-        <link rel="stylesheet" href="{{ asset('owl/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('owl/owl.carousel.min.css') }}">
     </X-slot>
 
     <!-- =====================Hero-section-start=========== -->
-    <section class="mt-16">
-        <div class="">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="slider-bag">
-                            <div class="heroSlider-img" style="background-image: url({{asset('img/slider01.jpg')}});">
-                                <div class="max-w-7xl mx-auto">
-                                    <h2
-                                        class="text-lg sm:text-5xl font-bold text-white uppercase text-center sm:text-left">
-                                        Creative and Minimal
-                                    </h2>
-                                    <h2
-                                        class="text-xl sm:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
-                                        IT solutions
-                                    </h2>
-                                    <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
-                                        <p
-                                            class="text-sm md:text-base text-white font-medium sm:font-bold text-center sm:text-left">
-                                            Curabitur
-                                            sed facilisis erat.
-                                            Vestibulum
-                                            pharetra eros eget fringilla porttitor.
-                                            ol Duis a orci nunc. Suspendisse ac
-                                            convallis sapien, quis commodo libero. Donec nec dui luctus, pellentesque
-                                            lacus
-                                            sed, mollis leo.</p>
-                                    </div>
-                                    <div class="flex mt-10 justify-center sm:justify-start">
-                                        <div class=" mr-5">
-                                            <a class="text-sm sm:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
-                                                href="{{route('about')}}">ABOUT US</a>
-                                        </div>
-                                        <div class="">
-                                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
-                                                href="{{route('cource')}}">SEE COURSES</a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+    <section class="mt-16 relative">
+        <div class="owl-carousel owl-theme">
+            {{-- item --}}
+            <div class="heroSlider-img item" style="background-image: url({{ asset('img/slider01.jpg') }});">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-lg sm:text-5xl font-bold text-white uppercase text-center sm:text-left">
+                        Creative and Minimal
+                    </h2>
+                    <h2 class="text-xl sm:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
+                        IT solutions
+                    </h2>
+                    <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
+                        <p class="text-sm md:text-base text-white font-medium sm:font-bold text-center sm:text-left">
+                            Curabitur
+                            sed facilisis erat.
+                            Vestibulum
+                            pharetra eros eget fringilla porttitor.
+                            ol Duis a orci nunc. Suspendisse ac
+                            convallis sapien, quis commodo libero. Donec nec dui luctus, pellentesque
+                            lacus
+                            sed, mollis leo.</p>
+                    </div>
+                    <div class="flex mt-10 justify-center sm:justify-start">
+                        <div class=" mr-5">
+                            <a class="text-sm sm:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
+                                href="{{ route('about') }}">ABOUT US</a>
                         </div>
-
+                        <div class="">
+                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
+                                href="{{ route('cource') }}">SEE COURSES</a>
+                        </div>
                     </div>
 
                 </div>
-
-                {{-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> --}}
-                <div class="swiper-pagination"></div>
-
             </div>
+            {{-- item --}}
+            <div class="heroSlider-img item" style="background-image: url({{ asset('img/slider02.jpg') }});">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-lg sm:text-5xl font-bold text-white uppercase text-center sm:text-left">
+                        Advance and Realiable
+                    </h2>
+                    <h2 class="text-xl sm:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
+                        Business Development
+                    </h2>
+                    <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
+                        <p class="text-sm md:text-base text-white font-medium sm:font-bold text-center sm:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien velit, aliquet eget commodo nec, auctor a sapien. Nam eu neque vulputate diam rhoncus faucibus. Curabitur quis varius libero. Lorem.</p>
+                    </div>
+                    <div class="flex mt-10 justify-center sm:justify-start">
+                        <div class=" mr-5">
+                            <a class="text-sm sm:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
+                                href="{{ route('about') }}">ABOUT US</a>
+                        </div>
+                        <div class="">
+                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
+                                href="{{ route('cource') }}">SEE COURSES</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </section>
     <!-- =====================Hero-section-end=========== -->
 
@@ -77,7 +86,7 @@
             <div class=" mt-7">
                 <div class="grid grid-cols-1 sm:grid-cols-4 gap-5">
                     @foreach ($services as $service)
-                    @include('layouts.inc.service')
+                        @include('layouts.inc.service')
                     @endforeach
                 </div>
             </div>
@@ -99,12 +108,12 @@
                         <div class="swiper-wrapper">
 
                             @foreach ($categories as $category)
-
                                 <div class="swiper-slide">
-                                    <a href="{{route('categories.show', $category->id)}}">
-                                        <div class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
-                                            <p class=" text-base font-bold ">{{$category->name}}</p>
-                                            <p class=" text-sm font-normal">{{$category->courses->count()}} Course</p>
+                                    <a href="{{ route('categories.show', $category->id) }}">
+                                        <div
+                                            class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
+                                            <p class=" text-base font-bold ">{{ $category->name }}</p>
+                                            <p class=" text-sm font-normal">{{ $category->courses->count() }} Course</p>
                                         </div>
                                     </a>
                                 </div>
@@ -121,21 +130,24 @@
                         <div class="swiper-wrapper">
 
                             @foreach ($courses as $course)
-                            <div class="swiper-slide">
-                                <div class="">
-                                    <div class="bg-lgreen rounded-md">
-                                        <img class=" w-full sm:h-36 sm:h-52 rounded-md" src="{{asset($course->cover)}}" alt="{{$course->name}}">
-                                        <div class=" px-5 py-4">
-                                            <h2 class=" text-lg font-bold  text-nblue">{{$course->name}}</h2>
-                                            <p class="text-sm font-normal mt-2">{{$course->instructor->name}}</p>
-                                            <div class=" flex justify-end">
-                                                <a href="{{route('courses.show',$course->id)}}" class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See Course</a>
+                                <div class="swiper-slide">
+                                    <div class="">
+                                        <div class="bg-lgreen rounded-md">
+                                            <img class=" w-full sm:h-36 sm:h-52 rounded-md"
+                                                src="{{ asset($course->cover) }}" alt="{{ $course->name }}">
+                                            <div class=" px-5 py-4">
+                                                <h2 class=" text-lg font-bold  text-nblue">{{ $course->name }}</h2>
+                                                <p class="text-sm font-normal mt-2">{{ $course->instructor->name }}</p>
+                                                <div class=" flex justify-end">
+                                                    <a href="{{ route('courses.show', $course->id) }}"
+                                                        class=" text-sm font-normal text-dgreen underline hover:text-nblue text-right mt-2">See
+                                                        Course</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
+                                </div>
                             @endforeach
 
                         </div>
@@ -144,7 +156,7 @@
                     </div>
 
                     <div class=" flex justify-center mt-10 sm:mt-14 pb-3">
-                        <a href="{{route('cource')}}"
+                        <a href="{{ route('cource') }}"
                             class=" text-base font-bold text-nblue hover:text-white bg-white hover:bg-dgreen px-5 py-2.5 rounded-md tracking-wider">
                             SEE ALL COURSES
                         </a>
@@ -704,7 +716,8 @@
                                     <img src="./img/team04.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E.
+                                        Gibbons
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief marketing officer</p>
                                 </div>
@@ -714,7 +727,8 @@
                                     <img src="./img/team01.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Rebecca T.
+                                        Emerson
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Managing Director</p>
                                 </div>
@@ -744,7 +758,8 @@
                                     <img src="./img/team04.jpg" alt="">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
+                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E.
+                                        Gibbons
                                     </h2>
                                     <p class=" text-base text-nblue text-center">Chief marketing officer</p>
                                 </div>
@@ -758,6 +773,30 @@
     <!-- ==============Team start========== -->
 
     <x-slot name="script">
-        <script src="{{asset('owl/owl.carousel.min.js')}}"></script>
+        <script src="{{ asset('owl/owl.carousel.min.js') }}"></script>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 0,
+                nav: false,
+                autoplay:true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause:false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            })
+
+            // $('.owl-dot').addClass('bg-lgreen text-lgreen');
+            // $('.owl-dot.active').addClass('bg-dgreen text-dgreen');
+        </script>
     </x-slot>
 </x-guest-layout>

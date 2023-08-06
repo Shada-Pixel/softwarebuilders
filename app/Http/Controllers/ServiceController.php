@@ -42,22 +42,13 @@ class ServiceController extends Controller
         // service cover
         if ($request->file('cover')) {
             $thumbnail = $request->file('cover');
-            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$service->title).$service->id.'.'.$thumbnail->getClientOriginalExtension();
+            $image_full_name = time().'_'.str_replace([" ", ".","/"], ["_","a","0"],$service->title).$service->id.'.'.$thumbnail->getClientOriginalExtension();
             $upload_path = 'images/frontimages/services/';
             $image_url = $upload_path.$image_full_name;
             $success = $thumbnail->move($upload_path, $image_full_name);
             $service->cover = $image_url;
         }
-
-        // service icon
-        if ($request->file('icon')) {
-            $thumbnail = $request->file('icon');
-            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$service->title).$service->id.'.'.$thumbnail->getClientOriginalExtension();
-            $upload_path = 'images/frontimages/services/icon/';
-            $image_url = $upload_path.$image_full_name;
-            $success = $thumbnail->move($upload_path, $image_full_name);
-            $service->icon = $image_url;
-        }
+        $service->icon = $request->icon;
 
         $service->status = '1';
         $service->short_description = $request->short_description;
@@ -106,20 +97,8 @@ class ServiceController extends Controller
             $service->cover = $image_url;
         }
 
-        // service icon
-        if ($request->file('icon')) {
-            // Delete old cover
-            if($service->icon) {
-                unlink($service->icon);
-            }
-            $thumbnail = $request->file('icon');
-            $image_full_name = time().'_'.str_replace([" ", "."], ["_","a"],$service->title).$service->id.'.'.$thumbnail->getClientOriginalExtension();
-            $upload_path = 'images/frontimages/services/icon/';
-            $image_url = $upload_path.$image_full_name;
-            $success = $thumbnail->move($upload_path, $image_full_name);
-            $service->icon = $image_url;
-        }
 
+        $service->icon = $request->icon;
         $service->short_description = $request->short_description;
         $service->description = $request->description;
 	    $service->update();

@@ -46,7 +46,7 @@
                     <x-text-input id="edit_id" class="" type="hidden" name="edit_id" value="{!!$category->id!!}" />
 
                     <x-primary-button class="ml-4">
-                        {{ __('Create Category') }}
+                        {{ __('Update Category') }}
                     </x-primary-button>
                 </div>
             </form>

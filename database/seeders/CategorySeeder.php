@@ -17,8 +17,8 @@ class CategorySeeder extends Seeder
         // Data list
         $datas = [
             [
-                'name' => 'Graphics Design',
-                'slug' => 'graphics_design',
+                'name' => 'Graphic Design',
+                'slug' => 'graphic_design',
                 'keywords' => 'photoshop, illustrator, logo design, ui/ux, figma',
             ],
             [
@@ -27,8 +27,8 @@ class CategorySeeder extends Seeder
                 'keywords' => 'html, css, javascript, web design, web development',
             ],
             [
-                'name' => 'Degital Marketing',
-                'slug' => 'degital_marketing',
+                'name' => 'Digital Marketing',
+                'slug' => 'digital_marketing',
                 'keywords' => 'seo, smm, keyword research, compitator analysis',
             ],
             [

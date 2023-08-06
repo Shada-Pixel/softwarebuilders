@@ -38,6 +38,17 @@
                         </div>
                         @endrole
 
+                        @auth
+
+                        @if($ec && in_array($course->id, $ec))
+
+                        <div class=" border border-dgreen rounded-md p-5">
+                            <h2 class=" text-xl text-black font-bold">Group Link</h2>
+                            <p>{{$batchgrouptext }}</p>
+
+                        </div>
+                        @else
+
                         <div class=" border border-dgreen rounded-md p-5">
                             <h2 class=" text-xl text-black font-bold">{{number_format($course->current_price, 0) }} BDT</h2>
                             <div class=" mt-4">
@@ -56,6 +67,10 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
+                        @endauth
+
+
 
                         <div class="border border-dgreen rounded-md p-5 mt-4">
                             <h2 class=" text-2xl font-semibold text-dgreen">Material Includes</h2>

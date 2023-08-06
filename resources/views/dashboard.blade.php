@@ -49,7 +49,7 @@
 
                         </div>
                         <div class="">
-                            <h2 class=" text-4.5xl text-violet font-bold">30</h2>
+                            <h2 class=" text-4.5xl text-violet font-bold">{{$servicesqty}}</h2>
                         </div>
                         <div class="">
                             <h2 class=" text-base font-medium text-violet">Services</h2>

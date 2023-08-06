@@ -59,7 +59,7 @@ class EnrollmentController extends Controller
             $upcommingbatch = Batch::where('course_id',$request->courseid[$i])->where('status','1')->first();
 
             if ($upcommingbatch ) {
-                $enrollmentItem->batch_id = $request->$upcommingbatch->id;
+                $enrollmentItem->batch_id = $upcommingbatch->id;
             }
 
             $enrollmentItem->enrollment_id = $enrollment->id;

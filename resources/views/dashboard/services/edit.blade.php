@@ -35,8 +35,8 @@
                     <!-- icon -->
                     <div class="">
                         <x-input-label for="icon" :value="__('Icon')" />
-                        <x-text-input id="icon" class="block mt-1 w-full file:mr-5 file:mb-[2px] file:py-2 file:px-2 file:border-0 file:font-jost file:uppercase  file:text-white file:bg-dgreen" type="file" name="icon"
-                            :value="old('icon')" required/>
+                        <x-text-input id="icon" class="block mt-1 w-full file:mr-5 file:mb-[2px] file:py-2 file:px-2 file:border-0 file:font-jost file:uppercase  file:text-white file:bg-dgreen" type="text" name="icon"
+                            value="{{$service->icon}}" required/>
                         <x-input-error :messages="$errors->get('icon')" class="mt-2" />
                     </div>
 

@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('title');
             $table->string('icon')->nullable();
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->longtext('short_description')->nullable();
             $table->longtext('description')->nullable();
             $table->tinyInteger('home_page')->default(1)->comment('1 => active, 2 => inactive');
