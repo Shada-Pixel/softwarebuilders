@@ -28,7 +28,7 @@
                             a reader will be distracted by
                             the readable content of a
                             page when looking at its layout.</p>
-                        <div class=" mt-4">
+                        <ul class=" mt-4 pl-4">
                             <li class=" list-disc text-base text-nblue">Pellentesque et felis elementum, varius
                             </li>
                             <li class=" list-disc text-base text-nblue">Sed ullamcorper enim ut maximus accumsan.
@@ -37,9 +37,9 @@
                             </li>
                             <li class=" list-disc text-base text-nblue">Fusce consectetur purus ac aliquam aliquet.
                             </li>
-                        </div>
+                        </ul>
                         <div class=" mt-6 flex items-center sm:justify-center md:justify-start">
-                            <div class="mr-3">
+                            <div class="mr-3 ">
                                 <img class=" w-16 h-16 rounded-full" src="./img/team01.jpg" alt="">
                             </div>
                             <div class="">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-6 lg:mt-0">
+                    <div class="mt-6 lg:mt-0 hidden sm:block">
                         <img class=" rounded-md" src="./img/aboutmain.jpg" alt="">
                     </div>
 
@@ -203,13 +203,13 @@
     <!-- ==================Get-know about-us end============ -->
     <!-- ==============Team start========== -->
     <section>
-        <div class=" bg-white pt-10 pb-24 lg:pb-44 ">
+        <div class=" bg-lgreen pt-10 pb-24 sm:pb-44 ">
             <div class="max-w-7xl mx-auto   px-3 md:px-0">
                 {{-- <div class="solution_text">
                     <p class=" text-lg font-normal text-dgreen  text-center ">Our Team</p>
                 </div> --}}
                 <div class="">
-                    <h2 class=" text-2xl lg:text-4.5xl text-nblue font-bold text-center uppercase  my-4">meet our team
+                    <h2 class=" text-2xl sm:text-4.5xl text-nblue font-bold text-center uppercase  my-4">meet our team
                     </h2>
                     <p class=" text-base font-normal text-center text-nblue">Curabitur sed facilisis erat. Vestibulum
                         pharetra
@@ -220,86 +220,44 @@
                 <div class=" mt-10">
                     <div class="swiper teamSwiper px-3 xl:px-0">
                         <div class="swiper-wrapper">
+
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team01.jpg" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/taposh.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg lg:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
-                                    </h2>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Enger.Sk.Rafiqul Islam Tapos</h2>
                                     <p class=" text-base text-nblue text-center">Managing Director</p>
                                 </div>
                             </div>
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team02.jpg" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/rasa.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Tony S. Christian
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Executive officer</p>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Shahidur Rahman Rasha</h2>
+                                    <p class=" text-base text-nblue text-center">Executive Director</p>
                                 </div>
                             </div>
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team03.png" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/romel.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Alice B. Mathis
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Technical officer</p>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Mahmudur Rahman Romel</h2>
+                                    <p class=" text-base text-nblue text-center">UI/UX Designer</p>
                                 </div>
                             </div>
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team04.jpg" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/directormam.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief marketing officer</p>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Zahida Akter Lipi</h2>
+                                    <p class=" text-base text-nblue text-center"> Director</p>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team01.jpg" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Managing Director</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team02.jpg" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Tony S. Christian
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Executive officer</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team03.png" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Alice B. Mathis
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Technical officer</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team04.jpg" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg lg:text-xl text-nblue font-bold text-center ">Richard E. Gibbons
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief marketing officer</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>

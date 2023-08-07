@@ -25,7 +25,7 @@
     <script>
         let BASE_URL = {!! json_encode(url('/')) !!} + "/";
     </script>
-    
+
     <!-- Page Style -->
     @if (isset($headstyle))
         {{ $headstyle }}
@@ -48,6 +48,9 @@
             <x-auth-session-status :status="Session::get('message')"></x-auth-session-status>
             {{ $slot }}
         </main>
+
+
+
     </div>
 
 

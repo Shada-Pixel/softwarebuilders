@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!-- =================Contact-Hero start======================= -->
     <section class="mt-16">
-        <div class="py-10 md:py-16 sm:py-24" style="background-image: url('./img/about-hero.jpg');">
+        <div class="py-10  sm:py-24" style="background-image: url('./img/about-hero.jpg');">
             <div class=" ">
                 <h2 class="text-3xl sm:text-7xl text-white font-bold uppercase text-center">Contact</h2>
             </div>
@@ -12,28 +12,23 @@
     <section>
         <div class=" bg-white py-10 sm:py-24 px-3 sm:px-0">
             <div class="max-w-7xl mx-auto">
-                <div class=" grid md:grid md:grid-cols-3 gap-5 sm:gap-10">
-                    <div class="sm:flex sm:items-center">
-                        <div class="">
-                            <p class=" text-6xl text-dgreen mr-4 text-center sm:text-left ml-3 md:ml-0"><iconify-icon
-                                    icon="carbon:location-filled"></iconify-icon>
-                            </p>
-                        </div>
+                <div class="grid grid-cols-1  sm:grid-cols-3 gap-2 sm:gap-10">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
+                            <span class="iconify text-3xl sm:text-4xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0" data-icon="carbon:location-filled"></span>
+
                         <div class="">
                             <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Address</h2>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center md:text-left">211 Eva
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">211 Eva
                                 Pearl
                                 StreetBaton Rouge, </p>
                             <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">LA 70806
-                            </p>
+
                         </div>
                     </div>
-                    <div class="sm:flex sm:items-center">
-                        <div class="">
-                            <p class=" text-6xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0"><iconify-icon
-                                    icon="fontisto:mobile"></iconify-icon>
-                            </p>
-                        </div>
+                    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
+                            <span class="iconify text-3xl sm:text-4xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0" data-icon="fontisto:mobile"></span>
+
+
                         <div class="">
                             <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Phone</h2>
                             <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
@@ -42,12 +37,10 @@
                                 225-752-6842</p>
                         </div>
                     </div>
-                    <div class="sm:flex sm:items-center">
-                        <div class="">
-                            <p class=" text-6xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0"><iconify-icon
-                                    icon="ic:baseline-mail"></iconify-icon>
-                            </p>
-                        </div>
+                    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
+
+                            <span class="iconify text-3xl sm:text-4xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0" data-icon="ic:baseline-mail"></span>
+
                         <div class="">
                             <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Email</h2>
                             <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
@@ -112,9 +105,7 @@
     <!-- =================Contact-form-start========== -->
     <!-- ==============Team start========== -->
     <section>
-        <div class=" sm:pt-10  map">
-            <img class=" w-full " src="./img/map.jpg" alt="">
-        </div>
+        <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d773.0793640864458!2d89.55026045886947!3d22.824461263959154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1691395779143!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
     <!-- ==============Team start========== -->
 

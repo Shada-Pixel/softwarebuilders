@@ -681,89 +681,44 @@
                 <div class=" mt-10">
                     <div class="swiper teamSwiper px-3 xl:px-0">
                         <div class="swiper-wrapper">
+
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team01.jpg" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/taposh.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Rebecca T. Emerson
-                                    </h2>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Enger.Sk.Rafiqul Islam Tapos</h2>
                                     <p class=" text-base text-nblue text-center">Managing Director</p>
                                 </div>
                             </div>
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team02.jpg" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/rasa.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Tony S. Christian
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Executive officer</p>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Shahidur Rahman Rasha</h2>
+                                    <p class=" text-base text-nblue text-center">Executive Director</p>
                                 </div>
                             </div>
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team03.png" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/romel.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Alice B. Mathis
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Technical officer</p>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Mahmudur Rahman Romel</h2>
+                                    <p class=" text-base text-nblue text-center">UI/UX Designer</p>
                                 </div>
                             </div>
+                            {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team04.jpg" alt="">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/directormam.jpeg')}});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E.
-                                        Gibbons
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief marketing officer</p>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Zahida Akter Lipi</h2>
+                                    <p class=" text-base text-nblue text-center"> Director</p>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team01.jpg" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Rebecca T.
-                                        Emerson
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Managing Director</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team02.jpg" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Tony S. Christian
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Executive officer</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team03.png" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Alice B. Mathis
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief Technical officer</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="team_member-img">
-                                    <img src="./img/team04.jpg" alt="">
-                                </div>
-                                <div class=" mt-4">
-                                    <h2 class=" text-lg sm:text-xl text-nblue font-bold text-center ">Richard E.
-                                        Gibbons
-                                    </h2>
-                                    <p class=" text-base text-nblue text-center">Chief marketing officer</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -781,6 +736,7 @@
                 nav: false,
                 autoplay:true,
                 autoplayTimeout: 3000,
+                // fluidSpeed:true,
                 autoplayHoverPause:false,
                 responsive: {
                     0: {

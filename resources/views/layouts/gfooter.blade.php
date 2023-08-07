@@ -29,17 +29,23 @@
             <div class="grid sm:grid-cols-4 sm:gap-20  px-3 sm:px-0">
                 <div class="">
                     {{-- logo --}}
-                    <div class="flex">
+                    <div class="flex justify-center sm:justify-start">
                         <a href="{{ route('home') }}" class="mb-4">
                             <x-application-logof class="block h-10 w-auto fill-current text-white" />
                         </a>
                     </div>
-                    <h2 class=" text-2xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mb-0 uppercase">
+                    <h2 class=" sm:text-xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mb-0 uppercase">
                         Software Builders Ltd.</h2>
                     <p class=" text-base font-light text-white text-center sm:text-justify  mt-5">Contrary to
                         popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                        Latin literature from 45 BC, making it over 2000 years old. There are many variations of
-                        passages of Lorem Ipsum available.</p>
+                        Latin literature from 45 BC.</p>
+                    <div class="flex justify-center sm:justify-start gap-1 text-2xl mt-4">
+
+                        <a href="https://www.facebook.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:facebook-with-circle"></span></a>
+                        <a href="https://twitter.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:twitter-with-circle"></span></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:linkedin-with-circle"></span></a>
+                        <a href="https://www.youtube.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:youtube-with-circle"></span></a>
+                    </div>
                 </div>
                 <div class="">
                     <h2 class=" text-2xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mt-0 sm:mb-0">
