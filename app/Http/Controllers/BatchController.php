@@ -61,7 +61,8 @@ class BatchController extends Controller
      */
     public function edit(Batch $batch)
     {
-        //
+        $courses = Course::where('status','3')->get();
+        return view('dashboard.batches.edit',compact('batch','courses'));
     }
 
     /**
@@ -69,7 +70,22 @@ class BatchController extends Controller
      */
     public function update(UpdateBatchRequest $request, Batch $batch)
     {
-        //
+
+        $batch->number = $request->number;
+        $batch->course_id = $request->course_id;
+        $batch->max_seat = $request->max_seat;
+        $batch->start_date = $request->start_date;
+        $batch->group_link = $request->group_link;
+        if (!$batch->status == '3') {
+            # code...
+            $batch->status = $request->status;
+        }
+	    $batch->update();
+
+        if ($batch){
+            return redirect()->route('batches.index')
+            ->withSuccess(__('Batch Update successfully.'));
+        }
     }
 
     /**
