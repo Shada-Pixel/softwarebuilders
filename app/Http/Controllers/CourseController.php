@@ -76,7 +76,7 @@ class CourseController extends Controller
 
 	    $course->save();
 
-        return redirect()->route('courses.index')->withSuccess(__('Course created successfully.'));
+        return redirect()->route('courses.index')->with(['status'=> 200, 'message' => 'Course create successfully!']);
     }
 
     /**
@@ -165,17 +165,23 @@ class CourseController extends Controller
         $course->materials = $request->materials;
         $course->curriculam = $request->curriculam;
         $course->status = $request->status;
-
 	    $course->update();
 
-        return redirect()->route('courses.show', $course->id)->with_success('Course Updated Successfully');
+        return redirect()->route('courses.show', $course->id)->with(['status'=> 200, 'message' => 'Updated Successfully!']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+
+        try {
+            $course->delete();
+            return response()->json(['status' => 'success', 'message' => 'Deleted successfylly !'],200);
+        } catch (\Throwable $e) {
+            return response()->json(['status' => 'error', 'message' => 'This Course have running/completed batches or students.']);
+        }
     }
 }

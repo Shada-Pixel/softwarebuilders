@@ -55,7 +55,7 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex"><a href="${BASE_URL}categories/${data.id}/edit" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="iconamoon:edit-light"></span></a><!--<button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="categoryDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button>--></div>`;
+                            return `<div class="flex"><a href="${BASE_URL}categories/${data.id}/edit" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="iconamoon:edit-light"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="categoryDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
                         }
                     }
                 ]
@@ -81,7 +81,7 @@
                                     Swal.fire('Success!', response.message, 'success');
                                     datatablelist.draw();
                                 } else if (response.status == "error") {
-                                    Swal.fire('This item is not deletable!', response.message, 'error');
+                                    Swal.fire('Not deletable!', response.message, 'error');
                                     datatablelist.draw();
                                 }
                             }

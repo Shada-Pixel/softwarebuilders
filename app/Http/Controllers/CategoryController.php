@@ -37,7 +37,7 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        $category = Category::saveCategory($request);
+        // $category = Category::saveCategory($request);
 
         $category = new Category;
         $category->name = $request->name;
@@ -45,8 +45,7 @@ class CategoryController extends Controller
         $category->keywords = $request->keywords;
 	    $category->save();
         if ($category){
-            return redirect()->route('categories.index')
-            ->withSuccess(__('Category created successfully.'));
+            return redirect()->route('categories.index')->with(['status'=> 200, 'message' => 'Category added!']);
         }
     }
 
@@ -84,8 +83,7 @@ class CategoryController extends Controller
 	    $category->update();
 
         if ($category){
-            return redirect()->route('categories.index')
-            ->withSuccess(__('Category Update successfully.'));
+            return redirect()->route('categories.index')->with(['status'=> 200, 'message' => 'Update Successfully!']);
         }
     }
 
@@ -94,10 +92,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
+        try {
+            $category->delete();
+            return response()->json(['status' => 'success', 'message' => 'Deleted successfully!'], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['status' => 'error', 'message' => 'This Category have courses.']);
+        }
 
-        // $product = Product::find($id);
-        // $product->delete();
-        return response()->json(['status' => 'success', 'message' => 'Category deleted successfully!'], 200);
     }
 }

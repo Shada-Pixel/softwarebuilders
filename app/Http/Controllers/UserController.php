@@ -77,7 +77,7 @@ class UserController extends Controller
         $user->assignRole([$role->id]);
 
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with(['status'=> 200, 'message' => 'User added Successfully!']);
     }
 
     /**
@@ -131,7 +131,7 @@ class UserController extends Controller
         }
         $user->save();
         $user->assignRole([$role->id]);
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with(['status'=> 200, 'message' => 'Updated Successfully!']);
     }
 
     /**
@@ -143,7 +143,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $user->delete();
-        return response()->json(['status' => 'success', 'message' => 'User deleted successfylly !']);
+
+        try {
+            $user->delete();
+            return response()->json(['status' => 'success', 'message' => 'Deleted successfylly !'],200);
+        } catch (\Throwable $e) {
+            return response()->json(['status' => 'error', 'message' => 'This User have course/enrollment.']);
+        }
+
     }
 }
