@@ -74,11 +74,12 @@
                         <!-- status -->
                         <div class="">
                             <x-input-label for="status" :value="__('Status')" />
-                            <x-select-input id="status" name="status" required>
+
+                            <select class="mt-1 w-full bg-white text-gray-800 border-t-0 border-x-0 border-b-[1px] border-nblue shadow-sm capitalize" id="status" name="status" required @if ($batch->status == '3') @disabled(true)  @endif>
                                 <option value="1" class="capitalize" @if ($batch->status == '1') @selected(true) @endif>Upcoming</option>
                                 <option value="2" class="capitalize" @if ($batch->status == '2') @selected(true) @endif>Running</option>
                                 <option value="3" class="capitalize" @if ($batch->status == '3') @selected(true) @endif>Closed/Completed</option>
-                            </x-select-input>
+                            </select>
                         </div>
 
                     </div>

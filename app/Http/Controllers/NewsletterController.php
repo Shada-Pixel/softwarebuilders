@@ -37,7 +37,7 @@ class NewsletterController extends Controller
         $newsletter = Newsletter::create([
             'text' => $request->body,
         ]);
-        return redirect()->route('newsletters.index');
+        return redirect()->route('newsletters.index')->with(['status'=> 200, 'message' => 'Newsletter Created!']);
     }
 
     /**
@@ -65,7 +65,9 @@ class NewsletterController extends Controller
                 $newsletter->status = 2;
                 $newsletter->update();
              }
-            }catch (\Exception $exception){}
+            }catch (\Exception $exception){
+                
+            }
         }
 
         return response()->json(['status' => 'success', 'message' => 'Newsletter Sent successfylly !']);

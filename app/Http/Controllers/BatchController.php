@@ -44,7 +44,7 @@ class BatchController extends Controller
             'status' => '1',
         ]);
 
-        return redirect()->route('batches.index');
+        return redirect()->route('batches.index')->with(['status'=> 200, 'message' => 'Batch Created Successfully!']);
 
     }
 
@@ -70,21 +70,22 @@ class BatchController extends Controller
      */
     public function update(UpdateBatchRequest $request, Batch $batch)
     {
-
+        // return $request;
         $batch->number = $request->number;
         $batch->course_id = $request->course_id;
         $batch->max_seat = $request->max_seat;
         $batch->start_date = $request->start_date;
         $batch->group_link = $request->group_link;
-        if (!$batch->status == '3') {
+
+
+        if ($batch->status != '3') {
             # code...
             $batch->status = $request->status;
         }
 	    $batch->update();
 
         if ($batch){
-            return redirect()->route('batches.index')
-            ->withSuccess(__('Batch Update successfully.'));
+            return redirect()->route('batches.index')->with(['status'=> 200, 'message' => 'Updated Successfully!']);
         }
     }
 
@@ -93,6 +94,12 @@ class BatchController extends Controller
      */
     public function destroy(Batch $batch)
     {
-        //
+        try {
+            $batch->delete();
+            return redirect()->route('batches.index')->with(['status'=> 200, 'message' => 'Deleted Successfully!']);
+        } catch (\Throwable $e) {
+            // return response()->json(['status' => 'error', 'message' => 'This Category have courses.']);
+            return redirect()->route('batches.index')->with(['status'=> 200, 'message' => 'This batch have student!']);
+        }
     }
 }

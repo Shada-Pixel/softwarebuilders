@@ -20,6 +20,11 @@
             <div class="flex">
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    @if (isset($unoti))
+                    <div class="mr-4">
+                        {{ $unoti }}
+                    </div>
+                    @endif
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button

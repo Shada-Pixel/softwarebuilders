@@ -40,6 +40,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/gallery', 'gallery')->name('gallery');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/subscribe','subscribe')->name('subscribe');
+    Route::get('/notify','notify')->name('notify');
 });
 
 
@@ -110,7 +111,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
     Route::resource('subscribers', SubscriberController::class);
-
     Route::resource('services', ServiceController::class);
     Route::resource('photos', PhotoController::class);
 
@@ -123,6 +123,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{album}', [AlbumController::class, 'destroy'])->name('albums.destroy');
         Route::get('/{album}', [AlbumController::class, 'show'])->name('albums.show');
         Route::get('/allphotos', [AlbumController::class, 'allphotos'])->name('albums.allphotos');
+        Route::get('/{album}/edit', [AlbumController::class, 'edit'])->name('albums.edit');
+        Route::patch('/{album}', [AlbumController::class, 'update'])->name('albums.update');
     });
 
     // News letters

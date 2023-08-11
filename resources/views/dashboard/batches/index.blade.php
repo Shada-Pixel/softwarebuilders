@@ -30,7 +30,7 @@
 
                             <h2 class="text-xl font-bold">{{$batch->course->name}}</h2>
                             <p>Batch number: {{$batch->number}}</p>
-                            <p>Total Seat: {{$batch->max_seat}}</p>
+                            <p>Total Seat: {{$batch->max_seat}} Enrolled: {{$batch->estudents->count()}}</p>
                             <p>Start date: {{ date('d-M-Y', strtotime($batch->start_date))}}</p>
                             <div class="flex justify-between items-center">
                                 @if ($batch->status == '1')

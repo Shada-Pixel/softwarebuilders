@@ -44,7 +44,7 @@ class AlbumController extends Controller
 
 
 
-        return redirect()->route('albums.index');
+        return redirect()->route('albums.index')->with(['status'=> 200, 'message' => 'Album Created!']);
     }
 
     /**
@@ -70,7 +70,8 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        return view('dashboard.gallaries.albumedit',compact('album'));
+
     }
 
     /**
@@ -78,7 +79,10 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album)
     {
-        //
+        $album->name = $request->name;
+        $album->update();
+
+        return redirect()->route('albums.index')->with(['status'=> 200, 'message' => 'Updated Successfully!']);
     }
 
     /**

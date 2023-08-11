@@ -8,8 +8,11 @@ use App\Models\Course;
 use App\Models\Album;
 use App\Models\User;
 use App\Models\Category;
+use App\Notifications\QueryNotification;
 use App\Models\Service;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -28,6 +31,16 @@ class HomeController extends Controller
             'services' => $services,
             'courses' => $courses
         ]);
+    }
+
+    // Notify User
+    public function notify(){
+        if (Auth::user()) {
+            $user = User::first();
+            Auth::user()->notify(new QueryNotification($user));
+        }
+
+        return redirect()->route('home');
     }
 
 

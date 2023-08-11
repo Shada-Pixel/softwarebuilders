@@ -42,7 +42,7 @@ class SubscriberController extends Controller
                 return response()->json(['status' => 'error', 'message' => 'Email already subscribed !']);
             }
         }
-        return redirect()->route('subscribers.index');
+        return redirect()->route('subscribers.index')->with(['status'=> 200, 'message' => 'Subscriber added!']);
     }
 
 

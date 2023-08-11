@@ -55,7 +55,7 @@ class ServiceController extends Controller
         $service->description = $request->description;
 	    $service->save();
 
-        return redirect()->route('services.index')->withSuccess(__('Service created successfully.'));
+        return redirect()->route('services.index')->with(['status'=> 200, 'message' => 'Service added Successfully!']);
     }
 
     /**
@@ -103,7 +103,7 @@ class ServiceController extends Controller
         $service->description = $request->description;
 	    $service->update();
 
-        return redirect()->route('services.index')->withSuccess(__('Service Updated successfully.'));
+        return redirect()->route('services.index')->with(['status'=> 200, 'message' => 'Update Successfully!']);
     }
 
     /**
@@ -111,6 +111,12 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        try {
+            $service->delete();
+            // return redirect()->route('services.index')->with(['status'=> 200, 'message' => 'Deleted Successfully!']);
+            return response()->json(['status' => 'success', 'message' => 'Deleted Successfully!']);
+        } catch (\Throwable $e) {
+            return response()->json(['status' => 'error', 'message' => 'This Service have Quotation request!']);
+        }
     }
 }

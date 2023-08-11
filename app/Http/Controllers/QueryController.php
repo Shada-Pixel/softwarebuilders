@@ -82,7 +82,8 @@ class QueryController extends Controller
     public function store(StoreQueryRequest $request)
     {
 
-        $subscribe = Query::create([
+
+        $query = Query::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
@@ -91,7 +92,13 @@ class QueryController extends Controller
 
         // $msg = Setting::where('property','contactxt')->first()->value;
 
-        if ($subscribe) {
+        // Making notification to admin
+        // if (Auth::user()) {
+        //     $user = User::first();
+        //     Auth::user()->notify(new QueryNotification($user));
+        // }
+
+        if ($query) {
             // try{
             //     $sendmail =    Mail::to($subscribe->email)->send(new QueryMail($msg));
             // }catch (\Exception $exception){}

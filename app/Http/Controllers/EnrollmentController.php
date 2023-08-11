@@ -72,7 +72,7 @@ class EnrollmentController extends Controller
         }
 
 
-        return redirect()->route('profile.ecources');
+        return redirect()->route('profile.ecources')->with(['status'=> 200, 'message' => 'Enrolled Successfully!']);
     }
 
     /**
@@ -108,7 +108,7 @@ class EnrollmentController extends Controller
             $enrollmentItem->update();
         }
 
-        return  redirect("/enrollments/$enrollment->id/edit");
+        return  redirect("/enrollments/$enrollment->id/edit")->with(['status'=> 200, 'message' => 'Update Successfully!']);
     }
 
     /**

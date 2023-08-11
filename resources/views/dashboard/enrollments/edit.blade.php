@@ -13,9 +13,9 @@
             <div class=" relative">
                 <div class="">
                     @if ($enrollment->status == '1')
-                    <span  class="bg-orange-300 rounded-full text-white text-sm px-2 inline-block py-1 ">Pending</span>
+                    <span  class="bg-red-500 rounded-full text-white text-sm px-2 inline-block py-1 ">Pending</span>
                     @else
-                    <span  class="bg-green-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1 ">Approved</span>
+                    <span  class="bg-dgreen rounded-full text-white text-sm px-2 inline-block py-1 ">Approved</span>
                     @endif
                     <h2>Student Name: <span class="text-xl font-semibold">{{$enrollment->user->name}}</span></h2>
                     <p>Student Email: {{$enrollment->user->email}}</p>

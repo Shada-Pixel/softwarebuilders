@@ -44,7 +44,7 @@ class PhotoController extends Controller
         $photo->album_id = $request->album_id;
         $photo->save();
 
-        return redirect()->route('albums.show', $request->album_id);
+        return redirect()->route('albums.show', $request->album_id)->with(['status'=> 200, 'message' => 'Photo added!']);
     }
 
     /**
@@ -77,6 +77,6 @@ class PhotoController extends Controller
     public function destroy(Photo $photo)
     {
         $photo->delete();
-        return redirect()->back();
+        return redirect()->back()->with(['status'=> 200, 'message' => 'Photo deleted!']);
     }
 }

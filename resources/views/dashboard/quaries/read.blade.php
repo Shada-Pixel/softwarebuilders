@@ -18,10 +18,10 @@
         <div class="bg-white rounded p-6 shadow-md">
             <h1 class="font-bold">{{$query->name}}</h1>
             <p>Email: <span>{{$query->email}}</span></p>
-            <p>Phone: <span>{{$query->phone}}</span></p>
+            <p>Subject: <span>{{$query->phone}}</span></p>
             <p>Message: <span>{{$query->message}}</span></p>
         </div>
-        <div class="bg-white rounded p-6 shadow-md mt-4">
+        <div class="bg-white rounded p-6 shadow-md mt-4 hidden">
             <form method="POST" action="{{ route('quaries.replay') }}">
                 @csrf
 
