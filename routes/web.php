@@ -40,7 +40,6 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/gallery', 'gallery')->name('gallery');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/subscribe','subscribe')->name('subscribe');
-    Route::get('/notify','notify')->name('notify');
 });
 
 
@@ -66,6 +65,7 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::post('/markNotification', [HomeController::class, 'markNotification'])->name('markNotification');
 
 
     // Cart

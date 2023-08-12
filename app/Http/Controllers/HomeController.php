@@ -33,15 +33,6 @@ class HomeController extends Controller
         ]);
     }
 
-    // Notify User
-    public function notify(){
-        if (Auth::user()) {
-            $user = User::first();
-            Auth::user()->notify(new QueryNotification($user));
-        }
-
-        return redirect()->route('home');
-    }
 
 
     // return to dashboard
@@ -114,7 +105,17 @@ class HomeController extends Controller
         }
     }
 
+    // Notification mark as read
+    function markNotification(Request $request)
+    {
+        auth()->user()
+        ->unreadNotifications
+        ->when($request->input('id'),function($query) use ($request){
+            return $query->where('id',$request->input('id'));
+        })
+        ->markAsRead();
 
-
+        return response()->noContent();
+    }
 
 }

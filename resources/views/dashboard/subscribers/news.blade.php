@@ -30,17 +30,20 @@
     </div>
 
     <div class="p-6">
-        <table id="userTable" class="display stripe" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Sl</th>
-                    <th>Text</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+        <div class="p-6 bg-white rounded-md text-gray-900">
 
-        </table>
+            <table id="userTable" class="display stripe" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sl</th>
+                        <th>Text</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
     </div>
 
 

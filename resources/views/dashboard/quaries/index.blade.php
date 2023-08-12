@@ -5,12 +5,12 @@
             <x-nav-link :href="route('quaries.all')" :active="request()->routeIs('quaries.all')">
                 {{ __('All Quaries') }}
             </x-nav-link>
-            <x-nav-link :href="route('quaries.unreaded')" :active="request()->routeIs('quaries.unreaded')">
+            {{-- <x-nav-link :href="route('quaries.unreaded')" :active="request()->routeIs('quaries.unreaded')">
                 {{ __('Unreaded Quaries') }}
             </x-nav-link>
             <x-nav-link :href="route('quaries.readed')" :active="request()->routeIs('quaries.readed')">
                 {{ __('Readed Quaries') }}
-            </x-nav-link>
+            </x-nav-link> --}}
         </div>
     </x-slot>
 
@@ -59,10 +59,10 @@
                     {
                         data: null,
                         render: function (data) {
-                            if (data.status == 'unreaded'){
-                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1"><span class="iconify" data-icon="ic:outline-email"></span></span>';
-                            }else if(data.status == 'readed'){
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1"><span class="iconify" data-icon="mdi:email-open-outline"></span></span>';
+                            if (data.status == 1){
+                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1">Unreaded</span>';
+                            }else if(data.status == 2){
+                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Readed</span>';
                             }else{
                                 var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Replied</span>';
                             }

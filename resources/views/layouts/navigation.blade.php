@@ -20,18 +20,18 @@
             <div class="flex">
                 <!-- Settings Dropdown -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    @if (isset($unoti))
-                    <div class="mr-4">
-                        {{ $unoti }}
-                    </div>
-                    @endif
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
                                 class="flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                 <div
-                                    class="uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 bg-[url('{{asset(Auth::user()->pp)}}')]">
-                                    {{ Auth::user()->name[0] . Auth::user()->name[1] }}</div>
+                                    class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 bg-[url('{{asset(Auth::user()->pp)}}')]">
+                                    {{ Auth::user()->name[0] . Auth::user()->name[1] }}
+
+                                    @if ($notifications->count() > 0)
+                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0"></div>
+                                    @endif
+                                </div>
                                 <p>{{ Auth::user()->name }}</p>
 
                                 <div class="ml-1">
@@ -49,9 +49,15 @@
                             <x-dropdown-link :href="route('home')">
                                     {{ __('Visit Site') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
+                            <div class="relative">
+
+                                <x-dropdown-link :href="route('profile.dashboard')">
+                                    {{ __('Profile') }}
+                                </x-dropdown-link>
+                                @if ($notifications->count() > 0)
+                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-2.5 left-2.5"></div>
+                                    @endif
+                            </div>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

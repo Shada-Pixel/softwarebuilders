@@ -10,13 +10,13 @@ use Illuminate\Notifications\Notification;
 class QueryNotification extends Notification
 {
     use Queueable;
-    public $user;
+    public $querydata;
     /**
      * Create a new notification instance.
      */
-    public function __construct($user)
+    public function __construct($querydata)
     {
-        $this->user = $user;
+        $this->querydata = $querydata;
     }
 
     /**
@@ -39,9 +39,9 @@ class QueryNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'user_id'=> $this->user['id'],
-            'name'=> $this->user['name'],
-            'email'=> $this->user['email']
+            'model_id'=> $this->querydata['model_id'],
+            'route'=> $this->querydata['route'],
+            'message'=> $this->querydata['message'],
         ];
     }
 }

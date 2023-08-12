@@ -19,172 +19,268 @@
 
                     <div class=" col-span-8">
                         <div class="p-5 border border-lgreen rounded-md">
-                            <div class=" border-b border-b-slate-400 pb-3">
-                                <h2 class=" text-xl text-nblue font-bold">Dashboard</h2>
-                            </div>
-                            <div class="mt-5">
-                                <div class=" grid md:grid-cols-2 lg:grid-cols-3  gap-5 ">
 
-                                    @role('admin')
+                            <div class="">
+                                <div class="tabs">
+                                    <div class="tab_line">
+                                        <div class=" ">
+                                            <ul class="tabs-nav flex">
+                                                <li class="mr-10"><a class=" text-lg font-bold mt-4  leading-8"
+                                                        href="#profile">Dashboard</a>
+                                                </li>
+                                                <li class="mr-10 relative"><a class=" text-lg font-bold mt-4  leading-8"
+                                                        href="#password">Notifications</a>
+                                                    @if ($notifications->count() > 0)
+                                                        <div
+                                                            class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">
+                                                        </div>
+                                                    @endif
+                                                </li>
 
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-platinum rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-thistle flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-violet inline-block mt-2" data-icon="ion:book-outline"></span>
+                                            </ul>
+                                        </div>
+                                    </div><!-- END seting_tabs-nav -->
+                                    <div class="tabs-content mt-5">
+                                        <div id="profile" class="tab-content">
+                                            <div class=" grid md:grid-cols-2 lg:grid-cols-3  gap-5 ">
 
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-violet font-bold">{{$students}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-violet">Students</h2>
+                                                @role('admin')
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-platinum rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-thistle flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-violet inline-block mt-2"
+                                                                    data-icon="ion:book-outline"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-violet font-bold">
+                                                                    {{ $students }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-violet">Students</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-oldLace rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-dutchWhite flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-tumbleweed inline-block mt-2"
+                                                                    data-icon="mi:computer"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-tumbleweed font-bold">
+                                                                    {{ $runningbatch }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-tumbleweed">Running
+                                                                    Batches</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-oldLace rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-dutchWhite flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-tumbleweed inline-block mt-2"
+                                                                    data-icon="mi:computer"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-tumbleweed font-bold">
+                                                                    {{ $upcommingbatche }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-tumbleweed">Upcomming
+                                                                    Batches</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-oldLace rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-dutchWhite flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-tumbleweed inline-block mt-2"
+                                                                    data-icon="mi:computer"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-tumbleweed font-bold">
+                                                                    {{ $totalcourse }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-tumbleweed">Courses
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endrole
+
+                                                @role('instructor')
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                    data-icon="iconamoon:certificate-badge"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                    {{ $mycourses }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-candyPink">My Courses
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                    data-icon="iconamoon:certificate-badge"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                    {{ $myactivecourses }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-candyPink">Active
+                                                                    Courses</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                    data-icon="iconamoon:certificate-badge"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                    {{ $mypendingcourses }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-candyPink">Pending
+                                                                    Courses</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endrole
+                                                @role('student')
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                    data-icon="iconamoon:certificate-badge"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                    {{ $enrolledcourses }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-candyPink">Enrolled
+                                                                    Courses</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                    data-icon="iconamoon:certificate-badge"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                    {{ $activeenroll }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-candyPink">Running
+                                                                    Courses</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                        <div class=" flex flex-col items-center justify-center">
+                                                            <div
+                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                                <span
+                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                    data-icon="iconamoon:certificate-badge"></span>
+
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                    {{ $pendingenroll }}</h2>
+                                                            </div>
+                                                            <div class="">
+                                                                <h2 class=" text-base font-medium text-candyPink">Pending
+                                                                    Enrollment</h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endrole
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-oldLace rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-dutchWhite flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-tumbleweed inline-block mt-2" data-icon="mi:computer"></span>
+                                        <div id="password" class="tab-content">
+                                            @foreach ($notifications as $notification)
 
+
+                                            @endforeach
+
+                                            @forelse ($notifications as $notification)
+                                            <div class="flex gap-4 items-center alert my-2">
+                                                <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow">
+                                                    <p class="bg-dgreen/20 rounded px-5 py-2 text-dblue ">{{ $notification->data['message'] }}</p>
+                                                </a>
+                                                <a href="#" class="bg-dgreen/20 rounded px-5 py-2 text-dblue mark-as-read" data-id="{{$notification->id}}">Mark as read</a>
                                             </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-tumbleweed font-bold">{{$runningbatch}}</h2>
+
+                                            @if ($loop->last)
+                                            <div class="mt-10">
+
+                                                <a href="#" class="bg-dgreen rounded px-5 py-2 text-white mt-10" id="mark-all">Mark all as read</a>
                                             </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-tumbleweed">Running Batches</h2>
+                                            @endif
+                                            @empty
+                                            <div class="py-10 text-center">
+                                                    <p class=" text-dgreen ">No Notification.</p>
                                             </div>
+                                            @endforelse
                                         </div>
                                     </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-oldLace rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-dutchWhite flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-tumbleweed inline-block mt-2" data-icon="mi:computer"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-tumbleweed font-bold">{{$upcommingbatche}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-tumbleweed">Upcomming Batches</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-oldLace rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-dutchWhite flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-tumbleweed inline-block mt-2" data-icon="mi:computer"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-tumbleweed font-bold">{{$totalcourse}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-tumbleweed">Courses</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endrole
-
-                                    @role('instructor')
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="iconamoon:certificate-badge"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-candyPink font-bold">{{$mycourses}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-candyPink">My Courses</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="iconamoon:certificate-badge"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-candyPink font-bold">{{$myactivecourses}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-candyPink">Active Courses</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="iconamoon:certificate-badge"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-candyPink font-bold">{{$mypendingcourses}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-candyPink">Pending Courses</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endrole
-                                    @role('student')
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="iconamoon:certificate-badge"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-candyPink font-bold">{{$enrolledcourses}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-candyPink">Enrolled Courses</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="iconamoon:certificate-badge"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-candyPink font-bold">{{$activeenroll}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-candyPink">Running Courses</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                        <div class=" flex flex-col items-center justify-center">
-                                            <div
-                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="iconamoon:certificate-badge"></span>
-
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-4.5xl text-candyPink font-bold">{{$pendingenroll}}</h2>
-                                            </div>
-                                            <div class="">
-                                                <h2 class=" text-base font-medium text-candyPink">Pending Enrollment</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    @endrole
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -193,5 +289,38 @@
         </div>
     </section>
     <!-- ===============instructor-dashboard-item end================ -->
+
+    <x-slot name="script">
+        <script>
+            function sendMarkRequest(id = null) {
+                return $.ajax("{{route('markNotification')}}", {
+                    method: 'POST',
+                    data: {
+
+                        id
+                    }
+                });
+             }
+
+             $(function(){
+                $('.mark-as-read').click(function(){
+                    let request = sendMarkRequest($(this).data('id'));
+
+                    request.done(()=>{
+                        $(this).parents('div.alert').remove();
+                    });
+                });
+
+                $('#mark-all').click(function(){
+                    let request = sendMarkRequest();
+
+                    request.done(()=>{
+                        $('div.alert').remove();
+                        $('div.tablinedot').remove();
+                    });
+                });
+             });
+        </script>
+    </x-slot>
 
 </x-guest-layout>

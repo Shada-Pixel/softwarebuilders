@@ -5,12 +5,12 @@
             <x-nav-link :href="route('quaries.all')" :active="request()->routeIs('quaries.all')">
                 {{ __('All Quaries') }}
             </x-nav-link>
-            <x-nav-link :href="route('quaries.unreaded')" :active="request()->routeIs('quaries.unreaded')">
+            {{-- <x-nav-link :href="route('quaries.unreaded')" :active="request()->routeIs('quaries.unreaded')">
                 {{ __('Unreaded Quaries') }}
             </x-nav-link>
             <x-nav-link :href="route('quaries.readed')" :active="request()->routeIs('quaries.readed')">
                 {{ __('Readed Quaries') }}
-            </x-nav-link>
+            </x-nav-link> --}}
         </div>
     </x-slot>
 

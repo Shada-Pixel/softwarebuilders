@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Query;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreQueryRequest;
 use App\Http\Requests\UpdateQueryRequest;
+use App\Notifications\QueryNotification;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\QueryMail;
 use App\Models\Setting;
@@ -64,9 +66,9 @@ class QueryController extends Controller
         // return $request;
         $sender = Query::find($request->sender);
         $msg = $request->message;
-        try{
-            $sendmail =    Mail::to($sender->email)->send(new QueryMail($msg));
-        }catch (\Exception $exception){}
+        // try{
+        //     $sendmail =    Mail::to($sender->email)->send(new QueryMail($msg));
+        // }catch (\Exception $exception){}
 
         // return response()->json(['status' => 'success', 'message' => 'Replied successfylly !']);
         return redirect()->route('quaries.all');
@@ -90,13 +92,13 @@ class QueryController extends Controller
             'message' => $request->message,
         ]);
 
-        // $msg = Setting::where('property','contactxt')->first()->value;
 
+        $admin = User::role('admin')->first() ;
         // Making notification to admin
-        // if (Auth::user()) {
-        //     $user = User::first();
-        //     Auth::user()->notify(new QueryNotification($user));
-        // }
+        if ($admin) {
+            $querydata = ['model_id' => $query->id, 'route' => 'quaries.read', 'message'=> 'A query from '.$query->name.'.'];
+            $admin->notify(new QueryNotification($querydata));
+        }
 
         if ($query) {
             // try{
@@ -117,10 +119,23 @@ class QueryController extends Controller
      */
     public function read (Query $query)
     {
-        if ($query->status == 'unreaded') {
-            $query->status = 'readed' ;
+        if ($query->status == 1) {
+            $query->status = 2 ;
             $query->update();
         }
+
+        try {
+            $sender = User::where('email',$query->email)->first() ;
+            // Making notification to sender
+            if ($sender) {
+                $querydata = ['model_id' => $query->id, 'route' => 'home', 'message'=> 'Your query is been readen by the admin.'];
+                $sender->notify(new QueryNotification($querydata));
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+
         return view('dashboard.quaries.read',compact('query'));
     }
 
