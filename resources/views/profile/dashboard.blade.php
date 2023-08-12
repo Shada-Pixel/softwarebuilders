@@ -253,10 +253,7 @@
                                             </div>
                                         </div>
                                         <div id="password" class="tab-content">
-                                            @foreach ($notifications as $notification)
-
-
-                                            @endforeach
+                                            @if ($notifications != null)
 
                                             @forelse ($notifications as $notification)
                                             <div class="flex gap-4 items-center alert my-2">
@@ -277,6 +274,7 @@
                                                     <p class=" text-dgreen ">No Notification.</p>
                                             </div>
                                             @endforelse
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
