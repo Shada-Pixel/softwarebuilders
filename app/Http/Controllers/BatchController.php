@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Batch;
 use App\Models\Course;
+use App\Models\EnrollmentItem;
+use App\Models\User;
+use App\Mail\BatchMail;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreBatchRequest;
 use App\Http\Requests\UpdateBatchRequest;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class BatchController extends Controller
 {
@@ -83,6 +89,40 @@ class BatchController extends Controller
             $batch->status = $request->status;
         }
 	    $batch->update();
+
+
+        $course = Course::find($batch->course_id);
+        $enitems = EnrollmentItem::where('batch_id',$batch->id)->get();
+
+        if ($batch->status == 2) {
+            // Trying to send mail on course starting
+            try {
+                foreach ($enitems as $enitem) {
+                    $user = User::find($enitem->user_id);
+                    $msg = "Congratulations! The moment you've been eagerly anticipating has arrived. We are thrilled to announce the commencement of your ".$course->name." course at Software Builders Ltd. Get ready to embark on a journey of exploration, growth, and achievement. It is going to start on ".date('d-M-Y', strtotime($batch->start_date)).". All information will be available on the group.";
+                    $link= route('courses.show',$course->id);
+                    $maildata = ['name' => $user->name, 'text' => $msg , 'link' => $link];
+                    $sendmail = Mail::to($user->email)->send(new BatchMail($maildata));
+                }
+
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }elseif ($batch->status == 3) {
+            try {
+                // Trying to send mail on course closing
+                foreach ($enitems as $enitem) {
+                    $user = User::find($enitem->user_id);
+                    $msg = "As the final chapter of your ".$course->name." course comes to a close, we want to take a moment to celebrate your remarkable journey of learning, growth, and achievement. Congratulations on reaching this significant milestone! Your dedication, hard work, and commitment to excellence have truly paid off.";
+                    $link= route('courses.show',$course->id);
+                    $maildata = ['name' => $user->name, 'text' => $msg , 'link' => $link];
+                    $sendmail = Mail::to($user->email)->send(new BatchMail($maildata));
+                }
+
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
 
         if ($batch){
             return redirect()->route('batches.index')->with(['status'=> 200, 'message' => 'Updated Successfully!']);

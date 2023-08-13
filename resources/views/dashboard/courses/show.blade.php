@@ -44,7 +44,7 @@
 
                         <div class=" border border-dgreen rounded-md p-5">
                             <h2 class=" text-xl text-black font-bold">Group Link</h2>
-                            <p>{{$batchgrouptext }}</p>
+                            <p>{!! $batchgrouptext !!}</p>
 
                         </div>
                         @else

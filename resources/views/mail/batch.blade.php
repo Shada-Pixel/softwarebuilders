@@ -45,17 +45,15 @@
         </tr>
         <tr>
             <td style="padding: 20px; text-align: center; background: #222d5d;">
-                <h1 style="color: #ffffff"> Welcome!</h1>
+                <h1 style="color: #ffffff"> Hello {{$name}}!</h1>
             </td>
         </tr>
         <tr>
             <td style="padding: 20px;">
-                {{-- <p style="font-size:30px; margin: 5px;text-align:center">{{ $newsletter['title'] }}</p> --}}
                 <p>
                     Dear {{$name}}, <br/>
                     {{ $text }}
                 </p>
-
             </td>
         </tr>
         <tr>
@@ -65,7 +63,7 @@
         <tr>
             <td style="padding-top: 40px;padding-bottom: 24px;">
                 <center>
-                    <a href="{{$link}}" style="background: #222d5d; margin-top:20px; padding: 10px 20px; color: #fff; text-decoration: none;border-radius: 5px;">{{env('APP_NAME')}}</a>
+                    <a href="{{$link}}" style="background: #222d5d; margin-top:20px; padding: 10px 20px; color: #fff; text-decoration: none;border-radius: 5px;">Couser</a>
                    </center>
             </td>
         </tr>

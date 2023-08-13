@@ -45,10 +45,6 @@ class CourseController extends Controller
      */
     public function store(StoreCourseRequest $request)
     {
-
-
-
-
         // return $request;
         $course = new Course;
         $course->name = $request->name;
@@ -106,7 +102,7 @@ class CourseController extends Controller
 
             }elseif ($enrollitem && $enrollitem->status == '2' && $enrollitem->batch_id ) {
                 $mybatch = Batch::find($enrollitem->batch_id);
-                $batchgrouptext = $mybatch->group_link;
+                $batchgrouptext = '<a href="'.$mybatch->group_link.'" target="_blank" class="text-dgreen">'.$mybatch->group_link.'</a>';
             }
 
             // return $ec;

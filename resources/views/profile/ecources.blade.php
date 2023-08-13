@@ -35,7 +35,7 @@
                                                             href="#active_Courses">Active Courses</a>
                                                     </li>
                                                     <li class="mr-10"><a class=" text-lg font-medium mt-4  leading-8"
-                                                            href="#completed_Courses">Completed Courses</a>
+                                                            href="#completed_Courses">Pending Courses</a>
                                                     </li>
                                                 </ul>
                                             </div>

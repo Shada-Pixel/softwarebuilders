@@ -62,21 +62,15 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
-
-        $msg = 'Welcome to Software Builders Ltd. Your acount has been created.';
-        $link= route('home');
-        $maildata = ['name' => $user->name, 'text' => $msg , 'link' => $link ];
-        $sendmail = Mail::to($user->email)->send(new WelcomeMail($maildata));
-
         // Trying to send Welcome
         try {
+            $msg = 'Welcome to Software Builders Ltd. Your acount has been created.';
+            $link= route('home');
+            $maildata = ['name' => $user->name, 'text' => $msg , 'link' => $link ];
+            $sendmail = Mail::to($user->email)->send(new WelcomeMail($maildata));
         } catch (\Throwable $th) {
             //throw $th;
         }
-
-
-
-
 
         return redirect(RouteServiceProvider::HOME);
     }
