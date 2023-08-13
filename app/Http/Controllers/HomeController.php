@@ -76,6 +76,7 @@ class HomeController extends Controller
         return view('gallery',compact('albums'));
     }
     function contact() { return view('contact'); }
+    function terms() { return view('terms'); }
 
 
 

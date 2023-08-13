@@ -18,10 +18,9 @@
 
                         <div class="">
                             <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Address</h2>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">211 Eva
-                                Pearl
-                                StreetBaton Rouge, </p>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">LA 70806
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">18/B, KDA Avenue approach Road,
+                                Western Plaza (5th Floor), </p>
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">Khulna - 9100
 
                         </div>
                     </div>
@@ -32,9 +31,7 @@
                         <div class="">
                             <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Phone</h2>
                             <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
-                                225-752-6841</p>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
-                                225-752-6842</p>
+                                01771-662888</p>
                         </div>
                     </div>
                     <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
@@ -44,9 +41,7 @@
                         <div class="">
                             <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Email</h2>
                             <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
-                                info@softwarebuilders.com</p>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
-                                contact@softwarebuilders.com</p>
+                                softwarebuildersltd@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +61,7 @@
                         <div class="">
                             <h2 class="text-xl sm:text-4xl text-center sm:text-left font-bold text-nblue">Request A
                                 Quote</h2>
-                            <p class=" text-base text-nblue font-normal text-center sm:text-left">Lorem Ipsum is simply
+                            <p class=" text-base text-nblue font-normal text-center sm:text-left mt-4">Lorem Ipsum is simply
                                 dummy text of the
                                 printing
                                 and typesetting industry. Lorem Ipsum has

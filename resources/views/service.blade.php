@@ -28,11 +28,14 @@
                     @include('layouts.inc.service')
                     @endforeach
                 </div>
+                @if ($services->count() > 4)
+
                 <div class=" flex justify-center mt-6 md:mt-12">
                     <a href="" class="load-more text-white text-base font-bold bg-nblue py-2.5 px-4 rounded-md">VIEW
                         MORE
                         SERVICE</a>
                 </div>
+                @endif
 
             </div>
         </div>

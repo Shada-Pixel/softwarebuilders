@@ -41,7 +41,7 @@
                         Latin literature from 45 BC.</p>
                     <div class="flex justify-center sm:justify-start gap-1 text-2xl mt-4">
 
-                        <a href="https://www.facebook.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:facebook-with-circle"></span></a>
+                        <a href="https://www.facebook.com/softwarebuildersltd" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:facebook-with-circle"></span></a>
                         <a href="https://twitter.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:twitter-with-circle"></span></a>
                         <a href="https://www.linkedin.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:linkedin-with-circle"></span></a>
                         <a href="https://www.youtube.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:youtube-with-circle"></span></a>
@@ -52,21 +52,10 @@
                         OUR SERVICE</h2>
                     <div class=" sm:mt-5 flex justify-center sm:justify-start">
                         <ul>
-                            <li class=" hover:text-dgreen"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen  text-center sm:text-left"
-                                    href="#">Web Development</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen " href="#">Web
-                                    Design</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">Graphic
-                                    Design</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen"
-                                    href="#">Networking</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI & UX
-                                    Design</a></li>
+                            @foreach ($fservices as $service)
+
+                            <li class=" hover:text-dgreen text-center sm:text-left"><a class=" text-base font-normal text-white hover:text-dgreen" href="{{route('services.show', $service->id)}}">{!! $service->title !!}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -75,21 +64,10 @@
                         OUR COURSES</h2>
                     <div class=" sm:mt-5 flex justify-center sm:justify-start">
                         <ul>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">Web
-                                    Development</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">Web
-                                    Design</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen text-center sm:text-left"
-                                    href="#">Graphic Design</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen"
-                                    href="#">Networking</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI & UX
-                                    Design</a></li>
+                            @foreach ($fcources as $course)
+
+                            <li class=" hover:text-dgreen text-center sm:text-left"><a class=" text-base font-normal text-white hover:text-dgreen" href="{{route('courses.show', $course->id)}}">{!! $course->name !!}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -99,20 +77,19 @@
                     <div class=" sm:mt-5 ">
                         <ul class="">
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">Blog</a>
+                                class=" text-base font-normal text-white hover:text-dgreen" href="{{route('about')}}">About Us</a></li>
+                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="{{route('gallery')}}">Gallery</a>
                             </li>
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">About
-                                    Software Builders</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">Contact
-                                    Us</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">Career</a>
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="{{route('service')}}">Services</a>
                             </li>
+
                             <li class=" hover:text-dgreen text-center sm:text-left"><a
-                                    class=" text-base font-normal text-white hover:text-dgreen" href="#">UI & UX
-                                    Design</a></li>
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="{{route('cource')}}">Courses</a></li>
+                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                                    class=" text-base font-normal text-white hover:text-dgreen" href="{{route('contact')}}">Contact Us</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -121,10 +98,10 @@
                 <div class="footer-bottom"></div>
                 <div class=" flex justify-between items-center mt-4 px-3 sm:px-0">
                     <div class="">
-                        <p class=" text-xs sm:text-base text-white">Copyright 2022 Software Builders LTD.</p>
+                        <p class=" text-xs sm:text-base text-white">Copyright &copy; {{date('Y')}} Software Builders LTD.</p>
                     </div>
                     <div class="">
-                        <a class="text-xs sm:text-base text-white hover:text-dgreen" href="#">Terms & Conditions</a>
+                        <a class="text-xs sm:text-base text-white hover:text-dgreen" href="{{route('terms')}}">Terms & Conditions</a>
                     </div>
                 </div>
             </div>

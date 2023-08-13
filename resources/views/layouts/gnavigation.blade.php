@@ -68,7 +68,13 @@
 
                         {{-- Cart --}}
                         <a href="{{route('carts.index')}}">
-                            <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out ml-2" data-icon="fluent:cart-24-filled"></span>
+                            <div class="relative">
+
+                                <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out ml-2" data-icon="fluent:cart-24-filled"></span>
+                                @if ($cartcount  > 0)
+                                    <div class="absolute text-xs w-4 h-4 bg-dgreen rounded-full text-white flex justify-center items-center p-1 top-0 left-6">{{$cartcount}}</div>
+                                @endif
+                            </div>
                         </a>
 
                     </div>

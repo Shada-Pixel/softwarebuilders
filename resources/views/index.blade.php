@@ -2,11 +2,32 @@
 
     <X-slot name="headstyle">
         <link rel="stylesheet" href="{{ asset('owl/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('owl/owl.theme.default.css') }}">
+        <style>
+            .owl-dots {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                /* right: 0;
+                top: 50%; */
+                transform: translateX(-50%);
+                /* display: flex;
+                flex-direction: column; */
+            }
+
+            .owl-carousel span {
+                background: #ffffff !important;
+            }
+
+            .owl-carousel .active span {
+                background: #029642 !important;
+            }
+        </style>
     </X-slot>
 
     <!-- =====================Hero-section-start=========== -->
     <section class="mt-16 relative">
-        <div class="owl-carousel owl-theme">
+        <div class="owl-carousel owl-theme hero-slider">
             {{-- item --}}
             <div class="heroSlider-img item" style="background-image: url({{ asset('img/slider01.jpg') }});">
                 <div class="max-w-7xl mx-auto">
@@ -50,7 +71,10 @@
                         Business Development
                     </h2>
                     <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
-                        <p class="text-sm md:text-base text-white font-medium sm:font-bold text-center sm:text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien velit, aliquet eget commodo nec, auctor a sapien. Nam eu neque vulputate diam rhoncus faucibus. Curabitur quis varius libero. Lorem.</p>
+                        <p class="text-sm md:text-base text-white font-medium sm:font-bold text-center sm:text-left">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien velit, aliquet eget
+                            commodo nec, auctor a sapien. Nam eu neque vulputate diam rhoncus faucibus. Curabitur quis
+                            varius libero. Lorem.</p>
                     </div>
                     <div class="flex mt-10 justify-center sm:justify-start">
                         <div class=" mr-5">
@@ -113,7 +137,8 @@
                                         <div
                                             class=" px-6 py-5 bg-white hover:bg-dgreen text-nblue hover:text-white rounded-md">
                                             <p class=" text-base font-bold ">{{ $category->name }}</p>
-                                            <p class=" text-sm font-normal">{{ $category->courses->count() }} Course</p>
+                                            <p class=" text-sm font-normal">{{ $category->courses->count() }} Course
+                                            </p>
                                         </div>
                                     </a>
                                 </div>
@@ -684,37 +709,45 @@
 
                             {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/taposh.jpeg')}});">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat"
+                                    style="background-image: url({{ asset('images/teams/taposh.jpeg') }});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Enger.Sk.Rafiqul Islam Tapos</h2>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Enger.Sk.Rafiqul
+                                        Islam Tapos</h2>
                                     <p class=" text-base text-nblue text-center">Managing Director</p>
                                 </div>
                             </div>
                             {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/rasa.jpeg')}});">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat"
+                                    style="background-image: url({{ asset('images/teams/rasa.jpeg') }});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Shahidur Rahman Rasha</h2>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Shahidur Rahman
+                                        Rasha</h2>
                                     <p class=" text-base text-nblue text-center">Executive Director</p>
                                 </div>
                             </div>
                             {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/romel.jpeg')}});">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat"
+                                    style="background-image: url({{ asset('images/teams/romel.jpeg') }});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Mahmudur Rahman Romel</h2>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Mahmudur Rahman
+                                        Romel</h2>
                                     <p class=" text-base text-nblue text-center">UI/UX Designer</p>
                                 </div>
                             </div>
                             {{-- member --}}
                             <div class="swiper-slide">
-                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat" style="background-image: url({{asset('images/teams/directormam.jpeg')}});">
+                                <div class="team_member-img w-full aspect-square rounded-md bg-cover bg-top bg-no-repeat"
+                                    style="background-image: url({{ asset('images/teams/directormam.jpeg') }});">
                                 </div>
                                 <div class=" mt-4">
-                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Zahida Akter Lipi</h2>
+                                    <h2 class="text-lg sm:text-xl text-nblue font-bold text-center ">Zahida Akter Lipi
+                                    </h2>
                                     <p class=" text-base text-nblue text-center"> Director</p>
                                 </div>
                             </div>
@@ -730,14 +763,15 @@
     <x-slot name="script">
         <script src="{{ asset('owl/owl.carousel.min.js') }}"></script>
         <script>
-            $('.owl-carousel').owlCarousel({
+            $('.hero-slider').owlCarousel({
                 loop: true,
                 margin: 0,
-                nav: false,
-                autoplay:true,
+                // nav: true,
+                autoplay: true,
                 autoplayTimeout: 3000,
+                dots: true,
                 // fluidSpeed:true,
-                autoplayHoverPause:false,
+                autoplayHoverPause: false,
                 responsive: {
                     0: {
                         items: 1

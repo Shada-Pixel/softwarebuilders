@@ -40,6 +40,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/gallery', 'gallery')->name('gallery');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/subscribe','subscribe')->name('subscribe');
+    Route::get('/terms','terms')->name('terms');
 });
 
 

@@ -40,10 +40,11 @@
                         </ul>
                         <div class=" mt-6 flex items-center sm:justify-center md:justify-start">
                             <div class="mr-3 ">
-                                <img class=" w-16 h-16 rounded-full" src="./img/team01.jpg" alt="">
+                                <div class="w-16 h-16 rounded-full bg-no-repeat bg-top bg-cover" style="background-image: url({{asset('images/teams/taposh.jpg')}});"></div>
+                                {{-- <img class=" w-16 h-16 rounded-full" src="./img/team01.jpg" alt=""> --}}
                             </div>
                             <div class="">
-                                <p class=" text-base font-bold text-nblue">Rebecca T. Emerson</p>
+                                <p class=" text-base font-bold text-nblue">Enger.Sk.Rafiqul Islam Tapos</p>
                                 <p class=" text-base font-normal text-dgreen">Managing Director</p>
                             </div>
                         </div>
