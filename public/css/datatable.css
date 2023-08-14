@@ -20,9 +20,18 @@ table.dataTable.no-footer {
 }
 
 table.dataTable.display tbody td {
-    padding: 1rem;
+    padding: .25rem;
     border-top: none;
 }
+
+@media (min-width: 640px) {
+    table.dataTable.display tbody td {
+        padding: .5rem;
+        border-top: none;
+    }
+}
+
+
 
 table.dataTable thead th, table.dataTable thead td {
 	padding: 8px !important;

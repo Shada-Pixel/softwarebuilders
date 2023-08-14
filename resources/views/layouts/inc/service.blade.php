@@ -1,4 +1,4 @@
-<a href="{{route('services.show', $service->id)}}" class="group">
+<a href="{{route('services.details', $service->id)}}" class="group">
 
     <div class=" py-9 px-5 bg-lgreen hover:bg-nblue rounded-md transition cursor-pointer text-nblue hover:text-white">
         <div class="">

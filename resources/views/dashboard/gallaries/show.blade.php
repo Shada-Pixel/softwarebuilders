@@ -13,8 +13,8 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
             <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">{{$album->name}}</h2>
             <hr class="my-4">
             <div class="grid grid-cols-4 gap-5">

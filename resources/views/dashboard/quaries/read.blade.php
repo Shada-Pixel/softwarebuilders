@@ -14,7 +14,7 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
+    <div class="p-2 sm:p-6">
         <div class="bg-white rounded p-6 shadow-md">
             <h1 class="font-bold">{{$query->name}}</h1>
             <p>Email: <span>{{$query->email}}</span></p>

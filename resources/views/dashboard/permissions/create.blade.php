@@ -9,7 +9,7 @@
             </x-nav-link>
     </x-slot>
 
-    <div class="p-6">
+    <div class="p-2 sm:p-6">
         <form action="{{route('permissions.store')}}" method="POST">
             @csrf
             <div class="overflow-hidden shadow sm:rounded-md">

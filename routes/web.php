@@ -49,7 +49,12 @@ Route::get('hasan', function(){ return view ('index'); });
 
 // course show
 Route::group(['prefix' => 'courses'], function () {
-    Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.show');
+    Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.details');
+});
+
+// services show
+Route::group(['prefix' => 'services'], function () {
+    Route::get('/show/{service}', [ServiceController::class, 'show'])->name('services.details');
 });
 
 // Service Quatations

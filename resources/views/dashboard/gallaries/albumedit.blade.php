@@ -11,8 +11,8 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
             <h1 class="text-xl mb-1 text-dgreen">Edit this Album</h1>
 
             <form method="POST" action="{{ route('albums.update', $album->id) }}" id="course-store" enctype="multipart/form-data" >

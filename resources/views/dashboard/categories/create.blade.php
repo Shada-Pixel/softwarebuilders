@@ -11,9 +11,9 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
-            <h1 class="text-xl mb-1">New Category Information</h1>
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-4 text-center sm:text-left">New Category Information</h1>
 
             <form method="POST" action="{{ route('categories.store') }}">
                 @csrf

@@ -11,8 +11,8 @@
         </div>
     </x-slot>
 
-    <div class="p-6 ">
-        <div class="p-6 bg-white rounded-md">
+    <div class="p-2 sm:p-6 ">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
 
             <form method="POST" action="{{ route('users.store') }}">
                 @csrf

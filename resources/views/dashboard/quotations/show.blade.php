@@ -11,7 +11,7 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
+    <div class="p-2 sm:p-6">
         <div class="bg-white rounded-md shadow p-6 flex justify-between items-center">
             <div class="">
 

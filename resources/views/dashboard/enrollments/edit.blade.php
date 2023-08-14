@@ -8,9 +8,9 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md grid grid-cols-3 gap-5">
-            <h1 class="text-xl mb-1">Edit this enrollment</h1>
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md grid grid-cols-3 gap-5">
+            <h1 class="text-xl mb-4 text-center sm:text-left">Edit this enrollment</h1>
             <div class=" relative">
                 <div class="">
                     @if ($enrollment->status == '1')

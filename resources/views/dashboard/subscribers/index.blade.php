@@ -9,9 +9,9 @@
             </x-nav-link>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md text-gray-900">
-            <table id="subtable" class="display stripe" style="width:100%">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
+            <table id="subtable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -55,8 +55,8 @@
                         {
                             data: null,
                             render: function(data) {
-                            return `<div class="flex justify-end"><button type="button"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="activateDeactivateSubscriber(${data.id},${data.status});"><span class="iconify" data-icon="zondicons:reload"></span></button>
-                                <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="subscriberDelete(${data.id});"><span class="iconify" data-icon="majesticons:logout"></span></button></div>`;
+                            return `<div class="flex justify-end"><button type="button"  class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="activateDeactivateSubscriber(${data.id},${data.status});"><span class="iconify text-base" data-icon="zondicons:reload"></span></button>
+                                <button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="subscriberDelete(${data.id});"><span class="iconify text-base" data-icon="majesticons:logout"></span></button></div>`;
                             }
                         }
                     ]

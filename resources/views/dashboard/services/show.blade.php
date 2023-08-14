@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <section id="course-details-page">
-        <div class="pt-10 bg-white mt-10 sm:pt-20 pb-24 sm:pb-44 px-3 sm:px-0">
+        <div class="pt-20 bg-white mt-10 sm:pt-20 pb-24 sm:pb-44 px-3 sm:px-0">
             <div class="max-w-7xl mx-auto">
                 <div class=" sm:w-2/4 mb-4 sm:mb-0">
                     <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">
@@ -54,7 +54,7 @@
     </section>
 
     {{-- Service quotation popup --}}
-    <div class="hidden w-screen min-h-screen bg-lgreen fixed top-0 right-0 z-[100] sm:py-24" id="servicequotepop">
+    <div class="hidden w-screen min-h-screen bg-lgreen fixed top-10 right-0 z-[100] sm:py-24" id="servicequotepop">
         <div class="max-w-4xl mx-auto bg-white rounded p-6">
             <div class="flex justify-between mb-4" id="servicedetailsinpop">
                 <h2 class="text-2xl font-semibold text-dgreen"></h2>

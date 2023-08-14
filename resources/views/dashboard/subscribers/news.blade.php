@@ -9,7 +9,7 @@
             </x-nav-link>
     </x-slot>
 
-    <div class="p-6 ">
+    <div class="p-2 sm:p-6 ">
         <form method="POST" action="{{ route('newsletters.store') }}">
             @csrf
 
@@ -29,8 +29,8 @@
         </form>
     </div>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md text-gray-900">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
 
             <table id="userTable" class="display stripe" style="width:100%">
                 <thead>

@@ -2,15 +2,15 @@
 
 
     <div class="py-12">
-        <div class=" mx-6 sm:p-6 lg:p-8 bg-white rounded">
-            <div class=" grid md:grid-cols-2 lg:grid-cols-3  gap-5 ">
+        <div class=" mx-6 p-4 sm:p-6 lg:p-8 bg-white rounded min-h-screen">
+            <div class=" grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-5 ">
 
                 {{-- User quentity --}}
-                <div class="pt-11 pb-14 border border-dashed border-violet bg-platinum rounded-md">
+                <div class=" py-8 sm:pt-11 sm:pb-14 border border-dashed border-violet bg-platinum rounded-md">
                     <div class=" flex flex-col items-center justify-center">
                         <div
-                            class=" w-24 h-24 rounded-full bg-thistle flex justify-center items-center">
-                            <span class="iconify text-3xl text-center text-violet inline-block mt-2" data-icon="solar:user-linear"></span>
+                            class="w-12 h-12 sm:w-24 sm:h-24 rounded-full bg-thistle flex justify-center items-center">
+                            <span class="iconify text-xl sm:text-3xl text-center text-violet inline-block mt-2" data-icon="solar:user-linear"></span>
 
                         </div>
                         <div class="">
@@ -24,11 +24,11 @@
                 {{-- Course qty --}}
                 <a href="{{route('courses.index')}}">
 
-                    <div class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                    <div class=" py-8 sm:pt-11 sm:pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
                         <div class=" flex flex-col items-center justify-center">
                             <div
-                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                <span class="iconify text-3xl text-center text-candyPink inline-block mt-2" data-icon="ion:book-outline"></span>
+                                class="w-12 h-12 sm:w-24 sm:h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                <span class="iconify text-xl sm:text-3xl text-center text-candyPink inline-block mt-2" data-icon="ion:book-outline"></span>
 
                             </div>
                             <div class="">
@@ -42,11 +42,11 @@
                 </a>
 
                 {{-- Service quentity --}}
-                <div class="pt-11 pb-14 border border-dashed border-violet bg-platinum rounded-md">
+                <div class=" py-8 sm:pt-11 sm:pb-14 border border-dashed border-violet bg-platinum rounded-md">
                     <div class=" flex flex-col items-center justify-center">
                         <div
-                            class=" w-24 h-24 rounded-full bg-thistle flex justify-center items-center">
-                            <span class="iconify text-3xl text-center text-violet inline-block mt-2" data-icon="icons8:services"></span>
+                            class="w-12 h-12 sm:w-24 sm:h-24 rounded-full bg-thistle flex justify-center items-center">
+                            <span class="iconify text-xl sm:text-3xl text-center text-violet inline-block mt-2" data-icon="icons8:services"></span>
 
                         </div>
                         <div class="">

@@ -110,8 +110,10 @@ class CourseController extends Controller
             return view('dashboard.courses.show',compact('course','mycartcourse','ec','batchgrouptext'));
         }else{
 
-            $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());
-            return view('dashboard.courses.show',compact('course','mycartcourse'));
+            // $mycartcourse = 0;
+
+            // return 'some';
+            return view('dashboard.courses.show',compact('course'));
         }
 
         // $mycartcourse = count(Cart::where('course_id',$course->id)->where('user_id', Auth::user()->id)->get());

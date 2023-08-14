@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <section id="course-details-page">
-        <div class="pt-10 bg-white mt-10 sm:pt-20 pb-24 sm:pb-44 px-3 sm:px-0">
+        <div class="pt-20 bg-white mt-10 sm:pt-20 pb-24 sm:pb-44 px-3 sm:px-0">
             <div class="max-w-7xl mx-auto">
                 <div class=" sm:w-2/4 mb-4 sm:mb-0">
                     <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">{{$course->name}}</h2>
@@ -65,10 +65,29 @@
                                     <button type="submit" class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">ENROLL</button>
                                 </form>
                                 @endif
+
+
                             </div>
                         </div>
                         @endif
                         @endauth
+
+                        @guest
+                        <div class=" border border-dgreen rounded-md p-5">
+                            <h2 class=" text-xl text-black font-bold">{{number_format($course->current_price, 0) }} BDT</h2>
+                            <div class=" mt-4">
+
+                                <form action="{{route('carts.store')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="course_id" value="{{$course->id}}">
+                                    <input type="hidden" name="total" value="{{$course->current_price}}">
+                                    <button type="submit" class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">ENROLL</button>
+                                </form>
+
+
+                            </div>
+                        </div>
+                        @endguest
 
 
 

@@ -14,9 +14,9 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
-            <h1 class="text-xl mb-1">'{{$service->title}}' Service Information</h1>
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-4 text-center sm:text-left">'{{$service->title}}' Service Information</h1>
             <p>(<span class="text-red-500 mb-4">*</span>) marked fields are required.</p>
 
             <form method="POST" action="{{ route('services.update',$service->id) }}" id="service-store" enctype="multipart/form-data" >

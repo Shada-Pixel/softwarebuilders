@@ -12,7 +12,7 @@
     </x-slot>
 
     @if (count($errors) > 0)
-        <div class="p-6">
+        <div class="p-2 sm:p-6">
             <div class="text-red-500 bg-red-100 px-4 py-2">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
                 <ul>
@@ -24,7 +24,7 @@
         </div>
     @endif
 
-    <div class="p-6">
+    <div class="p-2 sm:p-6">
         <form action="{{route('roles.update', $role->id)}}" method="POST">
             @csrf
             @method('PATCH')

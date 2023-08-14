@@ -17,11 +17,11 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md " >
-            <h1 class="text-xl mb-1">All Batches</h1>
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md " >
+            <h1 class="text-xl mb-4 text-center sm:text-left">All Batches</h1>
             <hr>
-            <div class="grid grid-cols-3 gap-5 mt-4" id="batches">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-4" id="batches">
                 @forelse ($batches as $batch)
                     {{-- card --}}
                     <div class="rounded shadow-lg">
@@ -43,7 +43,7 @@
                                 @endif
                                 <div class="flex">
                                     <a href="{{route('batches.edit', $batch->id)}}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" >
-                                        <span class="iconify" data-icon="iconamoon:edit-light"></span>
+                                        <span class="iconify text-base" data-icon="iconamoon:edit-light"></span>
                                     </a>
 
                                     <form method="POST" action="{{route('batches.destroy',$batch->id)}}">
@@ -51,7 +51,7 @@
                                         @method('DELETE')
 
                                         <button type="submit"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700">
-                                            <span class="iconify" data-icon="bi:trash-fill"></span>
+                                            <span class="iconify text-base" data-icon="bi:trash-fill"></span>
                                         </button>
                                     </form>
                                 </div>

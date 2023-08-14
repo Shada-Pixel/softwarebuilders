@@ -14,8 +14,8 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
             <table id="quaryTable" class="display stripe" style="width:100%">
                 <thead>
                     <tr>

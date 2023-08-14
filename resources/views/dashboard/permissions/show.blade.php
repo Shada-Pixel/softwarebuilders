@@ -9,6 +9,6 @@
             </x-nav-link>
     </x-slot>
 
-    <div class="p-6 grid grid-cols-1 sm:grid-cols-4 gap-6">
+    <div class="p-2 sm:p-6 grid grid-cols-1 sm:grid-cols-4 gap-6">
     </div>
 </x-app-layout>

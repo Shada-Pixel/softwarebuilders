@@ -14,8 +14,9 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-4 text-center sm:text-left">Edit Category</h1>
 
             <form method="POST" action="{{ route('categories.update', $category->id) }}">
                 @csrf

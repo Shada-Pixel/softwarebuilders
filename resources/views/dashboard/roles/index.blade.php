@@ -9,10 +9,10 @@
             </x-nav-link>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md text-gray-900 ">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md text-nblue">
 
-            <table id="userTable" class="display stripe text-gray-900" style="width:100%">
+            <table id="userTable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -49,8 +49,8 @@
                         {
                             data: null,
                             render: function(data) {
-                                return `<div class="flex justify-end"><a href="${BASE_URL}roles/${data.id}/edit" class="bg-gray-600 rounded-md text-gray-200 py-2 px-2 mx-1 hover:bg-green-400 hover:text-white" ><span class="iconify" data-icon="dashicons:edit"></span></a>
-                                <button type="button"  class="bg-gray-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-400" onclick="roleDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
+                                return `<div class="flex justify-end"><a href="${BASE_URL}roles/${data.id}/edit" class="flex justify-center items-center bg-gray-600 rounded-md text-gray-200 py-2 px-2 mx-1 hover:bg-green-400 hover:text-white" ><span class="iconify text-base" data-icon="dashicons:edit"></span></a>
+                                <button type="button"  class="flex justify-center items-center bg-gray-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-400" onclick="roleDelete(${data.id});"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button></div>`;
                             }
                         }
                     ]

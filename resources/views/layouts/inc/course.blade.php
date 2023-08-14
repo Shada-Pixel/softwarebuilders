@@ -1,5 +1,5 @@
 {{-- individual course --}}
-<a href="{{route('courses.show', $item->id)}}">
+<a href="{{route('courses.details', $item->id)}}">
 <div class=" border border-lgreen rounded-md">
     <div class="courser_img" style="background-image: url({{asset($item->cover)}});">
     </div>

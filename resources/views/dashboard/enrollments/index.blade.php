@@ -8,11 +8,11 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
-            <h1 class="text-xl mb-1">All Enrollments</h1>
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-4 text-center sm:text-left">All Enrollments</h1>
 
-            <table id="enrolllmentTable" class="display stripe" style="width:100%">
+            <table id="enrolllmentTable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -64,7 +64,7 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex"><a href="${BASE_URL}enrollments/${data.id}/edit" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="iconamoon:edit-light"></span></a><!--<button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="categoryDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button>--></div>`;
+                            return `<div class="flex"><a href="${BASE_URL}enrollments/${data.id}/edit" class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify text-base" data-icon="iconamoon:edit-light"></span></a><!--<button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="categoryDelete(${data.id});"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button>--></div>`;
                         }
                     }
                 ]

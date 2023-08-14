@@ -9,9 +9,9 @@
             </x-nav-link>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md text-gray-900">
-            <table id="userTable" class="display stripe" style="width:100%">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md text-nblue">
+            <table id="userTable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -48,8 +48,8 @@
                         {
                             data: null,
                             render: function(data) {
-                                return `<div class="flex justify-end"><a href="${BASE_URL}users/${data.id}/edit" class="bg-dgreen rounded-md text-gray-200 hover:text-white py-2 px-2 mx-1 hover:bg-green-400" ><span class="iconify" data-icon="dashicons:edit"></span></a>
-                                <button type="button"  class="bg-dorange rounded-md text-white py-2 px-2 mx-1 hover:bg-red-400" onclick="userDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
+                                return `<div class="flex justify-end"><a href="${BASE_URL}users/${data.id}/edit" class="flex justify-center items-center bg-dgreen rounded-md text-gray-200 hover:text-white py-2 px-2 mx-1 hover:bg-green-400" ><span class="iconify text-base" data-icon="dashicons:edit"></span></a>
+                                <button type="button"  class="flex justify-center items-center bg-dorange rounded-md text-white py-2 px-2 mx-1 hover:bg-red-400" onclick="userDelete(${data.id});"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button></div>`;
                             }
                         }
                     ]

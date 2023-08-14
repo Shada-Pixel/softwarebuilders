@@ -14,8 +14,8 @@
         </div>
     </x-slot>
 
-    <div class="p-6">
-        <div class="p-6 bg-white rounded-md">
+    <div class="p-2 sm:p-6">
+        <div class="p-2 sm:p-6 bg-white rounded-md">
             <h1 class="text-xl mb-4">New Album Information</h1>
 
             <form method="POST" action="{{ route('photos.store') }}" id="course-store" enctype="multipart/form-data" >
