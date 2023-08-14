@@ -114,6 +114,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 <p class="sidelinktext">Dashboard</p>
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                <p class="sidelinktext">Visit Site</p>
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                 <p class="sidelinktext">Categories</p>
             </x-responsive-nav-link>
@@ -154,21 +157,21 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-2 pb-2 border-t border-gray-200 flex justify-between items-center">
-            <div class="px-4 flex items-center">
-
-                <div class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
-                    {{ Auth::user()->name[0] . Auth::user()->name[1] }}
-
-                    @if ($notifications->count() > 0)
-                        <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
-                        </div>
-                    @endif
+            <a href="{{route('profile.index')}}">
+                <div class="px-4 flex items-center">
+                    <div class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
+                        {{ Auth::user()->name[0] . Auth::user()->name[1] }}
+                        @if ($notifications->count() > 0)
+                            <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
+                            </div>
+                        @endif
+                    </div>
+                    <div class="">
+                        <div class="font-medium text-base text-gray-800 ">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-500 ">{{ Auth::user()->email }}</div>
+                    </div>
                 </div>
-                <div class="">
-                    <div class="font-medium text-base text-gray-800 ">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500 ">{{ Auth::user()->email }}</div>
-                </div>
-            </div>
+            </a>
 
 
             <div class="space-y-1 flex justify-between px-4">

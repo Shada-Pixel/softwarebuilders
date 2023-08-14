@@ -1,7 +1,7 @@
 <x-guest-layout>
     <!-- =================Contact-Hero start======================= -->
     <section class="mt-16">
-        <div class="py-10  sm:py-24" style="background-image: url('./img/about-hero.jpg');">
+        <div class="pt-16 pb-8 sm:py-24 bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('img/about-hero.jpg')}});">
             <div class=" ">
                 <h2 class="text-3xl sm:text-7xl text-white font-bold uppercase text-center">Contact</h2>
             </div>

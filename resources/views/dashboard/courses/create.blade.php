@@ -78,7 +78,7 @@
 
 
                     <!-- cover -->
-                    <div class="">
+                    <div class="flex-grow">
                         <x-input-label for="cover" :value="__('Cover')" />
                         <x-text-input id="cover" class="block mt-1 w-full file:mr-5 file:mb-[2px] file:py-2 file:px-2 file:border-0 file:font-jost file:uppercase  file:text-white file:bg-dgreen" type="file" name="cover"
                             :value="old('cover')" required/>
@@ -86,7 +86,7 @@
                     </div>
 
                     {{-- Price --}}
-                    <div class="flex justify-between gap-5">
+                    <div class="sm:flex justify-between gap-5">
 
                         <!-- regular_price -->
                         <div class="">

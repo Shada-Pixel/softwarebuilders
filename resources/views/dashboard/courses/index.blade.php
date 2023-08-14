@@ -21,7 +21,7 @@
         <div class="p-6 bg-white rounded-md">
             <h1 class="text-xl mb-1">New Course Information</h1>
 
-            <table id="coursetable" class="display stripe" style="width:100%">
+            <table id="coursetable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -59,11 +59,11 @@
                         data: null,
                         render: function (data) {
                             if (data.status == '1'){
-                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2 inline-block py-1">Pending</span>';
+                                var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-xs px-2 inline-block py-1">Pending</span>';
                             }else if(data.status == '2'){
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">On Review</span>';
+                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-xs px-2 inline-block py-1">On Review</span>';
                             }else{
-                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2 inline-block py-1">Running</span>';
+                                var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-xs px-2 inline-block py-1">Running</span>';
                             }
 
                             return statusLabels;
@@ -72,7 +72,7 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex"><a href="${BASE_URL}courses/${data.id}/edit" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="iconamoon:edit-light"></span></a><a href="${BASE_URL}courses/show/${data.id}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="courseDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
+                            return `<div class="flex flex-col sm:flex-row gap-1"><a href="${BASE_URL}courses/${data.id}/edit" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="iconamoon:edit-light"></span></a><a href="${BASE_URL}courses/show/${data.id}" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="courseDelete(${data.id});"><span class="iconify" data-icon="bi:trash-fill"></span></button></div>`;
                         }
                     }
                 ]

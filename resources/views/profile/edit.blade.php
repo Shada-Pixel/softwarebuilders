@@ -12,13 +12,13 @@
     <section class="bg-white pt-6 lg:pt-12">
         <div class=" pb-24 lg:pb-44 px-3 lg:px-0">
             <div class="max-w-7xl mx-auto">
-                <div class="lg:grid lg:grid-cols-12 gap-10">
+                <div class="lg:grid lg:grid-cols-12 gap-10 ">
 
                     @include('profile.partials.profile-navigation')
 
                     {{-- This content will change -------------------------------------------------------------------------- --}}
                     <div class=" col-span-8 mt-3 lg:mt-0">
-                        <div class="lg:p-5 border rounded-md shadow">
+                        <div class="lg:p-5 border rounded-md shadow p-6">
                             <div class=" border-b border-b-slate-400 pb-3">
                                 <h2 class=" text-xl text-nblue font-bold">Settings</h2>
                             </div>
