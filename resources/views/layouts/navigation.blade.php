@@ -25,11 +25,13 @@
                             <button
                                 class="flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                 <div
-                                    class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 bg-[url('{{asset(Auth::user()->pp)}}')]">
+                                    class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
                                     {{ Auth::user()->name[0] . Auth::user()->name[1] }}
 
                                     @if ($notifications->count() > 0)
-                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0"></div>
+                                        <div
+                                            class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
+                                        </div>
                                     @endif
                                 </div>
                                 <p>{{ Auth::user()->name }}</p>
@@ -47,7 +49,7 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('home')">
-                                    {{ __('Visit Site') }}
+                                {{ __('Visit Site') }}
                             </x-dropdown-link>
                             <div class="relative">
 
@@ -55,8 +57,9 @@
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
                                 @if ($notifications->count() > 0)
-                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-2.5 left-2.5"></div>
-                                    @endif
+                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-2.5 left-2.5">
+                                    </div>
+                                @endif
                             </div>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -101,35 +104,82 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <!-- Page Heading -->
-        <div class="flex sm:hidden space-x-8 sm:-my-px sm:ml-10 p-4 bg-gray-200 mt-4">
-            @if (isset($submenu))
+        @if (isset($submenu))
+            <div class="flex sm:hidden space-x-8 sm:-my-px sm:ml-10 p-4 bg-gray-200">
                 {{ $submenu }}
-            @endif
-        </div>
+            </div>
+        @endif
         <div class="pt-2 pb-3 space-y-1">
 
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                <p class="sidelinktext">Dashboard</p>
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+                <p class="sidelinktext">Categories</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('courses.index')" :active="request()->routeIs('courses.*')">
+                <p class="sidelinktext">Courses</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('enrollments.index')" :active="request()->routeIs('enrollments.*')">
+                <p class="sidelinktext">Enrolllments</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
+                <p class="sidelinktext">Services</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('albums.index')" :active="request()->routeIs('albums.*')">
+                <p class="sidelinktext">Gallery</p>
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">
+                <p class="sidelinktext">Subscriber</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('quaries.all')" :active="request()->routeIs('quaries.*')">
+                <p class="sidelinktext">Quaries</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('quotations.all')" :active="request()->routeIs('quotations.*')">
+                <p class="sidelinktext">Quotations</p>
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
+                <p class="sidelinktext">Users</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.*')">
+                <p class="sidelinktext">Permissions</p>
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.*')">
+                <p class="sidelinktext">Roles</p>
+            </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 ">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500 ">{{ Auth::user()->email }}</div>
+        <div class="pt-2 pb-2 border-t border-gray-200 flex justify-between items-center">
+            <div class="px-4 flex items-center">
+
+                <div class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
+                    {{ Auth::user()->name[0] . Auth::user()->name[1] }}
+
+                    @if ($notifications->count() > 0)
+                        <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
+                        </div>
+                    @endif
+                </div>
+                <div class="">
+                    <div class="font-medium text-base text-gray-800 ">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500 ">{{ Auth::user()->email }}</div>
+                </div>
             </div>
 
 
-            <div class="mt-3 space-y-1 flex justify-between px-4">
+            <div class="space-y-1 flex justify-between px-4">
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
                         onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                                        this.closest('form').submit();" class="text-2xl">
+                        <span class="iconify" data-icon="uiw:logout"></span>
                     </x-responsive-nav-link>
                 </form>
             </div>

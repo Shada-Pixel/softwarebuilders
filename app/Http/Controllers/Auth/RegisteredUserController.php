@@ -50,6 +50,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
+        event(new Registered($user));
+        Auth::login($user);
+
+        
         // Assigning student id
         if (User::count() == 1) {
             $role = Role::where('name','admin')->first();
@@ -59,8 +64,7 @@ class RegisteredUserController extends Controller
             $user->assignRole([$role->id]);
         }
 
-        event(new Registered($user));
-        Auth::login($user);
+
 
         // Trying to send Welcome
         try {

@@ -4,7 +4,7 @@
     </x-slot>
     <x-slot name="submenu">
         <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class="sm:gap-5  sm:ml-10 sm:flex">
             <x-nav-link :href="route('services.index')" :active="request()->routeIs('serveces.index')">
                 {{ __('All Services') }}
             </x-nav-link>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="submenu">
         <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class="sm:gap-5  sm:ml-10 sm:flex">
             <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                 {{ __('All Category') }}
             </x-nav-link>

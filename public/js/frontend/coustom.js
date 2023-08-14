@@ -18,6 +18,8 @@ $(document).ready(function () {
         }
     });
 
+    $("#flashpop").fadeOut(3000);
+
     // Function to handle the scroll event
     $(window).scroll(function () {
         // Get the current scroll position

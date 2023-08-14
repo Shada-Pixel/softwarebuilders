@@ -45,7 +45,7 @@
     <div class="min-h-screen bg-lgreen print:w-full">
         <!-- Page Content -->
         <main class="relative print:w-full">
-            <x-auth-session-status :status="Session::get('message')" class="mt-20"></x-auth-session-status>
+            <x-auth-session-status :status="Session::get('message')" class="mt-20" id="flashpop"></x-auth-session-status>
             {{ $slot }}
         </main>
 

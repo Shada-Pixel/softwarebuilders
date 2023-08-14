@@ -130,7 +130,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.index')->with(['status'=> 200, 'message' => 'Profile Updated!']);
     }
 
 
@@ -157,7 +157,7 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with(['status'=> 200, 'message' => 'Phota Changed.']);
     }
 
     /**

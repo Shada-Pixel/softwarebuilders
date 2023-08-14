@@ -1,6 +1,6 @@
 <x-guest-layout>
     <!-- ==============Course Details start===================== -->
-    <section class="bg-white pt-14">
+    <section class="bg-white pt-14 mt-20">
         <div class="pt-20 sm:pt-12 px-3 lg:px-0">
 
 

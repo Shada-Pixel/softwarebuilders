@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="submenu">
         <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class="sm:gap-5  sm:ml-10 sm:flex">
             <x-nav-link :href="route('enrollments.index')" :active="request()->routeIs('enrollments.index')">
                 {{ __('All Enrollments') }}
             </x-nav-link>
@@ -10,6 +10,7 @@
 
     <div class="p-6">
         <div class="p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-1">All Enrollments</h1>
 
             <table id="enrolllmentTable" class="display stripe" style="width:100%">
                 <thead>

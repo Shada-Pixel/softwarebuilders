@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="submenu">
         <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class="sm:gap-5  sm:ml-10 sm:flex">
             <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                 {{ __('All Category') }}
             </x-nav-link>
@@ -13,6 +13,7 @@
 
     <div class="p-6">
         <div class="p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-1">New Category Information</h1>
 
             <form method="POST" action="{{ route('categories.store') }}">
                 @csrf
