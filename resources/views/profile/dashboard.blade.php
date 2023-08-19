@@ -28,14 +28,6 @@
                                                 <li class="mr-10"><a class=" text-lg font-bold mt-4  leading-8"
                                                         href="#profile">Dashboard</a>
                                                 </li>
-                                                <li class="mr-10 relative"><a class=" text-lg font-bold mt-4  leading-8"
-                                                        href="#password">Notifications</a>
-                                                    @if ($notifications->count() > 0)
-                                                        <div
-                                                            class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">
-                                                        </div>
-                                                    @endif
-                                                </li>
 
                                             </ul>
                                         </div>
@@ -188,94 +180,69 @@
                                                         </div>
                                                     </div>
                                                 @endrole
-                                                @role('student')
-                                                    <div
-                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                                        <div class=" flex flex-col items-center justify-center">
-                                                            <div
-                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                                <span
-                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
-                                                                    data-icon="iconamoon:certificate-badge"></span>
+                                                <div
+                                                    class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                    <div class=" flex flex-col items-center justify-center">
+                                                        <div
+                                                            class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                            <span
+                                                                class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                data-icon="iconamoon:certificate-badge"></span>
 
-                                                            </div>
-                                                            <div class="">
-                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
-                                                                    {{ $enrolledcourses }}</h2>
-                                                            </div>
-                                                            <div class="">
-                                                                <h2 class=" text-base font-medium text-candyPink">Enrolled
-                                                                    Courses</h2>
-                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                {{ $enrolledcourses }}</h2>
+                                                        </div>
+                                                        <div class="">
+                                                            <h2 class=" text-base font-medium text-candyPink">Enrolled
+                                                                Courses</h2>
                                                         </div>
                                                     </div>
-                                                    <div
-                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                                        <div class=" flex flex-col items-center justify-center">
-                                                            <div
-                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                                <span
-                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
-                                                                    data-icon="iconamoon:certificate-badge"></span>
+                                                </div>
+                                                <div
+                                                    class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                    <div class=" flex flex-col items-center justify-center">
+                                                        <div
+                                                            class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                            <span
+                                                                class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                data-icon="iconamoon:certificate-badge"></span>
 
-                                                            </div>
-                                                            <div class="">
-                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
-                                                                    {{ $activeenroll }}</h2>
-                                                            </div>
-                                                            <div class="">
-                                                                <h2 class=" text-base font-medium text-candyPink">Running
-                                                                    Courses</h2>
-                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                {{ $activeenroll }}</h2>
+                                                        </div>
+                                                        <div class="">
+                                                            <h2 class=" text-base font-medium text-candyPink">Running
+                                                                Courses</h2>
                                                         </div>
                                                     </div>
-                                                    <div
-                                                        class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
-                                                        <div class=" flex flex-col items-center justify-center">
-                                                            <div
-                                                                class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
-                                                                <span
-                                                                    class="iconify text-3xl text-center text-candyPink inline-block mt-2"
-                                                                    data-icon="iconamoon:certificate-badge"></span>
+                                                </div>
+                                                <div
+                                                    class="pt-11 pb-14 border border-dashed border-violet bg-mistyRose rounded-md">
+                                                    <div class=" flex flex-col items-center justify-center">
+                                                        <div
+                                                            class=" w-24 h-24 rounded-full bg-paleChestnut flex justify-center items-center">
+                                                            <span
+                                                                class="iconify text-3xl text-center text-candyPink inline-block mt-2"
+                                                                data-icon="iconamoon:certificate-badge"></span>
 
-                                                            </div>
-                                                            <div class="">
-                                                                <h2 class=" text-4.5xl text-candyPink font-bold">
-                                                                    {{ $pendingenroll }}</h2>
-                                                            </div>
-                                                            <div class="">
-                                                                <h2 class=" text-base font-medium text-candyPink">Pending
-                                                                    Enrollment</h2>
-                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <h2 class=" text-4.5xl text-candyPink font-bold">
+                                                                {{ $pendingenroll }}</h2>
+                                                        </div>
+                                                        <div class="">
+                                                            <h2 class=" text-base font-medium text-candyPink">Pending
+                                                                Enrollment</h2>
                                                         </div>
                                                     </div>
-                                                @endrole
+                                                </div>
                                             </div>
                                         </div>
-                                        <div id="password" class="tab-content">
-                                            @if ($notifications != null)
 
-                                            @forelse ($notifications as $notification)
-                                            <div class="flex gap-4 items-center alert my-2">
-                                                <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow">
-                                                    <p class="bg-dgreen/20 rounded px-5 py-2 text-dblue ">{{ $notification->data['message'] }}</p>
-                                                </a>
-                                                <a href="#" class="bg-dgreen/20 rounded px-5 py-2 text-dblue mark-as-read" data-id="{{$notification->id}}">Mark as read</a>
-                                            </div>
-
-                                            @if ($loop->last)
-                                            <div class="mt-10">
-
-                                                <a href="#" class="bg-dgreen rounded px-5 py-2 text-white mt-10" id="mark-all">Mark all as read</a>
-                                            </div>
-                                            @endif
-                                            @empty
-                                            <div class="py-10 text-center">
-                                                    <p class=" text-dgreen ">No Notification.</p>
-                                            </div>
-                                            @endforelse
-                                            @endif
-                                        </div>
                                     </div>
                                 </div>
 

@@ -17,22 +17,57 @@
                 @endif
             </div>
 
-            <div class="flex">
-                <!-- Settings Dropdown -->
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="flex gap-1 sm:gap-5 justify-end items-center">
+                <!-- Notification Dropdown -->
+                <div class="flex sm:items-center sm:ml-6">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button
-                                class="flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                <div
-                                    class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
-                                    {{ Auth::user()->name[0] . Auth::user()->name[1] }}
+                            <button class="relative flex items-center text-sm font-medium transition duration-150 ease-in-out text-nblue">
+                                <span class="iconify text-lg" data-icon="solar:bell-linear"></span>
 
-                                    @if ($notifications->count() > 0)
-                                        <div
-                                            class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
-                                        </div>
+                                @if ($notifications->count() > 0)
+                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
+                                    </div>
+                                @endif
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <div id="" class="p-2">
+                                @if ($notifications != null)
+                                    @forelse ($notifications as $notification)
+                                    <div class="flex gap-4 items-center alert my-2">
+                                        <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow">
+                                            <p class="bg-dgreen/20 rounded px-5 py-2 text-dblue ">{{ $notification->data['message'] }}</p>
+                                        </a>
+                                        <a href="#" class="bg-dgreen/20 rounded px-5 py-2 text-dblue mark-as-read" data-id="{{$notification->id}}">Mark as read</a>
+                                    </div>
+
+                                    @if ($loop->last)
+                                    <div class="mt-10">
+
+                                        <a href="#" class="bg-dgreen rounded px-5 py-2 text-white mt-10" id="mark-all">Mark all as read</a>
+                                    </div>
                                     @endif
+                                    @empty
+                                    <div class="py-10 text-center">
+                                            <p class=" text-dgreen ">No Notification.</p>
+                                    </div>
+                                    @endforelse
+                                @endif
+                            </div>
+
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+
+                {{-- Settings Dropdown --}}
+                <div class="hidden sm:flex sm:items-center ">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <div class=" uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
+                                    {{ Auth::user()->name[0] . Auth::user()->name[1] }}
                                 </div>
                                 <p>{{ Auth::user()->name }}</p>
 
@@ -51,16 +86,9 @@
                             <x-dropdown-link :href="route('home')">
                                 {{ __('Visit Site') }}
                             </x-dropdown-link>
-                            <div class="relative">
-
-                                <x-dropdown-link :href="route('profile.dashboard')">
-                                    {{ __('Profile') }}
-                                </x-dropdown-link>
-                                @if ($notifications->count() > 0)
-                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-2.5 left-2.5">
-                                    </div>
-                                @endif
-                            </div>
+                            <x-dropdown-link :href="route('profile.dashboard')">
+                                {{ __('Profile') }}
+                            </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
