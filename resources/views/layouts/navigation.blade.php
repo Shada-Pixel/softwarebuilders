@@ -23,7 +23,7 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="relative flex items-center text-sm font-medium transition duration-150 ease-in-out text-nblue">
-                                <span class="iconify text-lg" data-icon="solar:bell-linear"></span>
+                                <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out" data-icon="solar:bell-bold"></span>
 
                                 @if ($notifications->count() > 0)
                                     <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">

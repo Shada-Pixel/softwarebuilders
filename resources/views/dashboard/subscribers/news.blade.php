@@ -1,13 +1,18 @@
 <x-app-layout>
     <!-- Navigation Links -->
     <x-slot name="submenu">
-            <x-nav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.index')">
-                {{ __('All Subscribers') }}
-            </x-nav-link>
-            <x-nav-link :href="route('newsletters.index')" :active="request()->routeIs('newsletters.index')">
-                {{ __('News Letters') }}
-            </x-nav-link>
+        <x-nav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.index')">
+            {{ __('All Subscribers') }}
+        </x-nav-link>
+        <x-nav-link :href="route('newsletters.index')" :active="request()->routeIs('newsletters.index')">
+            {{ __('News Letters') }}
+        </x-nav-link>
     </x-slot>
+
+
+    {{-- <x-slot name="headscript">
+
+    </x-slot> --}}
 
     <div class="p-2 sm:p-6 ">
         <form method="POST" action="{{ route('newsletters.store') }}">
@@ -15,9 +20,9 @@
 
             <!-- Body -->
             <div class="mt-4">
-                <x-input-label for="body" :value="__('Newsletter text')" />
+                <x-input-label for="newsbody" :value="__('Newsletter text')" />
                 <textarea class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                    name="body" id="body" rows="5" required></textarea>
+                    name="body" id="newsbody" rows="10" required></textarea>
                 <x-input-error :messages="$errors->get('body')" class="mt-2" />
             </div>
 
@@ -48,6 +53,7 @@
 
 
     <x-slot name="script">
+        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script> --}}
         <script>
             var datatablelist = $('#userTable').DataTable({
                 processing: true,
@@ -80,14 +86,14 @@
                         data: null,
                         render: function(data) {
                             return `<div class="flex"><a href="${BASE_URL}newsletters/show/${data.id}" target="_blank" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend(${data.id});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
-                                <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="subscriberDelete(${data.id});"><span class="iconify" data-icon="bi:trash"></span></button></div>`;
+                                <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="newsletterDelete(${data.id});"><span class="iconify" data-icon="bi:trash"></span></button></div>`;
                         }
                     }
                 ]
             });
 
 
-            function subscriberDelete(subscriberID) {
+            function newsletterDelete(subscriberID) {
                 Swal.fire({
                     title: "Delete ?",
                     text: "Are you sure to delete this newsletter ?",
@@ -140,6 +146,14 @@
                     }
                 });
             }
+
+
+
+            $(document).ready(function() {
+
+                // Calling classic editor function
+                createEditor('#newsbody');
+            });
         </script>
     </x-slot>
 </x-app-layout>
