@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendWelcomeMail;
 use App\Models\User;
 use Illuminate\View\View;
 use App\Mail\WelcomeMail;
@@ -54,7 +55,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
         Auth::login($user);
 
-        
+
         // Assigning student id
         if (User::count() == 1) {
             $role = Role::where('name','admin')->first();
@@ -66,15 +67,9 @@ class RegisteredUserController extends Controller
 
 
 
-        // Trying to send Welcome
-        try {
-            $msg = 'Welcome to Software Builders Ltd. Your acount has been created.';
-            $link= route('home');
-            $maildata = ['name' => $user->name, 'text' => $msg , 'link' => $link ];
-            $sendmail = Mail::to($user->email)->send(new WelcomeMail($maildata));
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
+        // Queue welcome mail sender
+        dispatch(new SendWelcomeMail((object)$user));
+
 
         return redirect(RouteServiceProvider::HOME);
     }
