@@ -255,37 +255,5 @@
     </section>
     <!-- ===============instructor-dashboard-item end================ -->
 
-    <x-slot name="script">
-        <script>
-            function sendMarkRequest(id = null) {
-                return $.ajax("{{route('markNotification')}}", {
-                    method: 'POST',
-                    data: {
-
-                        id
-                    }
-                });
-             }
-
-             $(function(){
-                $('.mark-as-read').click(function(){
-                    let request = sendMarkRequest($(this).data('id'));
-
-                    request.done(()=>{
-                        $(this).parents('div.alert').remove();
-                    });
-                });
-
-                $('#mark-all').click(function(){
-                    let request = sendMarkRequest();
-
-                    request.done(()=>{
-                        $('div.alert').remove();
-                        $('div.tablinedot').remove();
-                    });
-                });
-             });
-        </script>
-    </x-slot>
 
 </x-guest-layout>

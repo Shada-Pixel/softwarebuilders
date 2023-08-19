@@ -13,6 +13,8 @@
 
     <div class="p-2 sm:p-6 ">
         <div class="p-2 sm:p-6 bg-white rounded-md">
+            <h1 class="text-xl mb-4 text-center sm:text-left">Edit this user</h1>
+            <p>{{$user->roles->first()->name}}</p>
             <form method="POST" action="{{ route('users.update',$user->id) }}">
                 @csrf
                 @method('PATCH')
@@ -35,7 +37,7 @@
                     <x-input-label for="role" :value="__('Role')" />
                     <x-select-input id="role" name="role">
                         @foreach ($roles as $role)
-                        <option value="{{$role->id}}" class="capitalize">{{$role->name}}</option>
+                        <option value="{{$role->id}}" class="capitalize" @if ($user->roles->first()->id == $role->id) @selected(true) @endif>{{$role->name}}</option>
                         @endforeach
                     </x-select-input>
                 </div>

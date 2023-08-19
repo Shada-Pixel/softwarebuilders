@@ -34,7 +34,7 @@
                 <form action="{{route('fileDownload')}}" method="get">
                     @csrf
                     <input type="hidden" name="file_url" value="{{$quotation->attachment}}">
-                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-nblue rounded border border-transparent font-semibold text-base text-white uppercase tracking-widest hover:bg-dgreen focus:bg-dgreen active:bg-dgreen focus:outline-none focus:ring-none transition ease-in-out duration-150"><span class="iconify" data-icon="line-md:download-loop"></span></button>
+                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-nblue rounded border border-transparent font-semibold text-base text-white uppercase tracking-widest hover:bg-dgreen focus:bg-dgreen active:bg-dgreen focus:outline-none focus:ring-none transition ease-in-out duration-150"><span class="text-sm mr-2" id="atchurl">{{$quotation->attachment}}</span><span class="iconify text-2xl" data-icon="line-md:download-loop"></span></button>
                 </form>
                 @endif
             </div>
@@ -43,5 +43,19 @@
         </div>
     </div>
 
+<x-slot name="script">
+    <script>
 
+        $(document).ready(function () {
+            var text = $('#atchurl').html();
+            var parts = text.split('/');
+            var filename = parts[parts.length - 1];
+            $('#atchurl').html(filename);
+        });
+
+
+
+
+    </script>
+</x-slot>
 </x-app-layout>

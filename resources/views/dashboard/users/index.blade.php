@@ -11,6 +11,7 @@
 
     <div class="p-2 sm:p-6">
         <div class="p-2 sm:p-6 bg-white rounded-md text-nblue">
+            <h1 class="text-xl mb-4 text-center sm:text-left">All Users</h1>
             <table id="userTable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>

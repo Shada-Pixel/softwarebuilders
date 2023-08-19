@@ -34,8 +34,50 @@
             @if (Route::has('login'))
                 <div class="text-right">
                     @auth
-                    <!-- Auth Dropdown -->
+
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <!-- Notification Dropdown -->
+                        <div class="flex items-center sm:ml-6 mr-2 text-left">
+                            <x-dropdown align="right" width="48">
+                                <x-slot name="trigger">
+                                    <button class="relative flex items-center text-sm font-medium transition duration-150 ease-in-out text-nblue">
+                                        <span class="iconify text-lg" data-icon="solar:bell-linear"></span>
+
+                                        @if ($notifications->count() > 0)
+                                            <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">
+                                            </div>
+                                        @endif
+                                    </button>
+                                </x-slot>
+
+                                <x-slot name="content">
+                                    <div id="notificationdiv" class="p-2">
+                                        @if ($notifications != null)
+                                            @forelse ($notifications as $notification)
+                                            <div class="flex gap-4 items-center alert my-2">
+                                                <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow mark-as-read" data-id="{{$notification->id}}">
+                                                    <p class="bg-dgreen/20 rounded px-5 py-2 text-dblue ">{{ $notification->data['message'] }}</p>
+                                                </a>
+                                            </div>
+
+                                            @if ($loop->last)
+                                            <div class="mt-10">
+
+                                                <a href="#" class="text-dgreen rounded mt-10 underline cursor-pointer" id="mark-all">Mark all as read</a>
+                                            </div>
+                                            @endif
+                                            @empty
+                                            <div class="py-10 text-center">
+                                                    <p class=" text-dgreen ">No Notification.</p>
+                                            </div>
+                                            @endforelse
+                                        @endif
+                                    </div>
+
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
+                        <!-- Auth Dropdown -->
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out" data-icon="mingcute:user-3-fill"></span>
@@ -93,8 +135,60 @@
             {{-- Mobile dropdown --}}
             <div class="flex sm:hidden">
                 @auth
-                <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out mr-2" data-icon="fluent:cart-24-filled"></span>
+                <!-- Notification Dropdown -->
+                <div class="flex items-center sm:ml-6 mr-2">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="relative flex items-center text-sm font-medium transition duration-150 ease-in-out text-nblue">
+                                <span class="iconify text-lg" data-icon="solar:bell-linear"></span>
+
+                                @if ($notifications->count() > 0)
+                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">
+                                    </div>
+                                @endif
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <div id="notificationdiv" class="p-2">
+                                @if ($notifications != null)
+                                    @forelse ($notifications as $notification)
+                                    <div class="flex gap-4 items-center alert my-2">
+                                        <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow mark-as-read" data-id="{{$notification->id}}">
+                                            <p class="bg-dgreen/20 rounded px-5 py-2 text-dblue ">{{ $notification->data['message'] }}</p>
+                                        </a>
+                                    </div>
+
+                                    @if ($loop->last)
+                                    <div class="mt-10">
+
+                                        <a href="#" class="text-dgreen rounded mt-10 underline cursor-pointer" id="mark-all">Mark all as read</a>
+                                    </div>
+                                    @endif
+                                    @empty
+                                    <div class="py-10 text-center">
+                                            <p class=" text-dgreen ">No Notification.</p>
+                                    </div>
+                                    @endforelse
+                                @endif
+                            </div>
+
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+                {{-- Cart --}}
+                <a href="{{route('carts.index')}}">
+                    <div class="relative mr-4">
+
+                        <span class="iconify text-2xl font-medium text-nblue hover:text-dgreen transition duration-150 ease-in-out ml-2" data-icon="fluent:cart-24-filled"></span>
+                        @if ($cartcount  > 0)
+                            <div class="absolute text-xs w-4 h-4 bg-dgreen rounded-full text-white flex justify-center items-center p-1 top-0 left-6">{{$cartcount}}</div>
+                        @endif
+                    </div>
+                </a>
+
                 @endauth
+                <!-- Menu Dropdown -->
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <span class="iconify text-2xl font-medium text-nblue" data-icon="iconamoon:menu-burger-horizontal-bold"></span>

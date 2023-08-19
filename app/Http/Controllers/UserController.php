@@ -119,8 +119,13 @@ class UserController extends Controller
             'role' => ['required'],
         ]);
 
+
+
+
         $role = Role::find($request->role);
         $user = User::find($id);
+
+
         $user->name = $request->name;
 
         $otheruserwithemail = User::where('email',$request->email)->where('id','!=',$id)->first();
@@ -130,7 +135,10 @@ class UserController extends Controller
             $user->email = $request->email;
         }
         $user->save();
-        $user->assignRole([$role->id]);
+        if ($request->role) {
+            $user->roles()->detach();
+            $user->assignRole([$role->id]);
+        }
         return redirect()->route('users.index')->with(['status'=> 200, 'message' => 'Updated Successfully!']);
     }
 

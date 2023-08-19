@@ -26,27 +26,26 @@
                                 <span class="iconify text-lg" data-icon="solar:bell-linear"></span>
 
                                 @if ($notifications->count() > 0)
-                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
+                                    <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">
                                     </div>
                                 @endif
                             </button>
                         </x-slot>
 
                         <x-slot name="content">
-                            <div id="" class="p-2">
+                            <div id="notificationdiv" class="p-2">
                                 @if ($notifications != null)
                                     @forelse ($notifications as $notification)
                                     <div class="flex gap-4 items-center alert my-2">
-                                        <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow">
+                                        <a href="{{route($notification->data['route'], $notification->data['model_id'])}}" class="flex-grow mark-as-read" data-id="{{$notification->id}}">
                                             <p class="bg-dgreen/20 rounded px-5 py-2 text-dblue ">{{ $notification->data['message'] }}</p>
                                         </a>
-                                        <a href="#" class="bg-dgreen/20 rounded px-5 py-2 text-dblue mark-as-read" data-id="{{$notification->id}}">Mark as read</a>
                                     </div>
 
                                     @if ($loop->last)
                                     <div class="mt-10">
 
-                                        <a href="#" class="bg-dgreen rounded px-5 py-2 text-white mt-10" id="mark-all">Mark all as read</a>
+                                        <a href="#" class="text-dgreen rounded mt-10 underline cursor-pointer" id="mark-all">Mark all as read</a>
                                     </div>
                                     @endif
                                     @empty
@@ -190,7 +189,7 @@
                     <div class="relative uppercase bg-nblue w-10 h-10 rounded-full flex justify-center items-center text-white font-bold mr-1 ">
                         {{ Auth::user()->name[0] . Auth::user()->name[1] }}
                         @if ($notifications->count() > 0)
-                            <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0">
+                            <div class="w-2 h-2 bg-red-600 rounded full animate-ping absolute top-0 right-0 tablinedot">
                             </div>
                         @endif
                     </div>

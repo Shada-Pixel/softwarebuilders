@@ -315,3 +315,45 @@ $('form#subscriptionForm').submit(function (e) {
 // Client Subscription end -----------------------------
 
 
+
+// Notification
+function sendMarkRequest(id = null) {
+
+    return $.ajax({
+        method: 'POST',
+        url: BASE_URL + 'markNotification',
+        data: {
+            id
+        }
+    });
+ }
+
+ $(function(){
+    $('.mark-as-read').click(function(e){
+
+        e.preventDefault();
+        let url = $(this).attr('href');
+        console.log(url);
+        let request = sendMarkRequest($(this).data('id'));
+
+        request.done(()=>{
+            $(this).parents('div.alert').remove();
+            $(location).attr('href', url);
+        });
+    });
+
+    $('#mark-all').click(function(){
+        let request = sendMarkRequest();
+
+        request.done(()=>{
+            let html = '<div class="py-10 text-center"><p class=" text-dgreen ">No Notification.</p> </div>';
+            // $('div.alert').remove();
+            $('div.tablinedot').remove();
+            $('#notificationdiv').html(html);
+            // location.reload(true);
+        });
+    });
+ });
+
+
+
