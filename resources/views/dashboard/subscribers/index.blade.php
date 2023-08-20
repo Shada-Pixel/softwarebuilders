@@ -45,18 +45,18 @@
                             data: null,
                             render: function (data) {
                                 if (data.status == 1){
-                                    var statusLabels = '<span  class="bg-green-500 rounded-full text-white text-sm px-2"> Active </span>';
+                                    return `<span  class="iconify text-4xl text-dgreen" data-icon="basil:toggle-on-solid" onclick="activateDeactivateSubscriber(${data.id},${data.status});"></span>`;
                                 }else{
-                                    var statusLabels = '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2"> In-Active </span>';
+                                    return `<span  class="iconify text-4xl text-red-600" data-icon="basil:toggle-off-solid" onclick="activateDeactivateSubscriber(${data.id},${data.status});"></span>`;
                                 }
-                                return statusLabels;
+                                // return statusLabels;
                             }
                         },
                         {
                             data: null,
                             render: function(data) {
-                            return `<div class="flex justify-end"><button type="button"  class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="activateDeactivateSubscriber(${data.id},${data.status});"><span class="iconify text-base" data-icon="zondicons:reload"></span></button>
-                                <button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="subscriberDelete(${data.id});"><span class="iconify text-base" data-icon="majesticons:logout"></span></button></div>`;
+                            return `<div class="flex justify-end">
+                                <button type="button" title="Unsubscribe" class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="subscriberDelete(${data.id});"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button></div>`;
                             }
                         }
                     ]
