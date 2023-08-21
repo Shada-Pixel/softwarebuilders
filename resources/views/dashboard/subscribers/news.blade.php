@@ -15,29 +15,35 @@
     </x-slot> --}}
 
     <div class="p-2 sm:p-6 ">
-        <form method="POST" action="{{ route('newsletters.store') }}">
-            @csrf
+        <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
+            <h1 class="text-xl mb-4 text-center sm:text-left">New Newsletter</h1>
 
-            <!-- Body -->
-            <div class="mt-4">
-                <x-input-label for="newsbody" :value="__('Newsletter text')" />
-                <textarea class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                    name="body" id="newsbody" rows="10" required></textarea>
-                <x-input-error :messages="$errors->get('body')" class="mt-2" />
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-primary-button class="ml-4">
-                    {{ __('Compose Newsletter') }}
-                </x-primary-button>
-            </div>
-        </form>
+            <form method="POST" action="{{ route('newsletters.store') }}" id="newscreate">
+                @csrf
+
+                <!-- Body -->
+                <div class="mt-4">
+                    <x-input-label for="newsbody" :value="__('Newsletter text')" />
+                    <textarea class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                        name="body" id="newsbody" rows="10" required></textarea>
+                    <x-input-error :messages="$errors->get('body')" class="mt-2" />
+                </div>
+
+                <div class="flex items-center justify-end mt-4">
+                    <x-primary-button class="ml-4" onclick="formsubmit()">
+                        {{ __('Compose Newsletter') }}
+                    </x-primary-button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="p-2 sm:p-6">
         <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
+            <h1 class="text-xl mb-4 text-center sm:text-left">All Newsletter</h1>
 
-            <table id="userTable" class="display stripe" style="width:100%">
+            {{-- <table id="userTable" class="display stripe" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sl</th>
@@ -47,13 +53,13 @@
                     </tr>
                 </thead>
 
-            </table>
+            </table> --}}
         </div>
     </div>
 
 
     <x-slot name="script">
-        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script> --}}
+        <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
         <script>
             var datatablelist = $('#userTable').DataTable({
                 processing: true,
@@ -65,8 +71,11 @@
                         }
                     },
                     {
-                        data: 'text',
-                        name: 'text'
+                        data: null,
+                        render: function(data) {
+
+                            return `<span  class=""> ${data.text} </span>`;
+                        }
                     },
                     {
                         data: null,
@@ -153,7 +162,13 @@
 
                 // Calling classic editor function
                 createEditor('#newsbody');
+
             });
+
+            // News create
+            function formsubmit(){
+                $("form#newscreate").submit();
+            }
         </script>
     </x-slot>
 </x-app-layout>

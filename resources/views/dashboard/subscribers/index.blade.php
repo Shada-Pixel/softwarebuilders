@@ -11,6 +11,7 @@
 
     <div class="p-2 sm:p-6">
         <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
+            <h1 class="text-xl mb-4 text-center sm:text-left">All Subscribers</h1>
             <table id="subtable" class="display stripe text-xs sm:text-base" style="width:100%">
                 <thead>
                     <tr>
