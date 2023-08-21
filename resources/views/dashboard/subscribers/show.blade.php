@@ -60,7 +60,7 @@
                 {{-- <p style="font-size:30px; margin: 5px;text-align:center">{{ $newsletter['title'] }}</p> --}}
                 <p>
                     Dear subscriber, <br/>
-                    {{ $newsletter->text }}
+                    {!! $newsletter->text !!}
                 </p>
                <center>
                    <p class="inline-block font-bold px-5 py-2 rounded" style="background: #222d5d;">

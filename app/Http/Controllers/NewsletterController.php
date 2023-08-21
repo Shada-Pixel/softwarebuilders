@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreNewsletterRequest;
 use App\Mail\NewsletterMail;
+use App\Jobs\SendNewsletter;
 use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
@@ -22,7 +23,8 @@ class NewsletterController extends Controller
         if ($request->ajax()) {
             return Datatables::of( Newsletter::query())->addIndexColumn()->make(true);
         }
-        return view('dashboard.subscribers.news');
+        $newsletters = Newsletter::all();
+        return view('dashboard.subscribers.news', compact('newsletters'));
     }
 
 
@@ -56,19 +58,11 @@ class NewsletterController extends Controller
     public function send($id)
     {
         $newsletter = Newsletter::find($id);
-        $subscribers = Subscriber::where('status',1)->get('email','id');
 
-        foreach ($subscribers as $subscriber) {
-            try{
-             $sendmail =    Mail::to($subscriber->email)->send(new NewsletterMail($newsletter));
-             if ($sendmail) {
-                $newsletter->status = 2;
-                $newsletter->update();
-             }
-            }catch (\Exception $exception){
-                
-            }
-        }
+
+        dispatch(new SendNewsletter((object)$newsletter));
+
+        
 
         return response()->json(['status' => 'success', 'message' => 'Newsletter Sent successfylly !']);
     }

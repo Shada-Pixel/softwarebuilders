@@ -42,6 +42,23 @@
     <div class="p-2 sm:p-6">
         <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
             <h1 class="text-xl mb-4 text-center sm:text-left">All Newsletter</h1>
+            <div class="grid grid-cols-2 sm:grid-cols-3">
+                @forelse ($newsletters as $newsletter)
+                <div class="p-4 rounded-md shadow-md bg-dgreen/20">
+                    @if ($newsletter->status == 1)
+                        <span  class="bg-green-500 rounded-full text-white text-sm px-2"> Unsent </span>
+                    @else
+                        <span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2"> Sent</span>
+                    @endif
+                    <p class="mt-4">{!! $newsletter->text!!}</p>
+
+                    <div class="flex mt-4"><a href="{{route('newsletters.show', $newsletter->id)}}" target="_blank" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend({{$newsletter->id}});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
+                        <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="newsletterDelete({{$newsletter->id}});"><span class="iconify" data-icon="bi:trash"></span></button></div>
+                </div>
+                @empty
+
+                @endforelse
+            </div>
 
             {{-- <table id="userTable" class="display stripe" style="width:100%">
                 <thead>
@@ -61,45 +78,6 @@
     <x-slot name="script">
         <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
         <script>
-            var datatablelist = $('#userTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{!! route('newsletters.index') !!}",
-                columns: [{
-                        "render": function(data, type, full, meta) {
-                            return meta.row + meta.settings._iDisplayStart + 1;
-                        }
-                    },
-                    {
-                        data: null,
-                        render: function(data) {
-
-                            return `<span  class=""> ${data.text} </span>`;
-                        }
-                    },
-                    {
-                        data: null,
-                        render: function(data) {
-                            if (data.status == 1) {
-                                var statusLabels =
-                                    '<span  class="bg-green-500 rounded-full text-white text-sm px-2"> Unsent </span>';
-                            } else {
-                                var statusLabels =
-                                    '<span  class="bg-orange-300 rounded-full text-gray-800 text-sm px-2"> Sent</span>';
-                            }
-
-                            return statusLabels;
-                        }
-                    },
-                    {
-                        data: null,
-                        render: function(data) {
-                            return `<div class="flex"><a href="${BASE_URL}newsletters/show/${data.id}" target="_blank" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend(${data.id});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
-                                <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="newsletterDelete(${data.id});"><span class="iconify" data-icon="bi:trash"></span></button></div>`;
-                        }
-                    }
-                ]
-            });
 
 
             function newsletterDelete(subscriberID) {
@@ -119,6 +97,7 @@
                             success: function(response) {
                                 if (response.status == "success") {
                                     Swal.fire('Success!', response.message, 'success');
+                                    location.reload();
                                     datatablelist.draw();
                                 } else if (response.status == "error") {
                                     Swal.fire('This item is not deletable!', response.message, 'error');
