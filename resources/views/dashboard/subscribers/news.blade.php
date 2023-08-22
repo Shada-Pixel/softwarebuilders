@@ -52,7 +52,14 @@
                     @endif
                     <p class="mt-4">{!! $newsletter->text!!}</p>
 
-                    <div class="flex mt-4"><a href="{{route('newsletters.show', $newsletter->id)}}" target="_blank" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend({{$newsletter->id}});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
+                    <div class="flex mt-4"><a href="{{route('newsletters.show', $newsletter->id)}}" target="_blank" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a>
+                        <form action="{{route('newsletters.send',$newsletter->id)}}" method="post">
+                            @csrf
+                            @method('POST')
+                            <button type="submit"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
+                        </form>
+                        {{-- <button type="submit"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend({{$newsletter->id}});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button> --}}
+
                         <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="newsletterDelete({{$newsletter->id}});"><span class="iconify" data-icon="bi:trash"></span></button></div>
                 </div>
                 @empty

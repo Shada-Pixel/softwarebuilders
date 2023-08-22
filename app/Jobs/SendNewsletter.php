@@ -3,7 +3,8 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use App\Mail\WelcomeMail;
+use App\Mail\NewsletterMail;
+use App\Models\Subscriber;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -14,14 +15,14 @@ use Illuminate\Queue\SerializesModels;
 class SendNewsletter implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $user;
+    public $newsletter;
 
     /**
      * Create a new job instance.
      */
-    public function __construct($user)
+    public function __construct($newsletter)
     {
-        $this->user = $user;
+        $this->newsletter = $newsletter;
     }
 
     /**
@@ -29,30 +30,19 @@ class SendNewsletter implements ShouldQueue
      */
     public function handle(): void
     {
-        // Trying to send Welcome
-        try {
-            $msg = 'Welcome to Software Builders Ltd. Your acount has been created.';
-            $link= route('home');
-            $maildata = ['name' => $this->user->name, 'text' => $msg , 'link' => $link ];
-            $sendmail = Mail::to($this->user->email)->send(new WelcomeMail($maildata));
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
 
-
+        // Trying to send Newsletter
         $subscribers = Subscriber::where('status',1)->get('email','id');
 
         foreach ($subscribers as $subscriber) {
             try{
-             $sendmail =    Mail::to($subscriber->email)->send(new NewsletterMail($newsletter));
-             if ($sendmail) {
-                $newsletter->status = 2;
-                $newsletter->update();
-             }
+            Mail::to($subscriber->email)->send(new NewsletterMail($this->newsletter));
+
             }catch (\Exception $exception){
 
             }
         }
+
 
     }
 }
