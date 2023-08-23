@@ -60,18 +60,7 @@ class NewsletterController extends Controller
         $newsletter = Newsletter::find($id);
 
 
-        $subscribers = Subscriber::where('status',1)->get('email','id');
-
-        foreach ($subscribers as $subscriber) {
-            try{
-             $sendmail =  Mail::to($subscriber->email)->send(new NewsletterMail((object)$newsletter));
-
-            }catch (\Exception $exception){
-
-            }
-        }
-
-        // dispatch(new SendNewsletter((object)$newsletter));
+        dispatch(new SendNewsletter((object)$newsletter));
 
         $newsletter->status = 2;
         $newsletter->update();

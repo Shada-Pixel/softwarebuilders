@@ -37,14 +37,14 @@
                     </div>
                     <fieldset>
                         <div class="text-base font-medium text-gray-900 " aria-hidden="true">Permissions:</div>
-                        <div class="mt-4 space-y-4">
-                            @foreach ($permissions as $value)
-                                <div class="flex items-start">
+                        <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            @foreach ($permissions as $permission)
+                                <div class="flex items-start @if ($loop->first) col-span-2 sm:col-span-4 @endif">
                                     <div class="flex h-5 items-center">
-                                        <input id="" name="permission[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-blue-500 focus:ring-blue-400" value="{{$value->id,}}">
+                                        <input id="" name="permission[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-blue-500 focus:ring-blue-400" value="{{$permission->id,}}">
                                     </div>
                                     <div class="ml-3 text-sm">
-                                        <x-input-label for="comments">{{ $value->name }}</x-input-label>
+                                        <x-input-label for="comments">{{ $permission->name }}</x-input-label>
                                     </div>
                                 </div>
                             @endforeach

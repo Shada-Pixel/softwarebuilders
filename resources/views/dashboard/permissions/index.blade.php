@@ -4,9 +4,9 @@
             <x-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.index')">
                 {{ __('All Permissions') }}
             </x-nav-link>
-            <x-nav-link :href="route('permissions.create')" :active="request()->routeIs('permissions.create')">
+            {{-- <x-nav-link :href="route('permissions.create')" :active="request()->routeIs('permissions.create')">
                 {{ __('Add New Permission') }}
-            </x-nav-link>
+            </x-nav-link> --}}
     </x-slot>
 
     <div class="p-2 sm:p-6">
@@ -50,11 +50,15 @@
                         data: null,
                         render: function(data) {
                             return `<div class="flex justify-end item-center"><a href="${BASE_URL}permissions/${data.id}/edit" class="flex justify-center items-center bg-gray-600 rounded-md text-gray-200 hover:text-white py-2 px-2 mx-1 hover:bg-green-400" title="Ediit"><span class="iconify text-base" data-icon="dashicons:edit"></span></a>
-                                <button type="button"  class="flex justify-center items-center bg-gray-600 rounded-md text-gray-200 hover:text-white py-2 px-2 mx-1 hover:bg-red-400" onclick="permissionDelete(${data.id});" title="Delete"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button></div>`;
+
+                                </div>`;
                         }
                     }
                 ]
             });
+
+
+            // <button type="button"  class="flex justify-center items-center bg-gray-600 rounded-md text-gray-200 hover:text-white py-2 px-2 mx-1 hover:bg-red-400" onclick="permissionDelete(${data.id});" title="Delete"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button>
 
 
             function permissionDelete(permissionID) {

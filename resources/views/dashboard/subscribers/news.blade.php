@@ -42,7 +42,7 @@
     <div class="p-2 sm:p-6">
         <div class="p-2 sm:p-6 bg-white rounded-md text-gray-900">
             <h1 class="text-xl mb-4 text-center sm:text-left">All Newsletter</h1>
-            <div class="grid grid-cols-2 sm:grid-cols-3">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 @forelse ($newsletters as $newsletter)
                 <div class="p-4 rounded-md shadow-md bg-dgreen/20">
                     @if ($newsletter->status == 1)
@@ -53,12 +53,12 @@
                     <p class="mt-4">{!! $newsletter->text!!}</p>
 
                     <div class="flex mt-4"><a href="{{route('newsletters.show', $newsletter->id)}}" target="_blank" class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="ic:baseline-remove-red-eye"></span></a>
-                        <form action="{{route('newsletters.send',$newsletter->id)}}" method="post">
+                        {{-- <form action="{{route('newsletters.send',$newsletter->id)}}" method="post">
                             @csrf
                             @method('POST')
                             <button type="submit"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
-                        </form>
-                        {{-- <button type="submit"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend({{$newsletter->id}});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button> --}}
+                        </form> --}}
+                        <button type="submit"  class="bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" onclick="newsletterSend({{$newsletter->id}});"><span class="iconify" data-icon="material-symbols:send-rounded"></span></button>
 
                         <button type="button"  class="bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="newsletterDelete({{$newsletter->id}});"><span class="iconify" data-icon="bi:trash"></span></button></div>
                 </div>
