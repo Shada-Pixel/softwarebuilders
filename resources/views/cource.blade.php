@@ -26,20 +26,16 @@
                                 @forelse ($categories as $category)
 
                                 <div class="">
-                                    <input type="checkbox" name="category_id[]" id="category_{{$category->id}}" class="css-checkbox checkbox_check" value="{{$category->id}}" @if(in_array($category->id, $checked_categories)) @checked(true) @endif>
-                                    <label for="category_{{$category->id}}" class="css-label text-base sm:text-xl text-nblue ml-2 category-filter-input">{{$category->name}}</label>
+                                    <input type="checkbox" name="category_id[]" id="category_{{$category->id}}" class="css-checkbox checkbox_check category-filter-input" value="{{$category->id}}" @if(in_array($category->id, $checked_categories)) @checked(true) @endif>
+                                    <label for="category_{{$category->id}}" class="css-label text-base sm:text-xl text-nblue ml-2 ">{{$category->name}}</label>
                                 </div>
 
                                 @empty
                                 <p>No category found.</p>
 
                                 @endforelse
+
                                 </div>
-                                @if ($categories->count() > 0)
-                                <button type="submit" class="mt-4 inline-flex items-center px-4 py-2 bg-nblue rounded border border-transparent font-semibold text-base text-white uppercase tracking-widest hover:bg-dgreen focus:bg-dgreen active:bg-dgreen focus:outline-none focus:ring-none transition ease-in-out duration-150">Filter</button>
-
-                                @endif
-
 
                             </form>
                         </div>
@@ -71,9 +67,9 @@
 
     <x-slot name="script">
         <script>
-            // $('.category-filter-input').change(function (e) {
-            //     $('form#category-filter-form').submit();
-            // });
+            $('.category-filter-input').change(function (e) {
+                $('form#category-filter-form').submit();
+            });
         </script>
     </x-slot>
 

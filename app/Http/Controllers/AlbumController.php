@@ -26,9 +26,14 @@ class AlbumController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         $albums = Album::all();
+
+        if ($request->albumid) {
+            $sai = $request->albumid;
+            return view('dashboard.gallaries.create', compact('albums','sai'));
+        }
         return view('dashboard.gallaries.create', compact('albums'));
     }
 

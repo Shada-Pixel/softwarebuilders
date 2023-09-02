@@ -13,7 +13,7 @@
                 </div>
                 <div class="lg:ml-6">
                     <h2 class="text-lg md:text-xl font-bold text-white text-center lg:text-left">{{$user->name}}</h2>
-                    <p class=" text-lg font-light text-white text-center lg:text-left">{{$user->designation}}</p>
+                    <p class=" text-lg font-light text-white text-center lg:text-left max-w-xs overflow-hidden">{{$user->designation}}</p>
                 </div>
             </div>
             <div class=""></div>

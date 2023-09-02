@@ -17,8 +17,8 @@
                     <tr>
                         <th>Sl</th>
                         <th>Email</th>
-                        <th>Status</th>
-                        <th class="text-right">Action</th>
+                        <th onclick="event.preventDefault();">Status</th>
+                        <th class="text-right" onclick="event.preventDefault();">Action</th>
                     </tr>
                 </thead>
 

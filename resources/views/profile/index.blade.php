@@ -69,7 +69,7 @@
                                         <div class=" col-span-4">
                                             <p class="text-base  text-nblue font-bold lg:font-medium">Designation</p>
                                         </div>
-                                        <div class=" col-span-8">
+                                        <div class=" col-span-8 overflow-hidden">
                                             <h2 class="text-base  text-nblue font-medium">{{$user->designation ? $user->designation : '' }}</h2>
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@
                                         <div class=" col-span-4">
                                             <p class="text-base  text-nblue font-bold lg:font-medium">Biography</p>
                                         </div>
-                                        <div class=" col-span-8">
+                                        <div class=" col-span-8 overflow-hidden">
                                             <p class="text-base  text-nblue font-medium text-justify">{!!$user->biography ? $user->biography : '' !!}</p>
                                         </div>
                                     </div>

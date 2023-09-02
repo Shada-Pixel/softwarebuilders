@@ -135,6 +135,7 @@
                                 if (response.status == "success") {
                                     Swal.fire('Success!', response.message, 'success');
                                     datatablelist.draw();
+                                    location.reload();
                                 }
                             }
                         });

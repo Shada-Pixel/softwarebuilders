@@ -19,7 +19,7 @@
                     <tr>
                         <th>Sl</th>
                         <th>Name</th>
-                        <th>Sho In Home Page</th>
+                        <th>Show In Home Page</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>

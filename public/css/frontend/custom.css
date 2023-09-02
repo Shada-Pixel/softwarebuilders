@@ -618,7 +618,18 @@ ul.tabs-nav li.active {
 
 }
 
-
+[type="text"]:focus, [type="email"]:focus, [type="url"]:focus, [type="password"]:focus, [type="number"]:focus, [type="date"]:focus, [type="datetime-local"]:focus, [type="month"]:focus, [type="search"]:focus, [type="tel"]:focus, [type="time"]:focus, [type="week"]:focus, [multiple]:focus, textarea:focus, select:focus {
+	outline: none !important;
+	outline-offset: none !important;
+	--tw-ring-inset: none !important;
+	--tw-ring-offset-width: none !important;
+	--tw-ring-offset-color: none !important;
+	--tw-ring-color: none !important;
+	--tw-ring-offset-shadow: none !important;
+	--tw-ring-shadow: none !important;
+	box-shadow: none !important;
+	border-color: none !important;
+}
 
 @media (max-width: 768px) {
 

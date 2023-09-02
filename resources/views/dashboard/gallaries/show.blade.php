@@ -15,7 +15,21 @@
 
     <div class="p-2 sm:p-6">
         <div class="p-2 sm:p-6 bg-white rounded-md">
-            <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">{{$album->name}}</h2>
+            <div class="flex justify-between items-center">
+
+                <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">{{$album->name}}</h2>
+
+                <form action="{{route('albums.create',$album->id)}}" method="get">
+                    @csrf
+                    @method('GET')
+                    <input type="hidden" name="albumid" value="{{$album->id}}">
+                    <x-primary-button class="" type="submit">
+                        {{ __('Add photo') }}
+                    </x-primary-button>
+                </form>
+
+            </div>
+
             <hr class="my-4">
             <div class="grid grid-cols-4 gap-5">
                 @forelse ($album->photos as $photo)
@@ -25,7 +39,9 @@
                     <form action="{{route('photos.destroy',$photo->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="absolute bottom-2 right-2 bg-black/40 w-10 h-10 rounded flex justify-center items-center text-white group-hover:text-red-500 group-hover:bg-lgreen transiation duration-150 ease-in-out"><span class="iconify" data-icon="bi:trash-fill"></span></button>
+                        <button type="submit" class="absolute bottom-2 right-2 bg-black/40 w-10 h-10 rounded flex justify-center items-center text-white group-hover:text-red-500 group-hover:bg-lgreen transiation duration-150 ease-in-out">
+                            <span class="iconify" data-icon="bi:trash-fill"></span>
+                        </button>
                     </form>
                 </div>
                 @empty

@@ -55,7 +55,7 @@
 
     {{-- Service quotation popup --}}
     <div class="hidden w-screen min-h-screen bg-lgreen fixed top-10 right-0 z-[100] sm:py-24" id="servicequotepop">
-        <div class="max-w-4xl mx-auto bg-white rounded p-6">
+        <div class="max-w-4xl mx-auto bg-white rounded p-6 overflow-y-scroll">
             <div class="flex justify-between mb-4" id="servicedetailsinpop">
                 <h2 class="text-2xl font-semibold text-dgreen"></h2>
                 <div class="bg-lgreen w-6 h-6 text-dgreen rounded hover:bg-dgreen hover:text-white transition ease-in-out duration-150" id="serqupopclose">
@@ -65,9 +65,9 @@
             <form action="{{ route('quotations.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <div class="grid grid-cols-2 gap-5">
+                <div class="grid grid-cols-3 gap-5">
                     <!-- Name -->
-                    <div class="col-span-2">
+                    <div class="col-span-3 sm:col-span-1">
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
                             :value="old('name')" required />
@@ -75,7 +75,7 @@
                     </div>
 
                     <!-- Email -->
-                    <div class="col-span-2">
+                    <div class="col-span-3 sm:col-span-1">
                         <x-input-label for="email" :value="__('Email')" />
                         <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
                             :value="old('email')" required />
@@ -83,7 +83,7 @@
                     </div>
 
                     <!-- Phone -->
-                    <div class="col-span-2">
+                    <div class="col-span-3 sm:col-span-1">
                         <x-input-label for="phone" :value="__('Phone')" />
                         <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone"
                             :value="old('phone')" required />
@@ -91,7 +91,7 @@
                     </div>
 
                     <!-- message -->
-                    <div class="col-span-2">
+                    <div class="col-span-3">
                         <x-input-label for="message" :value="__('Description')" class="mb-2" />
                         <x-textarea id="message" class="block mt-2 w-full" name="message" required
                             autocomplete="message"></x-textarea>
@@ -99,7 +99,7 @@
                     </div>
 
                     <!-- attachment -->
-                    <div class="">
+                    <div class="mt-auto col-span-3 sm:col-span-1">
                         <x-input-label for="attachment" :value="__('Project Details File')" />
                         <x-text-input id="attachment"
                             class="block mt-1 w-full file:mr-5 file:mb-[2px] file:py-2 file:px-2 file:border-0 file:font-jost file:uppercase  file:text-white file:bg-dgreen"

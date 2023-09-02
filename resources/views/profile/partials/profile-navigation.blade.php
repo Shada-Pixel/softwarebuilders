@@ -56,7 +56,7 @@
                     <li class=" sm:my-3 sm:pb-3">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <a class=" text-lg md:2xl lg:text-xl  text-nblue font-medium hover:text-dgreen" onclick="event.preventDefault(); this.closest('form').submit();">
+                            <a class=" text-lg md:2xl lg:text-xl  text-nblue font-medium hover:text-dgreen cursor-pointer" onclick="event.preventDefault(); this.closest('form').submit();">
                                 <div class="flex items-center">
                                     <span class="iconify mr-2" data-icon="fe:logout"></span>
                                     <div class="hidden sm:flex">Log out</div>

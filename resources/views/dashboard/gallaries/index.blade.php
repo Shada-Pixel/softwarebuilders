@@ -12,7 +12,7 @@
     </x-slot>
 
     <div class="p-2 sm:p-6">
-        <div class="p-2 sm:p-6 bg-white rounded-md">
+        <div class="max-w-3xl mx-auto p-2 sm:p-6 bg-white rounded-md">
             <h1 class="text-xl mb-1 text-dgreen">New Album Information</h1>
 
             <form method="POST" action="{{ route('albums.store') }}" id="course-store" enctype="multipart/form-data" >
@@ -40,7 +40,7 @@
             </form>
         </div>
 
-        <div class="p-2 sm:p-6 bg-white rounded-md mt-2">
+        <div class="max-w-3xl mx-auto p-2 sm:p-6 bg-white rounded-md mt-2">
             <h1 class="text-xl mb-4 text-center sm:text-left">All Albums</h1>
 
             <table id="albulTable" class="display stripe text-xs sm:text-base" style="width:100%">
@@ -49,7 +49,7 @@
                         <th>Sl</th>
                         <th>Name</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th class="">Action</th>
                     </tr>
                 </thead>
             </table>
@@ -87,7 +87,13 @@
                     {
                         data: null,
                         render: function(data) {
-                            return `<div class="flex flex-col sm:flex-row gap-1"><a href="${BASE_URL}albums/${data.id}/edit" class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify text-base" data-icon="iconamoon:edit-light"></span></a> <a href="${BASE_URL}albums/${data.id}" class="flex justify-center items-center  bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify text-base" data-icon="ic:baseline-remove-red-eye"></span></a><button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="albumDelete(${data.id});"><span class="iconify text-base" data-icon="bi:trash-fill"></span></button></div>`;
+                            return `<div class="flex flex-col sm:flex-row justify-end gap-1">
+                                <a href="${BASE_URL}albums/${data.id}/edit" class="flex justify-center items-center bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify text-base" data-icon="iconamoon:edit-light"></span></a>
+                                <a href="${BASE_URL}albums/${data.id}" class="flex justify-center items-center  bg-blue-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-blue-700" ><span class="iconify text-base" data-icon="ic:baseline-remove-red-eye"></span></a>
+                                <button type="button"  class="flex justify-center items-center bg-red-600 rounded-md text-white py-2 px-2 mx-1 hover:bg-red-700" onclick="albumDelete(${data.id});">
+                                    <span class="iconify text-base" data-icon="bi:trash-fill"></span>
+                                    </button>
+                                    </div>`;
                         }
                     }
                 ]

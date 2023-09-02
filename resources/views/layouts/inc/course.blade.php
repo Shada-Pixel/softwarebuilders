@@ -7,7 +7,7 @@
         <div class=" mt-2">
             <h2 class=" text-lg text-nblue font-bold">{{$item->name}}</h2>
         </div>
-        <div class="mt-2 flex justify-between items-end">
+        <div class="mt-2 flex justify-between items-end flex-wrap">
             <div class=" flex items-center">
                 <div class="mr-3">
                     {{-- <img class=" w-14 h-14 rounded-full" src="{{asset($item->instructor->pp)}}" alt=""> --}}
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="">
-                <p class=" text-lg font-bold text-white bg-dgreen px-3 py-1 rounded-full"> {{number_format($item->current_price, 0) }} BDT</p>
+                <p class=" text-sm font-bold text-white bg-dgreen p-3 py-1 rounded-full"> {{number_format($item->current_price, 0) }} BDT</p>
             </div>
         </div>
         <div class="absolute top-4 right-0">
