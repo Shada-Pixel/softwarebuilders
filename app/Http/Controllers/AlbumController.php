@@ -29,12 +29,12 @@ class AlbumController extends Controller
     public function create(Request $request)
     {
         $albums = Album::all();
-
+        $sai = null;
         if ($request->albumid) {
             $sai = $request->albumid;
             return view('dashboard.gallaries.create', compact('albums','sai'));
         }
-        return view('dashboard.gallaries.create', compact('albums'));
+        return view('dashboard.gallaries.create', compact('albums','sai'));
     }
 
     /**

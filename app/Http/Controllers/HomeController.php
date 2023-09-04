@@ -19,6 +19,18 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+         $this->middleware('permission:admin-dash', ['only' => ['dashboard']]);
+    }
+
+
     function index() : View
     {
         $categories = Category::all();
