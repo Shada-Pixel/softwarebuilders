@@ -2,8 +2,8 @@ $(document).ready(function () {
     // Ajax csrf token
     $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
     });
 
     $("#flip").click(function () {
@@ -11,9 +11,9 @@ $(document).ready(function () {
     });
 
     // Only number in text
-    $('input.onlynumber').keyup(function (e) {
+    $("input.onlynumber").keyup(function (e) {
         if (/\D/g.test(this.value)) {
-            this.value = this.value.replace(/\D/g, '');
+            this.value = this.value.replace(/\D/g, "");
         }
     });
 
@@ -27,10 +27,10 @@ $(document).ready(function () {
         // Check if the user has scrolled down
         if (scrollTop > 0) {
             // Remove the class 'py-5' when scrolling down
-            $('#mainnavigation').removeClass('py-5');
+            $("#mainnavigation").removeClass("py-5");
         } else {
             // Add the class 'py-5' when scrolling to the top
-            $('#mainnavigation').addClass('py-5');
+            $("#mainnavigation").addClass("py-5");
         }
     });
 });
@@ -274,7 +274,10 @@ $(function () {
         if ($(this).hasClass("active")) {
             $(this).removeClass("active");
         } else {
-            $(this).closest(".acc").find(".acc__title.active").removeClass("active");
+            $(this)
+                .closest(".acc")
+                .find(".acc__title.active")
+                .removeClass("active");
             $(this).addClass("active");
         }
 
@@ -285,92 +288,112 @@ $(function () {
 
 // =====================
 
-
-
 // Client Subscription -----------------------------
-$('form#subscriptionForm').submit(function (e) {
+$("form#subscriptionForm").submit(function (e) {
     e.preventDefault();
-    let subscribed = $('#subscriptionsuccess');
+    let subscribed = $("#subscriptionsuccess");
     $.ajax({
-        method: 'POST',
-        url: BASE_URL + 'subscribe',
-        data: $('form#subscriptionForm').serialize(),
+        method: "POST",
+        url: BASE_URL + "subscribe",
+        data: $("form#subscriptionForm").serialize(),
         success: function (response) {
             if (response.status == "success") {
                 subscribed.html(response.message);
-                $('form#subscriptionForm').trigger("reset");
+                $("form#subscriptionForm").trigger("reset");
                 setTimeout(function () {
-                    subscribed.html('');
+                    subscribed.html("");
                 }, 5000);
             } else if (response.status == "error") {
                 subscribed.html(response.message);
                 setTimeout(function () {
-                    subscribed.html('');
+                    subscribed.html("");
                 }, 5000);
             }
-        }
+        },
     });
 });
 // Client Subscription end -----------------------------
 
-
-
 // Notification
 function sendMarkRequest(id = null) {
-
     return $.ajax({
-        method: 'POST',
-        url: BASE_URL + 'markNotification',
+        method: "POST",
+        url: BASE_URL + "markNotification",
         data: {
-            id
-        }
+            id,
+        },
     });
- }
+}
 
- $(function(){
-    $('.mark-as-read').click(function(e){
-
+$(function () {
+    $(".mark-as-read").click(function (e) {
         e.preventDefault();
-        let url = $(this).attr('href');
+        let url = $(this).attr("href");
         console.log(url);
-        let request = sendMarkRequest($(this).data('id'));
+        let request = sendMarkRequest($(this).data("id"));
 
-        request.done(()=>{
-            $(this).parents('div.alert').remove();
-            $(location).attr('href', url);
+        request.done(() => {
+            $(this).parents("div.alert").remove();
+            $(location).attr("href", url);
         });
     });
 
-    $('#mark-all').click(function(){
+    $("#mark-all").click(function () {
         let request = sendMarkRequest();
 
-        request.done(()=>{
-            let html = '<div class="py-10 text-center"><p class=" text-dgreen ">No Notification.</p> </div>';
+        request.done(() => {
+            let html =
+                '<div class="py-10 text-center"><p class=" text-dgreen ">No Notification.</p> </div>';
             // $('div.alert').remove();
-            $('div.tablinedot').remove();
-            $('#notificationdiv').html(html);
+            $("div.tablinedot").remove();
+            $("#notificationdiv").html(html);
             // location.reload(true);
         });
     });
- });
-
+});
 
 // Classic Editor function
 function createEditor(elementId) {
-    ClassicEditor
-        .create(document.querySelector(elementId), {
-            toolbar: {
-                items: [
-                    'heading', '|', 'bold', 'italic', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo', '|', 'link', 'blockQuote'
-                ],
-                shouldNotGroupWhenFull: true
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    ClassicEditor.create(document.querySelector(elementId), {
+        toolbar: {
+            items: [
+                "heading",
+                "|",
+                "bold",
+                "italic",
+                "|",
+                "bulletedList",
+                "numberedList",
+                "|",
+                "undo",
+                "redo",
+                "|",
+                "link",
+                "blockQuote",
+            ],
+            shouldNotGroupWhenFull: true,
+        },
+    }).catch((error) => {
+        console.error(error);
+    });
 }
 
+// Password show hide toggle
+function togglePasswordVisibility(passwordFieldSelector, iconSelector) {
+    const password = $(passwordFieldSelector);
+    const isPasswordVisible = password.attr("type") === "text";
 
+    password.attr("type", isPasswordVisible ? "password" : "text");
+    $(iconSelector).attr(
+        "data-icon",
+        isPasswordVisible ? "bxs:show" : "bxs:hide"
+    );
+}
 
+function changePassword() {
+    togglePasswordVisibility("#password", ".passwordShowHide");
+}
 
+function cchangePassword() {
+    togglePasswordVisibility("#password_confirmation", ".cpasswordShowHide");
+}

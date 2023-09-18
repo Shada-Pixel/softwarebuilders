@@ -1,4 +1,4 @@
-<nav class=" bg-white nav_area py-2.5 px-3 sm:px-0 fixed top-0 z-[1000] w-screen shadow-sm">
+<nav class=" bg-white nav_area py-2.5 px-3 lg:px-0 fixed top-0 z-[1000] w-screen shadow-sm">
     <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 content-center py-5 transition-all duration-150 ease-in-out" id="mainnavigation">
 
         {{-- logo --}}

@@ -1,20 +1,103 @@
 <x-guest-layout>
 
     <section id="course-details-page">
-        <div class="pt-20 bg-white mt-10 sm:pt-20 pb-24 sm:pb-44 px-3 sm:px-0">
+        <div class="pt-20 bg-white mt-10 sm:pt-24 pb-24 sm:pb-44 px-3">
             <div class="max-w-7xl mx-auto">
-                <div class=" sm:w-2/4 mb-4 sm:mb-0">
-                    <h2 class="text-xl sm:text-4.5xl font-bold text-nblue leading-none text-center md:text-start">{{$course->name}}</h2>
-                    <div class="">
-                        <p class=" text-base font-light text-nblue sm:text-justify text-justify  mt-5">{!! $course->short_description !!}</p>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
+
+                    <div class="lg:col-span-2 mb-4 sm:mb-0">
+                        <h3 class="font-semibold text-lg text-dgreen mb-2">{{$course->category->name}}</h3>
+                        <h1 class="text-2xl sm:text-5xl font-bold text-nblue leading-none text-start mb-4 lg:mb-0">{{$course->name}}</h1>
+
+                        <div class="lg:hidden lg:col-span-3 rounded-md w-full aspect-video bg-cover bg-center bg-no-repeat" style="background-image: url('{{asset($course->cover)}}');"></div>
+
+                        <div class="mt-8 flex justify-start gap-5">
+                            <div class=" border border-dgreen rounded-md p-2 lg:p-5 mb-4 text-center">
+
+                                <p class="font-semibold text-lg text-nblue">{{$course->batches->count()}}</p>
+                                <p>Batches</p>
+                            </div>
+                            <div class=" border border-dgreen rounded-md p-2 lg:p-5 mb-4 text-center">
+
+                                <p class="font-semibold text-lg text-nblue">{{$course->students->count()}}</p>
+                                <p>Students</p>
+                            </div>
+
+
+                        </div>
+
+                        <div class="mb-4">
+                            <p class=" text-base font-light text-nblue sm:text-justify text-justify  mt-5">{!! $course->short_description !!}</p>
+                        </div>
+
+                        {{-- ---------------------------------------------------------------------- --}}
+                        <div class="mt-auto w-full">
+
+                            {{-- @role('admin')
+                            <div class=" border border-dgreen rounded-md p-5 mb-4">
+                                <a class=" text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center" href="{{route('courses.edit',$course->id)}}">Edit This Course</a>
+                            </div>
+                            @endrole --}}
+
+                            @auth
+
+                            @if($ec && in_array($course->id, $ec))
+
+                            <div class=" border border-dgreen rounded-md p-5">
+                                <h2 class=" text-xl text-black font-bold">Group Link</h2>
+                                <p>{!! $batchgrouptext !!}</p>
+
+                            </div>
+                            @else
+
+                            <div class=" border border-dgreen rounded-md p-5">
+                                <h2 class=" text-xl text-black font-bold">{{number_format($course->current_price, 0) }} BDT</h2>
+                                <div class=" mt-4">
+                                    @if ($mycartcourse > 0)
+                                        <a href="{{route('carts.index')}}">
+                                            <button class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">Go to Cart</button>
+                                        </a>
+                                    @else
+
+                                    <form action="{{route('carts.store')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="course_id" value="{{$course->id}}">
+                                        <input type="hidden" name="total" value="{{$course->current_price}}">
+                                        <button type="submit" class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">ENROLL</button>
+                                    </form>
+                                    @endif
+
+
+                                </div>
+                            </div>
+                            @endif
+                            @endauth
+
+                            @guest
+                            <div class=" border border-dgreen rounded-md p-5">
+                                <h2 class=" text-xl text-black font-bold">{{number_format($course->current_price, 0) }} BDT</h2>
+                                <div class=" mt-4">
+
+                                    <form action="{{route('carts.store')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="course_id" value="{{$course->id}}">
+                                        <input type="hidden" name="total" value="{{$course->current_price}}">
+                                        <button type="submit" class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">ENROLL</button>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                            @endguest
+                        </div>
+                        {{-- ---------------------------------------------------------------------- --}}
                     </div>
+                    <div class="hidden lg:block lg:col-span-3 rounded-md" style="background-image: url('{{asset($course->cover)}}');"></div>
                 </div>
                 <div class="sm:grid sm:grid-cols-12 gap-5 sm:mt-6">
-                    <div class=" col-span-8 ">
+                    <div class="mt-16 col-span-8 ">
 
-                        <div class="course_cover rounded-md" style="background-image: url('{{asset($course->cover)}}');">
-                        </div>
-                        <div class=" mt-10 mb-4">
+                        <div class=" mb-4">
                             <h2 class=" text-xl font-bold text-nblue">Description</h2>
                         </div>
                         <div class=" border border-dgreen rounded-md p-5 " id="course-description">
@@ -31,66 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" col-span-4 m-4 sm:mt-0">
-                        @role('admin')
-                        <div class=" border border-dgreen rounded-md p-5 mb-4">
-                            <a class=" text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center" href="{{route('courses.edit',$course->id)}}">Edit This Course</a>
-                        </div>
-                        @endrole
-
-                        @auth
-
-                        @if($ec && in_array($course->id, $ec))
-
-                        <div class=" border border-dgreen rounded-md p-5">
-                            <h2 class=" text-xl text-black font-bold">Group Link</h2>
-                            <p>{!! $batchgrouptext !!}</p>
-
-                        </div>
-                        @else
-
-                        <div class=" border border-dgreen rounded-md p-5">
-                            <h2 class=" text-xl text-black font-bold">{{number_format($course->current_price, 0) }} BDT</h2>
-                            <div class=" mt-4">
-                                @if ($mycartcourse > 0)
-                                    <a href="{{route('carts.index')}}">
-                                        <button class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">Go to Cart</button>
-                                    </a>
-                                @else
-
-                                <form action="{{route('carts.store')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="course_id" value="{{$course->id}}">
-                                    <input type="hidden" name="total" value="{{$course->current_price}}">
-                                    <button type="submit" class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">ENROLL</button>
-                                </form>
-                                @endif
-
-
-                            </div>
-                        </div>
-                        @endif
-                        @endauth
-
-                        @guest
-                        <div class=" border border-dgreen rounded-md p-5">
-                            <h2 class=" text-xl text-black font-bold">{{number_format($course->current_price, 0) }} BDT</h2>
-                            <div class=" mt-4">
-
-                                <form action="{{route('carts.store')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="course_id" value="{{$course->id}}">
-                                    <input type="hidden" name="total" value="{{$course->current_price}}">
-                                    <button type="submit" class="w-full text-base font-bold text-white block bg-nblue hover:bg-dgreen py-3 rounded-md text-center">ENROLL</button>
-                                </form>
-
-
-                            </div>
-                        </div>
-                        @endguest
-
-
-
+                    <div class="mt-16 col-span-4 mx-4 ">
                         <div class="border border-dgreen rounded-md p-5 mt-4">
                             <h2 class=" text-2xl font-semibold text-dgreen">Material Includes</h2>
                             <div class="mt-6" id="course-materials">

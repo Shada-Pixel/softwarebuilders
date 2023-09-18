@@ -50,11 +50,11 @@
                     </div>
                     <div class="flex mt-10 justify-center sm:justify-start">
                         <div class=" mr-5">
-                            <a class="text-sm sm:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
+                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest hover:bg-white hover:text-dgreen transition-all duration-150 ease-in-out"
                                 href="{{ route('about') }}">ABOUT US</a>
                         </div>
                         <div class="">
-                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
+                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest hover:bg-white hover:text-dgreen transition-all duration-150 ease-in-out"
                                 href="{{ route('cource') }}">SEE COURSES</a>
                         </div>
                     </div>
@@ -78,11 +78,11 @@
                     </div>
                     <div class="flex mt-10 justify-center sm:justify-start">
                         <div class=" mr-5">
-                            <a class="text-sm sm:text-base  text-dgreen md:font-bold bg-white px-5 py-2.5 rounded-md md:tracking-widest"
+                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest hover:bg-white hover:text-dgreen transition-all duration-150 ease-in-out"
                                 href="{{ route('about') }}">ABOUT US</a>
                         </div>
                         <div class="">
-                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest"
+                            <a class="text-sm sm:text-base bg-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest hover:bg-white hover:text-dgreen transition-all duration-150 ease-in-out"
                                 href="{{ route('cource') }}">SEE COURSES</a>
                         </div>
                     </div>
@@ -357,329 +357,331 @@
                         eget fringilla porttitor. <br>
                         on Duis a orci nunc. Suspendisse ac convallis sapien, quis commodo libero.</p>
                 </div>
-            </div>
-            <div class=" mt-6 px-3 xl:px-0">
-                <div class="swiper testSwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+                <div class=" mt-6 px-3 xl:px-0">
+                    <div class="swiper testSwiper">
+                        <div class="swiper-wrapper">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
-                                <div class="xl:flex justify-between">
-                                    <div class=" md:flex md:items-center md:justify-center">
-                                        <div class=" flex justify-center md:flex-none mr-4 mb-3 md:mb-0">
-                                            <img class="w-14 h-14 rounded-full" src="./img/clint.jpg" alt="">
+
+                            {{-- individual item --}}
+                            <div class="swiper-slide">
+                                <div class=" px-6 py-5 bg-lgreen hover:bg-white text-nblue rounded-md">
+                                    <div class="xl:flex justify-between">
+                                        <div class=" md:flex md:items-center md:justify-center">
+                                            <div class="w-14 h-14 rounded-full flex justify-center md:flex-none mr-4 mb-3 md:mb-0 bg-center bg-no-repeat bg-cover" style="background-image: url({{ asset('img/clint.jpg') }});"></div>
+                                            <div class="">
+                                                <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
+                                                    C. Shadle</h2>
+                                                <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
+                                                    Officer</p>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <h2 class="text-center md:text-start text-xl  text-nblue font-bold">Thelma
-                                                C. Shadle</h2>
-                                            <p class=" text-lg  text-nblue text-center md:text-start">Chief Executive
-                                                Officer</p>
+                                        <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
+                                            <ul class=" flex">
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange mr-1"><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                                <li class="text-xl text-dorange "><iconify-icon
+                                                        icon="ic:baseline-star"></iconify-icon></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="mt-3 sm:mt-0 flex justify-center xl:justify-start">
-                                        <ul class=" flex">
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange mr-1"><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                            <li class="text-xl text-dorange "><iconify-icon
-                                                    icon="ic:baseline-star"></iconify-icon></li>
-                                        </ul>
+                                    <div class="mt-2 sm:mt-5">
+                                        <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
+                                            simply random text. It has roots in a piece of classical Latin literature from
+                                            45 BC, making it over 2000 years old. There are many variations of passages of
+                                            Lorem Ipsum available.</p>
                                     </div>
-                                </div>
-                                <div class="mt-2 sm:mt-5">
-                                    <p class=" text-base text-nblue">Contrary to popular belief, Lorem Ipsum is not
-                                        simply random text. It has roots in a piece of classical Latin literature from
-                                        45 BC, making it over 2000 years old. There are many variations of passages of
-                                        Lorem Ipsum available.</p>
-                                </div>
-                                <div class=" flex justify-end mt-1">
-                                    <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    <div class=" flex justify-end mt-1">
+                                        <img class=" w-12" src="./img/comma.png" alt="comma">
+                                    </div>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
                         <form action="" id="subscriptionForm">
                             <div class=" flex items-end sm:items-center sm:justify-between justify-center ">
                                 <div class="w-4/5 mr-5 mt-4 sm:mt-0">
-                                    <input class="mt-1 w-full border-t-0 border-x-0 border-b-[1px] border-white  shadow-sm focus:outline-none block placeholder:text-white text-lg text-white  bg-transparent"
+                                    <input class="mt-1 w-full border-t-0 border-x-0 border-b-[1px] border-nblue  shadow-sm focus:outline-none block placeholder:text-white text-lg text-white  bg-transparent"
                                     type="email" name="email" :value="old('email')" required placeholder="Email">
                                 </div>
                                 <button type="submit" class=" bg-white hover:bg-nblue hover:text-white text-nblue sm:text-lg text-sm font-bold px-2 py-1 sm:px-4 sm:py-2.5 rounded-md uppercase">{{ __('Subscribe') }}</button>

@@ -69,15 +69,23 @@ class HomeController extends Controller
     function cource(Request $request) {
 
         $categories = Category::all();
+        $categoryname = 'All Courses';
+
         if ($request->category_id) {
+
+            $category = Category::find($request->category_id);
+            $categoryname = $category->name;
+
+
             $checked_categories = $request->category_id;
-            $courses = Course::wherein('category_id',$request->category_id)->where('status','3')->get();
-            return view('cource',compact('courses','categories','checked_categories'));
+            // $courses = Course::wherein('category_id',$request->category_id)->where('status','3')->get();
+            $courses = Course::where('category_id',$request->category_id)->where('status','3')->get();
+            return view('cource',compact('courses','categories','checked_categories','categoryname'));
         }else {
             $checked_categories = [];
 
             $courses = Course::where('status','3')->get();
-            return view('cource',compact('courses','categories','checked_categories'));
+            return view('cource',compact('courses','categories','checked_categories','categoryname'));
 
         }
 

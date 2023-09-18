@@ -18,15 +18,17 @@
                     </div>
 
                     <!-- Password -->
-                    <div class="mt-4">
+                    <div class="mt-4 relative">
                         <x-input-label for="password" :value="__('Password')" />
+                        <span class="iconify text-2xl text-nblue mt-2 absolute top-1 right-0 cursor-pointer passwordShowHide" data-icon="bxs:show" onclick="changePassword()"></span>
                         <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="mt-4">
+                    <div class="mt-4 relative">
                         <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                        <span class="iconify text-2xl text-nblue mt-2 absolute top-1 right-0 cursor-pointer cpasswordShowHide" data-icon="bxs:show" onclick="cchangePassword()"></span>
 
                         <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                             type="password"

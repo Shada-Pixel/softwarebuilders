@@ -36,6 +36,7 @@
                                 <!-- Password -->
                                 <div class="mt-4 relative">
                                     <span class="iconify text-2xl text-nblue mt-2 absolute top-1" data-icon="material-symbols:lock"></span>
+                                    <span class="iconify text-2xl text-nblue mt-2 absolute top-1 right-0 cursor-pointer passwordShowHide" data-icon="bxs:show" onclick="changePassword()"></span>
                                     <x-text-input id="password" class="block mt-1 pl-8 w-full text-lg text-nblue  bg-transparent"
                                                     type="password"
                                                     name="password"
@@ -47,6 +48,7 @@
                                 <!-- Confirm Password -->
                                 <div class="mt-4 relative">
                                     <span class="iconify text-2xl text-nblue mt-2 absolute top-1" data-icon="material-symbols:lock"></span>
+                                    <span class="iconify text-2xl text-nblue mt-2 absolute top-1 right-0 cursor-pointer cpasswordShowHide" data-icon="bxs:show" onclick="cchangePassword()"></span>
                                     <x-text-input id="password_confirmation" class="block mt-1 pl-8 w-full text-lg text-nblue  bg-transparent"
                                                     type="password"
                                                     name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"/>
@@ -82,4 +84,6 @@
         </div>
     </section>
     <!-- ==============Team start========== -->
+
+
 </x-guest-layout>

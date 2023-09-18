@@ -9,8 +9,9 @@
                 @csrf
 
                 <!-- Password -->
-                <div>
+                <div class="relative">
                     <x-input-label for="password" :value="__('Password')" />
+                    <span class="iconify text-2xl text-nblue mt-2 absolute top-1 right-0 cursor-pointer passwordShowHide" data-icon="bxs:show" onclick="changePassword()"></span>
 
                     <x-text-input id="password" class="block mt-1 w-full"
                                     type="password"

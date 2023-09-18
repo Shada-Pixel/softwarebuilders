@@ -15,49 +15,50 @@
     <section>
         <div class=" bg-white pt-5 sm:pt-20 pb-52">
             <div class="max-w-7xl mx-auto">
-                <div class="grid sm:grid-cols-12 sm:gap-10">
-                    <div class="sm:col-span-4 ">
-                        <div class="p-4 sm:p-0 ">
-                            <h2 class="text-xl sm:text-3xl font-bold text-nblue mb-8 text-center sm:text-left">Course Categories</h2>
-                            <form action="{{route('cource')}}" method="get" id="category-filter-form">
-                                @csrf
-                                <div class="grid grid-cols-2 sm:grid-cols-1 gap-2">
+                <div class="">
+                    <h2 class="text-xl sm:text-3xl font-bold text-nblue mb-8 text-center sm:text-left">Categories</h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-5 mb-8">
 
-                                @forelse ($categories as $category)
+                        <a href="{{route('cource')}}" class="flex justify-center items-center p-6 hover:bg-lgreen rounded-md eachcat cursor-pointer text-center font-semibold aspect-square border border-dgreen/40 transition-all duration-150 ease-in-out hover:scale-105 hover:shadow-md">
+                                <p class="css-p text-lg lg:text-3xl text-nblue" >All Courses</p>
+                        </a>
 
-                                <div class="">
-                                    <input type="checkbox" name="category_id[]" id="category_{{$category->id}}" class="css-checkbox checkbox_check category-filter-input" value="{{$category->id}}" @if(in_array($category->id, $checked_categories)) @checked(true) @endif>
-                                    <label for="category_{{$category->id}}" class="css-label text-base sm:text-xl text-nblue ml-2 ">{{$category->name}}</label>
-                                </div>
+                        @forelse ($categories as $category)
 
-                                @empty
-                                <p>No category found.</p>
-
-                                @endforelse
-
-                                </div>
-
-                            </form>
+                        <div class="flex justify-center items-center p-6 hover:bg-lgreen rounded-md eachcat cursor-pointer text-center font-semibold aspect-square border border-dgreen/40 transition-all duration-150 ease-in-out hover:scale-105 hover:shadow-md" data-catid="{{$category->id}}">
+                            <p class="css-p text-lg lg:text-3xl text-nblue" >{{$category->name}}</p>
                         </div>
 
+                        @empty
+                        <p>No category found.</p>
+
+                        @endforelse
                     </div>
-                    <div class="sm:col-span-8 p-4 smp-0">
-                        <div class="contents">
-                            <div class="grid sm:grid-cols-2 gap-2">
 
-                                @forelse ($courses as $item)
-                                    {{-- Indivudial course --}}
-                                    @include('layouts.inc.course')
-                                @empty
-                                <div class="col-span-2 text-center pt-40">
-                                    <h2 class=" text-lg text-nblue font-bold">No course running.
-                                    </h2>
-                                </div>
+                    <form action="{{route('cource')}}" method="get" class="coursefilterform">
+                        @csrf
+                        <input type="hidden" name="category_id" id="inputCategoryId"  value="">
+                    </form>
 
+                </div>
 
-                                @endforelse
+                <div class="p-4 lg:p-0">
+                    <div class="">
+                        <h2 class="text-xl sm:text-3xl font-bold text-nblue mb-8 text-center sm:text-left">{{ $categoryname }}</h2>
+                        <div class="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
 
+                            @forelse ($courses as $item)
+                                {{-- Indivudial course --}}
+                                @include('layouts.inc.course')
+                            @empty
+                            <div class="col-span-2 text-center pt-40">
+                                <h2 class=" text-lg text-nblue font-bold">No course running.
+                                </h2>
                             </div>
+
+
+                            @endforelse
+
                         </div>
                     </div>
                 </div>
@@ -67,8 +68,14 @@
 
     <x-slot name="script">
         <script>
-            $('.category-filter-input').change(function (e) {
-                $('form#category-filter-form').submit();
+            // $('.category-filter-input').change(function (e) {
+            //     $('form#category-filter-form').submit();
+            // });
+
+            $(".eachcat").click(function (e) {
+                e.preventDefault();
+                $("form.coursefilterform #inputCategoryId").val($(this).data('catid'));
+                $("form.coursefilterform").submit();
             });
         </script>
     </x-slot>
