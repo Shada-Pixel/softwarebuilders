@@ -3,9 +3,17 @@
     <section class="">
         <div class="pt-10 bg-white mt-10 sm:mt-10 pb-24 sm:pb-44 px-3 sm:px-0 min-h-screen">
             @if ($carts->count() <= 0)
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-4xl text-nblue font-bold text-center  mt-6 md:mt-10 sm:mt-0">No Course In The Cart.
-                </h2>
+            <div class="max-w-7xl mx-auto min-h-screen flex justify-center items-center">
+                <div class="text-center">
+
+                    <h2 class="text-4xl text-nblue font-bold text-center  mt-6 md:mt-10 sm:mt-0">No Course In The Cart.
+                    </h2>
+                    <p class="text-base text-nblue mt-2 mb-4">Please go to course page and Enroll.</p>
+
+                    <a href="{{route('cource')}}" class="">
+                        <button type="submit" class=" bg-dgreen hover:bg-nblue text-white sm:text-lg text-sm font-bold px-2 py-1 sm:px-4 sm:py-2.5 rounded-md uppercase">Courses</button>
+                    </a>
+                </div>
             </div>
             @else
 

@@ -1,8 +1,8 @@
 <div class="flex items-center">
 
-    <img src="{{asset('images/logo.png')}}" alt="" sizes="" srcset="" class="w-10 h-10">
+    <img src="{{asset('images/logo.png')}}" alt="" sizes="" srcset="" class="w-16 h-16">
 
-    <div class="ml-2 font-bold text-base uppercase leading-none text-white">
+    <div class="ml-2 font-bold text-2xl uppercase leading-none text-white">
         <p>Software</p>
         <p>Builders Ltd</p>
     </div>

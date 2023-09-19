@@ -3,9 +3,9 @@
 </svg> --}}
 <div class="flex items-center">
 
-    <img src="{{asset('images/logo.png')}}" alt="" sizes="" srcset="" class="w-10 h-10">
+    <img src="{{asset('images/logo.png')}}" alt="" sizes="" srcset="" class="w-10 lg:w-16 h-10 lg:h-16">
 
-    <div class="ml-2 font-bold text-base uppercase leading-none text-nblue">
+    <div class="ml-2 font-bold text-lg lg:text-2xl uppercase leading-none text-nblue">
         <p>Software</p>
         <p>Builders Ltd</p>
     </div>

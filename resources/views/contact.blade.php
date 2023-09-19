@@ -12,35 +12,35 @@
     <section>
         <div class=" bg-white py-10 sm:py-24 px-3 sm:px-0">
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-1  sm:grid-cols-3 gap-2 sm:gap-10">
-                    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
-                            <span class="iconify text-3xl sm:text-4xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0" data-icon="carbon:location-filled"></span>
+                <div class="grid grid-cols-1  sm:grid-cols-3 gap-2 sm:gap-10 content">
 
-                        <div class="">
-                            <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Address</h2>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">18/B, KDA Avenue approach Road,
-                                Western Plaza (5th Floor), </p>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">Khulna - 9100
+                    <div class="flex flex-col items-center sm:items-center justify-center">
+                        <span class="iconify text-3xl sm:text-4xl text-dgreen text-center" data-icon="carbon:location-filled"></span>
+
+                        <div class="flex flex-col items-center mt-2">
+                            <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center">Address</h2>
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center">18/B, KDA Avenue approach Road, Western Plaza (5th Floor), </p>
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center">Khulna - 9100
 
                         </div>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
-                            <span class="iconify text-3xl sm:text-4xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0" data-icon="fontisto:mobile"></span>
+                    <div class="flex flex-col items-center sm:items-center justify-center">
+                            <span class="iconify text-3xl sm:text-4xl text-dgreen text-center" data-icon="fontisto:mobile"></span>
 
 
-                        <div class="">
-                            <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Phone</h2>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
+                        <div class="flex flex-col items-center mt-2">
+                            <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center">Phone</h2>
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center">
                                 01771-662888</p>
                         </div>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center sm:items-center justify-center">
+                    <div class="flex flex-col items-center sm:items-center justify-center">
 
-                            <span class="iconify text-3xl sm:text-4xl text-dgreen mr-4 text-center sm:text-left ml-3 sm:ml-0" data-icon="ic:baseline-mail"></span>
+                            <span class="iconify text-3xl sm:text-4xl text-dgreen text-center" data-icon="ic:baseline-mail"></span>
 
-                        <div class="">
-                            <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center sm:text-left">Email</h2>
-                            <p class=" text-base sm:text-xl text-nblue font-normal text-center sm:text-left">
+                        <div class="flex flex-col items-center mt-2">
+                            <h2 class="text-xl sm:text-3xl font-bold text-dgreen text-center">Email</h2>
+                            <p class=" text-base sm:text-xl text-nblue font-normal text-center">
                                 softwarebuildersltd@gmail.com</p>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
     <!-- ====================Address-end============== -->
     <!-- =================Contact-form -start========== -->
     <section>
-        <div class="  bg-white pb-8 sm:pb-24 px-3 sm:px-0">
+        <div class="  bg-white pb-8 sm:pb-24 px-3">
             <div class="max-w-7xl mx-auto">
                 <div class="grid  sm:grid-cols-2 sm:gap-10 gap-5 ">
                     <div class=" w-full">

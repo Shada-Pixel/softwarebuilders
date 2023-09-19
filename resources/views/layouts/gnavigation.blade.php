@@ -1,15 +1,15 @@
-<nav class=" bg-white nav_area py-2.5 px-3 lg:px-0 fixed top-0 z-[1000] w-screen shadow-sm">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-5 content-center py-5 transition-all duration-150 ease-in-out" id="mainnavigation">
+<nav class=" bg-white nav_area py-2.5 px-3 fixed top-0 z-[1000] w-screen shadow-sm">
+    <div class="max-w-7xl mx-auto flex justify-between gap-5 content-center py-5 transition-all duration-150 ease-in-out" id="mainnavigation">
 
         {{-- logo --}}
-        <div class="shrink-0 flex items-center">
+        <div class="flex items-center">
             <a href="{{ route('home') }}">
                 <x-application-logo class="block h-10 w-auto fill-current text-nblue" />
             </a>
         </div>
 
         {{-- Desktop navigation --}}
-        <div class="hidden sm:flex justify-center items-center sm:col-span-2">
+        <div class="hidden lg:flex justify-center items-center sm:col-span-2">
             <ul class="flex justify-center items-center gap-6 w-full">
                 <li><a class=" text-lg font-bold text-dgreen hover:text-nblue"
                         href="{{route('home')}}">Home</a></li>
@@ -124,7 +124,7 @@
                         {{-- <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a> --}}
 
                         @if (Route::has('register'))
-                            <a class="text-base text-white font-bold bg-nblue px-5 py-2.5  hover:bg-dgreen rounded-md transiation "
+                            <a class="text-sm lg:text-base text-white font-bold bg-nblue px-2 lg:px-5 py-1 lg:py-2.5  hover:bg-dgreen rounded-md transiation mr-2 lg:mr-0"
                             href="{{ route('login') }}">SIGN IN</a>
 
                         @endif
@@ -133,7 +133,7 @@
             @endif
 
             {{-- Mobile dropdown --}}
-            <div class="flex sm:hidden">
+            <div class="flex lg:hidden">
                 @auth
                 <!-- Notification Dropdown -->
                 <div class="flex items-center sm:ml-6 mr-2">

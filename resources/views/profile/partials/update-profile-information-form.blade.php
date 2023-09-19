@@ -2,20 +2,19 @@
 
 
 
-    <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-        @csrf
-    </form>
+    
     {{-- --------------------------------------------------------------- --}}
     <div class="relative">
 
         <form id="userpp" method="POST" action="{{ route('profile.ppupdate', $user->id) }}" enctype="multipart/form-data" class="d-none">
             @method('patch')
             @csrf
-            <input type="file" name="pp" id="selectedFile" class="hidden"/>
+            <input type="file" name="pp" id="selectedFile" class="hidden" required/>
+
         </form>
 
         {{-- image --}}
-        <div class="image relative mt-2" id="studentpp">
+        <div class="image flex mt-2 items-center gap-5" id="studentpp">
 
             {{-- if user dont have picture --}}
             @if ($user->pp == null)
@@ -24,7 +23,7 @@
                 <img class=" w-24 h-24 rounded-full" src="{{ asset($user->pp) }}" alt="{{$user->name}}">
             @endif
 
-            <button class="bg-dgreen/40 w-24 h-24 uppercase text-xs absolute top-0  rounded-full hover:text-white" id="ppChangeBtn" onclick="document.getElementById('selectedFile').click();">Change</button>
+            <button class=" text-sm sm:text-base bg-dgreen border border-dgreen md:font-bold text-white px-5 py-2.5 rounded-md md:tracking-widest hover:bg-white hover:text-dgreen transition-all duration-150 ease-in-out" id="ppChangeBtn" onclick="document.getElementById('selectedFile').click();">Change</button>
         </div>
     </div>
     {{-- ---------------------------------------------------------------- --}}

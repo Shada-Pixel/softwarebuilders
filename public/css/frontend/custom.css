@@ -696,8 +696,10 @@ ul.tabs-nav li.active {
         border-bottom: 1px solid #222D5D;
 
     }
+
     .heroSlider-img {
         height: 40vh;
+        min-height: 400px;
     }
 
     .common_hero {

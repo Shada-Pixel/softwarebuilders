@@ -30,11 +30,11 @@
         <div class="owl-carousel owl-theme hero-slider">
             {{-- item --}}
             <div class="heroSlider-img item" style="background-image: url({{ asset('img/slider01.jpg') }});">
-                <div class="max-w-7xl mx-auto">
-                    <h2 class="text-lg sm:text-5xl font-bold text-white uppercase text-center sm:text-left">
+                <div class="max-w-7xl mx-auto px-3">
+                    <h2 class="text-lg sm:text-xl lg:text-3xl font-bold text-white uppercase text-center sm:text-left">
                         Creative and Minimal
                     </h2>
-                    <h2 class="text-xl sm:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
+                    <h2 class="text-xl sm:text-2xl lg:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
                         IT solutions
                     </h2>
                     <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
@@ -63,11 +63,11 @@
             </div>
             {{-- item --}}
             <div class="heroSlider-img item" style="background-image: url({{ asset('img/slider02.jpg') }});">
-                <div class="max-w-7xl mx-auto">
-                    <h2 class="text-lg sm:text-5xl font-bold text-white uppercase text-center sm:text-left">
+                <div class="max-w-7xl mx-auto px-3">
+                    <h2 class="text-lg sm:text-xl lg:text-3xl font-bold text-white uppercase text-center sm:text-left">
                         Advance and Realiable
                     </h2>
-                    <h2 class="text-xl sm:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
+                    <h2 class="text-xl sm:text-2xl lg:text-7xl font-bold text-white uppercase md:mt-4 text-center sm:text-left">
                         Business Development
                     </h2>
                     <div class="px-3 sm:px-0 sm:w-1/2 sm:mt-8">
