@@ -1,7 +1,7 @@
 <!-- ==================Footer=========== -->
 <footer>
     <div class=" bg-nblue pt-28 sm:pt-44 pb-4 footer_area ">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-3">
             <div class=" bg-dgreen px-8 py-4 sm:py-14 sm:px-14 rounded-xl sm:rounded-3xl subscrib_area ">
                 <div class="sm:grid sm:grid-cols-2 sm:gap-10 sm:justify-between sm:items-end">
                     <div class="">
@@ -34,8 +34,6 @@
                             <x-application-logof class="block h-10 w-auto fill-current text-white" />
                         </a>
                     </div>
-                    <h2 class=" sm:text-xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mb-0 uppercase">
-                        Software Builders Ltd.</h2>
                     <p class=" text-base font-light text-white text-center sm:text-justify  mt-5">Contrary to
                         popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
                         Latin literature from 45 BC.</p>
@@ -47,47 +45,47 @@
                         <a href="https://www.youtube.com/" target="_blank"><span class="iconify text-white hover:text-dgreen transition duration-150 ease-in-out" data-icon="entypo-social:youtube-with-circle"></span></a>
                     </div>
                 </div>
-                <div class="">
-                    <h2 class=" text-2xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mt-0 sm:mb-0">
+                <div class="text">
+                    <h2 class=" text-2xl font-bold text-white text-center mt-5 mb-2 sm:mt-0 sm:mb-0">
                         OUR SERVICE</h2>
-                    <div class=" sm:mt-5 flex justify-center sm:justify-start">
+                    <div class=" sm:mt-5 flex justify-center">
                         <ul>
                             @foreach ($fservices as $service)
 
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a class=" text-base font-normal text-white hover:text-dgreen" href="{{route('services.show', $service->id)}}">{!! $service->title !!}</a></li>
+                            <li class=" hover:text-dgreen text-center"><a class=" text-base font-normal text-white hover:text-dgreen" href="{{route('services.show', $service->id)}}">{!! $service->title !!}</a></li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="">
-                    <h2 class=" text-2xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mt-0 sm:mb-0">
+                    <h2 class=" text-2xl font-bold text-white text-center mt-5 mb-2 sm:mt-0 sm:mb-0">
                         OUR COURSES</h2>
-                    <div class=" sm:mt-5 flex justify-center sm:justify-start">
+                    <div class=" sm:mt-5 flex justify-center">
                         <ul>
                             @foreach ($fcources as $course)
 
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a class=" text-base font-normal text-white hover:text-dgreen" href="{{route('courses.show', $course->id)}}">{!! $course->name !!}</a></li>
+                            <li class=" hover:text-dgreen text-center"><a class=" text-base font-normal text-white hover:text-dgreen" href="{{route('courses.show', $course->id)}}">{!! $course->name !!}</a></li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="">
-                    <h2 class=" text-2xl font-bold text-white text-center sm:text-left mt-5 mb-2 sm:mt-0 sm:mb-0">
+                    <h2 class=" text-2xl font-bold text-white text-center mt-5 mb-2 sm:mt-0 sm:mb-0">
                         QUICK LINKS</h2>
                     <div class=" sm:mt-5 ">
                         <ul class="">
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                            <li class=" hover:text-dgreen text-center"><a
                                 class=" text-base font-normal text-white hover:text-dgreen" href="{{route('about')}}">About Us</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                            <li class=" hover:text-dgreen text-center"><a
                                     class=" text-base font-normal text-white hover:text-dgreen" href="{{route('gallery')}}">Gallery</a>
                             </li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                            <li class=" hover:text-dgreen text-center"><a
                                     class=" text-base font-normal text-white hover:text-dgreen" href="{{route('service')}}">Services</a>
                             </li>
 
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                            <li class=" hover:text-dgreen text-center"><a
                                     class=" text-base font-normal text-white hover:text-dgreen" href="{{route('cource')}}">Courses</a></li>
-                            <li class=" hover:text-dgreen text-center sm:text-left"><a
+                            <li class=" hover:text-dgreen text-center"><a
                                     class=" text-base font-normal text-white hover:text-dgreen" href="{{route('contact')}}">Contact Us</a>
                             </li>
                         </ul>
