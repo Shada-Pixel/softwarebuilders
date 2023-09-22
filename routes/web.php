@@ -65,8 +65,8 @@ Route::group(['prefix' => 'quotations'], function () {
 // User Query
 Route::post('/contactUs/send', [QueryController::class, 'store'])->name('contsend');
 
-// Route::middleware(['auth','verified'])->group(function () {
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
+// Route::middleware('auth')->group(function () {
 
 
 
