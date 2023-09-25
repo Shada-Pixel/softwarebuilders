@@ -16,7 +16,7 @@ $app = new Illuminate\Foundation\Application(
 );
 
 
-ini_set('memory_limit', '256M');
+ini_set('memory_limit', '1G');
 
 /*
 |--------------------------------------------------------------------------
