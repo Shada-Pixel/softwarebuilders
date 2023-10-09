@@ -17,11 +17,12 @@
                                 <p class="font-semibold text-lg text-nblue">{{$course->batches->count()}}</p>
                                 <p>Batches</p>
                             </div>
-                            <div class=" border border-dgreen rounded-md p-2 lg:p-5 mb-4 text-center">
 
+
+                            {{-- <div class=" border border-dgreen rounded-md p-2 lg:p-5 mb-4 text-center">
                                 <p class="font-semibold text-lg text-nblue">{{$course->students->count()}}</p>
                                 <p>Students</p>
-                            </div>
+                            </div> --}}
 
 
                         </div>

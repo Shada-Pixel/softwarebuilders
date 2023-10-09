@@ -43,10 +43,6 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/terms','terms')->name('terms');
 });
 
-
-Route::get('hasan', function(){ return view ('index'); });
-
-
 // course show
 Route::group(['prefix' => 'courses'], function () {
     Route::get('/show/{course}', [CourseController::class, 'show'])->name('courses.details');
@@ -68,12 +64,9 @@ Route::post('/contactUs/send', [QueryController::class, 'store'])->name('contsen
 Route::middleware(['auth','verified'])->group(function () {
 // Route::middleware('auth')->group(function () {
 
-
-
     // Dashboard
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::post('/markNotification', [HomeController::class, 'markNotification'])->name('markNotification');
-
 
     // Cart
     Route::group(['prefix' => 'carts'], function () {

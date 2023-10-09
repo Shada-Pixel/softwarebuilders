@@ -29,7 +29,7 @@ class Course extends Model
         'status'
     ];
 
-    protected $with = ['instructor','batches','students'];
+    protected $with = ['instructor','batches'];
 
 
     // Category
@@ -53,10 +53,10 @@ class Course extends Model
     }
 
 
-
-    public function students()
-    {
-        return $this->hasMany(EnrollmentItem::class, 'course_id', 'id');
-    }
+    // Students
+    // public function students()
+    // {
+    //     return $this->hasMany(EnrollmentItem::class, 'course_id', 'id');
+    // }
 
 }
