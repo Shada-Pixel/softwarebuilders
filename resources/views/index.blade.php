@@ -158,7 +158,7 @@
                                 <div class="swiper-slide">
                                     <div class="">
                                         <div class="bg-lgreen rounded-md">
-                                            <img class=" w-full sm:h-36 sm:h-52 rounded-md"
+                                            <img class=" w-full  sm:h-52 rounded-md"
                                                 src="{{ asset($course->cover) }}" alt="{{ $course->name }}">
                                             <div class=" px-5 py-4">
                                                 <h2 class=" text-lg font-bold  text-nblue">{{ $course->name }}</h2>
